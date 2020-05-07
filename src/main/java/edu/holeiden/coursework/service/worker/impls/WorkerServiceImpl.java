@@ -13,7 +13,6 @@ import java.util.List;
 
 @Service
 public class WorkerServiceImpl implements IWorkerService {
-
     @Autowired
     WorkerRepository repository;
 
