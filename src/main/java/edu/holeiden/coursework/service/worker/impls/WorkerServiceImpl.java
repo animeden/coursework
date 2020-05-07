@@ -32,7 +32,8 @@ public class WorkerServiceImpl implements IWorkerService {
 
     @Override
     public Worker get(String id) {
-        return null;
+        return dao.getall().stream().filter(item -> item.getId().equals(id))
+                .findFirst().orElse(null);
     }
 
     @Override

@@ -31,7 +31,8 @@ public class TimetableServiceImpl implements ITimetableService {
 
     @Override
     public Timetable get(String id) {
-        return null;
+        return dao.getall().stream().filter(item -> item.getId().equals(id))
+                .findFirst().orElse(null);
     }
 
     @Override
