@@ -15,9 +15,6 @@ public class PassengerServiceImpl implements IPassengerService {
     @Autowired
     PassengerDaoImplFake dao;
 
-    @Autowired
-    PassengerRepository repository;
-
     @PostConstruct
     void init(){
 
@@ -39,7 +36,7 @@ public class PassengerServiceImpl implements IPassengerService {
 
     @Override
     public List<Passenger> getall() {
-        return repository.findAll();
+        return dao.getall();
     }
 
     @Override
@@ -49,7 +46,6 @@ public class PassengerServiceImpl implements IPassengerService {
 
     @Override
     public Passenger delete(String id) {
-        repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return null;
     }
 }

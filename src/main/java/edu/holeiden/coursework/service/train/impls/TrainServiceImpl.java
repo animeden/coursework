@@ -16,9 +16,6 @@ public class TrainServiceImpl implements ITrainService {
     @Autowired
     TrainDaoImplFake dao;
 
-    @Autowired
-    TrainRepository repository;
-
     @PostConstruct
     void init(){
 
@@ -40,7 +37,7 @@ public class TrainServiceImpl implements ITrainService {
 
     @Override
     public List<Train> getall() {
-        return repository.findAll();
+        return dao.getall();
     }
 
     @Override
@@ -50,7 +47,6 @@ public class TrainServiceImpl implements ITrainService {
 
     @Override
     public Train delete(String id) {
-        repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return null;
     }
 }

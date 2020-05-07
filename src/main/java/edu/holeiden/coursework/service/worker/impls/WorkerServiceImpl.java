@@ -16,9 +16,6 @@ public class WorkerServiceImpl implements IWorkerService {
     @Autowired
     WorkerDaoImplFake dao;
 
-    @Autowired
-    WorkerRepository repository;
-
     @PostConstruct
     void init(){
 
@@ -40,7 +37,7 @@ public class WorkerServiceImpl implements IWorkerService {
 
     @Override
     public List<Worker> getall() {
-        return repository.findAll();
+        return dao.getall();
     }
 
     @Override
@@ -50,7 +47,6 @@ public class WorkerServiceImpl implements IWorkerService {
 
     @Override
     public Worker delete(String id) {
-        repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return null;
     }
 }

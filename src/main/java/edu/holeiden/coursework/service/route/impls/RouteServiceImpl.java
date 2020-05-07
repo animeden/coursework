@@ -15,9 +15,6 @@ public class RouteServiceImpl implements IRouteService {
     @Autowired
     RouteDaoImplFake dao;
 
-    @Autowired
-    RouteRepository repository;
-
     @PostConstruct
     void init(){
 
@@ -39,7 +36,7 @@ public class RouteServiceImpl implements IRouteService {
 
     @Override
     public List<Route> getall() {
-        return repository.findAll();
+        return dao.getall();
     }
 
     @Override
@@ -49,7 +46,6 @@ public class RouteServiceImpl implements IRouteService {
 
     @Override
     public Route delete(String id) {
-        repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return null;
     }
 }

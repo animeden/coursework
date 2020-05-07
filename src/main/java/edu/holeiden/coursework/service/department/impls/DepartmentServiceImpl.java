@@ -15,9 +15,6 @@ public class DepartmentServiceImpl implements IDepartmentService {
     @Autowired
     DepartmentDaoImplFake dao;
 
-    @Autowired
-    DepartmentRepository repository;
-
     @PostConstruct
     void init(){
 
@@ -39,7 +36,7 @@ public class DepartmentServiceImpl implements IDepartmentService {
 
     @Override
     public List<Department> getall() {
-        return repository.findAll();
+        return dao.getall();
     }
 
     @Override
@@ -49,7 +46,6 @@ public class DepartmentServiceImpl implements IDepartmentService {
 
     @Override
     public Department delete(String id) {
-        repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return null;
     }
 }

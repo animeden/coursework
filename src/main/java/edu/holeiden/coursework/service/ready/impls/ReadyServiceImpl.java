@@ -15,9 +15,6 @@ public class ReadyServiceImpl implements IReadyService {
     @Autowired
     ReadyDaoImplFake dao;
 
-    @Autowired
-    ReadyRepository repository;
-
     @PostConstruct
     void init(){
 
@@ -39,7 +36,7 @@ public class ReadyServiceImpl implements IReadyService {
 
     @Override
     public List<Ready> getall() {
-        return repository.findAll();
+        return dao.getall();
     }
 
     @Override
@@ -49,7 +46,6 @@ public class ReadyServiceImpl implements IReadyService {
 
     @Override
     public Ready delete(String id) {
-        repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return null;
     }
 }

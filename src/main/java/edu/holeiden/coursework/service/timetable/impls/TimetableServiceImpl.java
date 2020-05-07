@@ -15,9 +15,6 @@ public class TimetableServiceImpl implements ITimetableService {
     @Autowired
     TimetableDaoImplFake dao;
 
-    @Autowired
-    TimetableRepository repository;
-
     @PostConstruct
     void init(){
 
@@ -39,7 +36,7 @@ public class TimetableServiceImpl implements ITimetableService {
 
     @Override
     public List<Timetable> getall() {
-        return repository.findAll();
+        return dao.getall();
     }
 
     @Override
@@ -49,7 +46,6 @@ public class TimetableServiceImpl implements ITimetableService {
 
     @Override
     public Timetable delete(String id) {
-        repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return null;
     }
 }
