@@ -13,16 +13,12 @@ import java.util.List;
 
 @Service
 public class WorkerServiceImpl implements IWorkerService {
-    @Autowired
-    WorkerDaoImplFake dao;
 
     @Autowired
     WorkerRepository repository;
 
     @PostConstruct
     void init(){
-
-        List<Worker> list = dao.getall();
 
         //repository.saveAll(list);
 

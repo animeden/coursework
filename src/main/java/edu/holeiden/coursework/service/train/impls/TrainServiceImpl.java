@@ -13,16 +13,12 @@ import java.util.List;
 
 @Service
 public class TrainServiceImpl implements ITrainService {
-    @Autowired
-    TrainDaoImplFake dao;
 
     @Autowired
     TrainRepository repository;
 
     @PostConstruct
     void init(){
-
-        List<Train> list = dao.getall();
 
         //repository.saveAll(list);
 

@@ -12,16 +12,12 @@ import java.util.List;
 
 @Service
 public class RouteServiceImpl implements IRouteService {
-    @Autowired
-    RouteDaoImplFake dao;
 
     @Autowired
     RouteRepository repository;
 
     @PostConstruct
     void init(){
-
-        List<Route> list = dao.getall();
 
         //repository.saveAll(list);
 

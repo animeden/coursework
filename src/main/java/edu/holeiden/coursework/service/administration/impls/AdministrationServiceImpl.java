@@ -12,16 +12,12 @@ import java.util.List;
 
 @Service
 public class AdministrationServiceImpl implements IAdministrationService {
-    @Autowired
-    AdministrationDaoImplFake dao;
 
     @Autowired
     AdministrationRepository repository;
 
     @PostConstruct
     void init(){
-
-        List<Administration> list = dao.getall();
 
         //repository.saveAll(list);
 

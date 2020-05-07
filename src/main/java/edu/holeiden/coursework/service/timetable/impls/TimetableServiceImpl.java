@@ -12,16 +12,12 @@ import java.util.List;
 
 @Service
 public class TimetableServiceImpl implements ITimetableService {
-    @Autowired
-    TimetableDaoImplFake dao;
 
     @Autowired
     TimetableRepository repository;
 
     @PostConstruct
     void init(){
-
-        List<Timetable> list = dao.getall();
 
         //repository.saveAll(list);
 

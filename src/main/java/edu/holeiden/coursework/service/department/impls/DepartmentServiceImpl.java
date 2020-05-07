@@ -12,16 +12,12 @@ import java.util.List;
 
 @Service
 public class DepartmentServiceImpl implements IDepartmentService {
-    @Autowired
-    DepartmentDaoImplFake dao;
 
     @Autowired
     DepartmentRepository repository;
 
     @PostConstruct
     void init(){
-
-        List<Department> list = dao.getall();
 
         //repository.saveAll(list);
 

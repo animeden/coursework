@@ -12,16 +12,12 @@ import java.util.List;
 
 @Service
 public class BrigadeServiceImpl implements IBrigadeService {
-    @Autowired
-    BrigadeDaoImplFake dao;
 
     @Autowired
     BrigadeRepository repository;
 
     @PostConstruct
     void init(){
-
-        List<Brigade> list = dao.getall();
 
         //repository.saveAll(list);
 

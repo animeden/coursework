@@ -12,16 +12,12 @@ import java.util.List;
 
 @Service
 public class PassengerServiceImpl implements IPassengerService {
-    @Autowired
-    PassengerDaoImplFake dao;
 
     @Autowired
     PassengerRepository repository;
 
     @PostConstruct
     void init(){
-
-        List<Passenger> list = dao.getall();
 
         //repository.saveAll(list);
 

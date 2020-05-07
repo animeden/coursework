@@ -12,16 +12,12 @@ import java.util.List;
 
 @Service
 public class ReadyServiceImpl implements IReadyService {
-    @Autowired
-    ReadyDaoImplFake dao;
 
     @Autowired
     ReadyRepository repository;
 
     @PostConstruct
     void init(){
-
-        List<Ready> list = dao.getall();
 
         //repository.saveAll(list);
 
