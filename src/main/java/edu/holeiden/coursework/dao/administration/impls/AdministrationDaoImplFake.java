@@ -18,8 +18,8 @@ public class AdministrationDaoImplFake implements IAdministrationDao {
 
     @Override
     public Administration save(Administration administration) {
-
-        return null;
+        dataSet.getAdministrations().add(administration);
+        return administration;
     }
 
     @Override
@@ -42,7 +42,6 @@ public class AdministrationDaoImplFake implements IAdministrationDao {
 
     @Override
     public Administration delete(String id) {
-
         return null;
     }
 }

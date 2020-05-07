@@ -33,7 +33,8 @@ public class AdministrationServiceImpl implements IAdministrationService {
     @Override
     public Administration get(String id) {
 
-        return null;
+        return dao.getall().stream().filter(item -> item.getId().equals(id))
+                .findFirst().orElse(null);
     }
 
     @Override
@@ -50,6 +51,8 @@ public class AdministrationServiceImpl implements IAdministrationService {
 
     @Override
     public Administration delete(String id) {
-        return null;
+        Administration administration = this.get(id);
+        dao.getall().remove(administration);
+        return administration;
     }
 }
