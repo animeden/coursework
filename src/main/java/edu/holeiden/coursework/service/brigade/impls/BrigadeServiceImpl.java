@@ -2,6 +2,7 @@ package edu.holeiden.coursework.service.brigade.impls;
 
 import edu.holeiden.coursework.dao.brigade.impls.BrigadeDaoImplFake;
 import edu.holeiden.coursework.dao.repository.BrigadeRepository;
+import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Brigade;
 import edu.holeiden.coursework.service.brigade.interfaces.IBrigadeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,8 @@ public class BrigadeServiceImpl implements IBrigadeService {
 
     @Override
     public Brigade delete(String id) {
-        return null;
+        Brigade brigade = this.get(id);
+        dao.getall().remove(brigade);
+        return brigade;
     }
 }

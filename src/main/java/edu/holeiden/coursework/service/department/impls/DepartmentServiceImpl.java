@@ -2,6 +2,7 @@ package edu.holeiden.coursework.service.department.impls;
 
 import edu.holeiden.coursework.dao.department.impls.DepartmentDaoImplFake;
 import edu.holeiden.coursework.dao.repository.DepartmentRepository;
+import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Department;
 import edu.holeiden.coursework.service.department.interfaces.IDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,8 @@ public class DepartmentServiceImpl implements IDepartmentService {
 
     @Override
     public Department delete(String id) {
-        return null;
+        Department department = this.get(id);
+        dao.getall().remove(department);
+        return department;
     }
 }

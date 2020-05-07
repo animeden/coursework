@@ -2,6 +2,7 @@ package edu.holeiden.coursework.service.ready.impls;
 
 import edu.holeiden.coursework.dao.ready.impls.ReadyDaoImplFake;
 import edu.holeiden.coursework.dao.repository.ReadyRepository;
+import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Ready;
 import edu.holeiden.coursework.service.ready.interfaces.IReadyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,8 @@ public class ReadyServiceImpl implements IReadyService {
 
     @Override
     public Ready delete(String id) {
-        return null;
+        Ready ready = this.get(id);
+        dao.getall().remove(ready);
+        return ready;
     }
 }
