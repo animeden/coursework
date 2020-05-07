@@ -20,7 +20,7 @@ public class AdministrationServiceImpl implements IAdministrationService {
 
         List<Administration> list = dao.getall();
 
-        //repository.saveAll(list);
+        ///repository.saveAll(list);
 
     }
 
