@@ -1,6 +1,5 @@
 package edu.holeiden.coursework.service.brigade.impls;
 
-import edu.holeiden.coursework.dao.brigade.impls.BrigadeDaoImplFake;
 import edu.holeiden.coursework.dao.repository.BrigadeRepository;
 import edu.holeiden.coursework.model.Brigade;
 import edu.holeiden.coursework.service.brigade.interfaces.IBrigadeService;

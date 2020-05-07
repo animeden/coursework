@@ -1,12 +1,10 @@
 package edu.holeiden.coursework.service.department.impls;
 
-import edu.holeiden.coursework.dao.department.impls.DepartmentDaoImplFake;
 import edu.holeiden.coursework.dao.repository.DepartmentRepository;
 import edu.holeiden.coursework.model.Department;
 import edu.holeiden.coursework.service.department.interfaces.IDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import java.util.List;
 

@@ -1,6 +1,5 @@
 package edu.holeiden.coursework.service.ready.impls;
 
-import edu.holeiden.coursework.dao.ready.impls.ReadyDaoImplFake;
 import edu.holeiden.coursework.dao.repository.ReadyRepository;
 import edu.holeiden.coursework.model.Ready;
 import edu.holeiden.coursework.service.ready.interfaces.IReadyService;

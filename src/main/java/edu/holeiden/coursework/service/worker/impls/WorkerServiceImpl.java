@@ -1,7 +1,6 @@
 package edu.holeiden.coursework.service.worker.impls;
 
 import edu.holeiden.coursework.dao.repository.WorkerRepository;
-import edu.holeiden.coursework.dao.worker.impls.WorkerDaoImplFake;
 import edu.holeiden.coursework.model.Worker;
 import edu.holeiden.coursework.service.worker.interfaces.IWorkerService;
 import org.springframework.beans.factory.annotation.Autowired;

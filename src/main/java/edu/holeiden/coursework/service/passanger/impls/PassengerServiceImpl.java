@@ -1,6 +1,5 @@
 package edu.holeiden.coursework.service.passanger.impls;
 
-import edu.holeiden.coursework.dao.passenger.impls.PassengerDaoImplFake;
 import edu.holeiden.coursework.dao.repository.PassengerRepository;
 import edu.holeiden.coursework.model.Passenger;
 import edu.holeiden.coursework.service.passanger.interfaces.IPassengerService;

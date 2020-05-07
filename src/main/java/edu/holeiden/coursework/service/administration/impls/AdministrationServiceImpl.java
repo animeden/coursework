@@ -1,6 +1,5 @@
 package edu.holeiden.coursework.service.administration.impls;
 
-import edu.holeiden.coursework.dao.administration.impls.AdministrationDaoImplFake;
 import edu.holeiden.coursework.dao.repository.AdministrationRepository;
 import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.service.administration.interfaces.IAdministrationService;
