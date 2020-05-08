@@ -14,7 +14,7 @@ public class RouteAPIController {
     @Autowired
     RouteServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     List<Route> getall(){
         return service.getall();
     }

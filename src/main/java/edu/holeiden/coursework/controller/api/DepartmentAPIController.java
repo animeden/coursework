@@ -16,7 +16,7 @@ public class DepartmentAPIController {
     @Autowired
     DepartmentServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     List<Department> getall(){
         return service.getall();
     }

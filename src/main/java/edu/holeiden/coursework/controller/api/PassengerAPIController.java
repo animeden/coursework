@@ -16,7 +16,7 @@ public class PassengerAPIController {
     @Autowired
     PassengerServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     List<Passenger> getall() {
         return service.getall();
     }

@@ -16,7 +16,7 @@ public class BrigadeAPIController {
     @Autowired
     BrigadeServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     List<Brigade> getall(){
         return service.getall();
     }

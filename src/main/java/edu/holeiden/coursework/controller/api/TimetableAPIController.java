@@ -14,7 +14,7 @@ public class TimetableAPIController {
     @Autowired
     TimetableServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     List<Timetable> getall(){
         return service.getall();
     }

@@ -14,7 +14,7 @@ public class TrainAPIController {
     @Autowired
     TrainServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     List<Train> getall(){
         return service.getall();
     }

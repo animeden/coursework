@@ -14,7 +14,7 @@ public class ReadyAPIController {
     @Autowired
     ReadyServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     List<Ready> getall(){
         return service.getall();
     }

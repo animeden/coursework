@@ -19,9 +19,13 @@ public class AdministrationAPIController {
     @Autowired
     AdministrationServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     List<Administration> getall(){
         return service.getall();
     }
 
+    @RequestMapping("/delete/{id}")
+    Administration delete(@PathVariable("id") String id){
+        return service.delete(id);
+    }
 }
