@@ -22,6 +22,11 @@ public class AdministrationAPIController {
         return service.getall();
     }
 
+    @RequestMapping("/get/{id}")
+    Administration get(@PathVariable("id") String id){
+        return service.get(id);
+    }
+
     @RequestMapping("/delete/{id}")
     Administration delete(@PathVariable("id") String id){
         return service.delete(id);
@@ -33,7 +38,7 @@ public class AdministrationAPIController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.PATCH)
-    Administration edith(@RequestBody Administration administration){
+    Administration edit(@RequestBody Administration administration){
         return service.edit(administration);
     }
 }
