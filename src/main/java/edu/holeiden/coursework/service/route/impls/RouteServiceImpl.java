@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,12 +25,14 @@ public class RouteServiceImpl implements IRouteService {
 
     @Override
     public Route save(Route route) {
-        return null;
+        route.setCreate(LocalDateTime.now());
+        route.setModified(LocalDateTime.now());
+        return repository.save(route);
     }
 
     @Override
     public Route get(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -39,7 +42,8 @@ public class RouteServiceImpl implements IRouteService {
 
     @Override
     public Route edit(Route route) {
-        return null;
+        route.setModified(LocalDateTime.now());
+        return repository.save(route);
     }
 
     @Override

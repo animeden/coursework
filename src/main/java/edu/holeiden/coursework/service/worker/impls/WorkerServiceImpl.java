@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,12 +25,14 @@ public class WorkerServiceImpl implements IWorkerService {
 
     @Override
     public Worker save(Worker worker) {
-        return null;
+        worker.setCreate(LocalDateTime.now());
+        worker.setModified(LocalDateTime.now());
+        return repository.save(worker);
     }
 
     @Override
     public Worker get(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -39,7 +42,8 @@ public class WorkerServiceImpl implements IWorkerService {
 
     @Override
     public Worker edit(Worker worker) {
-        return null;
+        worker.setModified(LocalDateTime.now());
+        return repository.save(worker);
     }
 
     @Override

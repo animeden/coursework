@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -25,12 +26,14 @@ public class TrainServiceImpl implements ITrainService {
 
     @Override
     public Train save(Train train) {
-        return null;
+        train.setCreate(LocalDateTime.now());
+        train.setModified(LocalDateTime.now());
+        return repository.save(train);
     }
 
     @Override
     public Train get(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -40,7 +43,8 @@ public class TrainServiceImpl implements ITrainService {
 
     @Override
     public Train edit(Train train) {
-        return null;
+        train.setModified(LocalDateTime.now());
+        return repository.save(train);
     }
 
     @Override

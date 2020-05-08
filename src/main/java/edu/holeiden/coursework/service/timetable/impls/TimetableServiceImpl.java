@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,12 +25,14 @@ public class TimetableServiceImpl implements ITimetableService {
 
     @Override
     public Timetable save(Timetable timetable) {
-        return null;
+        timetable.setCreate(LocalDateTime.now());
+        timetable.setModified(LocalDateTime.now());
+        return repository.save(timetable);
     }
 
     @Override
     public Timetable get(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -39,7 +42,8 @@ public class TimetableServiceImpl implements ITimetableService {
 
     @Override
     public Timetable edit(Timetable timetable) {
-        return null;
+        timetable.setModified(LocalDateTime.now());
+        return repository.save(timetable);
     }
 
     @Override

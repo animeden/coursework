@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,12 +25,14 @@ public class PassengerServiceImpl implements IPassengerService {
 
     @Override
     public Passenger save(Passenger passenger) {
-        return null;
+        passenger.setCreate(LocalDateTime.now());
+        passenger.setModified(LocalDateTime.now());
+        return repository.save(passenger);
     }
 
     @Override
     public Passenger get(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -39,7 +42,8 @@ public class PassengerServiceImpl implements IPassengerService {
 
     @Override
     public Passenger edit(Passenger passenger) {
-        return null;
+        passenger.setModified(LocalDateTime.now());
+        return repository.save(passenger);
     }
 
     @Override

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,30 +25,29 @@ public class BrigadeServiceImpl implements IBrigadeService {
 
     @Override
     public Brigade save(Brigade brigade) {
-        return null;
+        brigade.setCreate(LocalDateTime.now());
+        brigade.setModified(LocalDateTime.now());
+        return repository.save(brigade);
     }
 
     @Override
     public Brigade get(String id) {
-
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
     public List<Brigade> getall() {
-
         return repository.findAll();
     }
 
     @Override
     public Brigade edit(Brigade brigade) {
-
-        return null;
+        brigade.setModified(LocalDateTime.now());
+        return repository.save(brigade);
     }
 
     @Override
     public Brigade delete(String id) {
-
         repository.deleteById(id);
         return repository.findById(id).orElse(null);
     }

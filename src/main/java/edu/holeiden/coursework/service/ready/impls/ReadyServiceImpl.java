@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -23,13 +24,15 @@ public class ReadyServiceImpl implements IReadyService {
     }
 
     @Override
-    public Ready save(Ready worker) {
-        return null;
+    public Ready save(Ready ready) {
+        ready.setCreate(LocalDateTime.now());
+        ready.setModified(LocalDateTime.now());
+        return repository.save(ready);
     }
 
     @Override
     public Ready get(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -38,8 +41,9 @@ public class ReadyServiceImpl implements IReadyService {
     }
 
     @Override
-    public Ready edit(Ready worker) {
-        return null;
+    public Ready edit(Ready ready) {
+        ready.setModified(LocalDateTime.now());
+        return repository.save(ready);
     }
 
     @Override

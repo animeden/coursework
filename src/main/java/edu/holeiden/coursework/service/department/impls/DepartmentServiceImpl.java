@@ -6,6 +6,7 @@ import edu.holeiden.coursework.service.department.interfaces.IDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -23,12 +24,14 @@ public class DepartmentServiceImpl implements IDepartmentService {
 
     @Override
     public Department save(Department department) {
-        return null;
+        department.setCreate(LocalDateTime.now());
+        department.setModified(LocalDateTime.now());
+        return repository.save(department);
     }
 
     @Override
     public Department get(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -38,7 +41,8 @@ public class DepartmentServiceImpl implements IDepartmentService {
 
     @Override
     public Department edit(Department department) {
-        return null;
+        department.setModified(LocalDateTime.now());
+        return repository.save(department);
     }
 
     @Override
