@@ -31,4 +31,9 @@ public class AdministrationAPIController {
     Administration create(@RequestBody Administration administration){
         return service.save(administration);
     }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.PATCH)
+    Administration edith(@RequestBody Administration administration){
+        return service.edit(administration);
+    }
 }

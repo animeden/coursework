@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,26 +25,25 @@ public class AdministrationServiceImpl implements IAdministrationService {
 
     @Override
     public Administration save(Administration administration) {
-
+        administration.setCreate(LocalDateTime.now());
+        administration.setModified(LocalDateTime.now());
         return repository.save(administration);
     }
 
     @Override
     public Administration get(String id) {
-
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
     public List<Administration> getall() {
-
         return repository.findAll();
     }
 
     @Override
     public Administration edit(Administration administration) {
-
-        return null;
+        administration.setModified(LocalDateTime.now());
+        return repository.save(administration);
     }
 
     @Override
