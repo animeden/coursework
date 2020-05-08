@@ -1,6 +1,7 @@
 package edu.holeiden.coursework.service.ready.impls;
 
 import edu.holeiden.coursework.dao.repository.ReadyRepository;
+import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Ready;
 import edu.holeiden.coursework.service.ready.interfaces.IReadyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,8 @@ public class ReadyServiceImpl implements IReadyService {
 
     @Override
     public Ready delete(String id) {
+        Ready ready = repository.findById(id).orElse(null);
         repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return ready;
     }
 }

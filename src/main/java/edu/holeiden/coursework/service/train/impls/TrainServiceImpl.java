@@ -1,6 +1,7 @@
 package edu.holeiden.coursework.service.train.impls;
 
 import edu.holeiden.coursework.dao.repository.TrainRepository;
+import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Timetable;
 import edu.holeiden.coursework.model.Train;
 import edu.holeiden.coursework.service.train.interfaces.ITrainService;
@@ -49,7 +50,8 @@ public class TrainServiceImpl implements ITrainService {
 
     @Override
     public Train delete(String id) {
+        Train train = repository.findById(id).orElse(null);
         repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return train;
     }
 }

@@ -1,6 +1,7 @@
 package edu.holeiden.coursework.service.worker.impls;
 
 import edu.holeiden.coursework.dao.repository.WorkerRepository;
+import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Worker;
 import edu.holeiden.coursework.service.worker.interfaces.IWorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,8 @@ public class WorkerServiceImpl implements IWorkerService {
 
     @Override
     public Worker delete(String id) {
+        Worker worker = repository.findById(id).orElse(null);
         repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return worker;
     }
 }

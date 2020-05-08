@@ -1,6 +1,7 @@
 package edu.holeiden.coursework.service.timetable.impls;
 
 import edu.holeiden.coursework.dao.repository.TimetableRepository;
+import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Timetable;
 import edu.holeiden.coursework.service.timetable.interfaces.ITimetableService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,8 @@ public class TimetableServiceImpl implements ITimetableService {
 
     @Override
     public Timetable delete(String id) {
+        Timetable timetable = repository.findById(id).orElse(null);
         repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return timetable;
     }
 }
