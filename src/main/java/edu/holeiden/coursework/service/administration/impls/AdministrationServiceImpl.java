@@ -25,7 +25,7 @@ public class AdministrationServiceImpl implements IAdministrationService {
     @Override
     public Administration save(Administration administration) {
 
-        return null;
+        return repository.save(administration);
     }
 
     @Override

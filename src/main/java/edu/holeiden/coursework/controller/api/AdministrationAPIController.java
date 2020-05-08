@@ -4,9 +4,7 @@ import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.service.administration.impls.AdministrationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -27,5 +25,10 @@ public class AdministrationAPIController {
     @RequestMapping("/delete/{id}")
     Administration delete(@PathVariable("id") String id){
         return service.delete(id);
+    }
+
+   @RequestMapping(value = "/create", method = RequestMethod.POST)
+    Administration create(@RequestBody Administration administration){
+        return service.save(administration);
     }
 }
