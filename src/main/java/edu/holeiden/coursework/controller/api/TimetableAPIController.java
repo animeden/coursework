@@ -1,6 +1,5 @@
 package edu.holeiden.coursework.controller.api;
 
-import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Timetable;
 import edu.holeiden.coursework.service.timetable.impls.TimetableServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

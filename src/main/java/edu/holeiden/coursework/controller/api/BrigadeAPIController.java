@@ -1,6 +1,5 @@
 package edu.holeiden.coursework.controller.api;
 
-import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Brigade;
 import edu.holeiden.coursework.service.brigade.impls.BrigadeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

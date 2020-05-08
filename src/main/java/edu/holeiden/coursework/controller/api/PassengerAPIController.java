@@ -1,6 +1,5 @@
 package edu.holeiden.coursework.controller.api;
 
-import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Passenger;
 import edu.holeiden.coursework.service.passanger.impls.PassengerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
