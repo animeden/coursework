@@ -48,8 +48,8 @@ public class AdministrationServiceImpl implements IAdministrationService {
 
     @Override
     public Administration delete(String id) {
-
+        Administration administration = repository.findById(id).orElse(null);
         repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return administration;
     }
 }
