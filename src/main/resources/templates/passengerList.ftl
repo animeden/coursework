@@ -11,13 +11,13 @@
             <th>Delete</th>
             <th>Edit</th>
         </tr>
-        <#list passengers as passender>
+        <#list passengers as passenger>
             <tr class="bg-primary">
-                <td>${passender.id}</td>
-                <td>${passender.status}</td>
-                <td>${passender.routeID}</td>
-                <td>${passender.descriction}</td>
-                <td><a href="/web/passenger/delete/${passender.id}"><button>Delete</button></a></td>
+                <td>${passenger.id}</td>
+                <td>${passenger.status}</td>
+                <td>${passenger.routeID}</td>
+                <td>${passenger.descriction}</td>
+                <td><a href="/web/passenger/delete/${passenger.id}"><button>Delete</button></a></td>
                 <td><a href="/web/passenger/edit/${passenger.id}"><button>Edit</button></a></td>
             </tr>
         </#list>
