@@ -40,7 +40,7 @@ public class PassengerWEBController {
     }
 
     @PostMapping("/create")
-    String create(Model model, @ModelAttribute("brigadeForm") PassengerForm passengerForm){
+    String create(Model model, @ModelAttribute("passengerForm") PassengerForm passengerForm){
         Passenger passenger = new Passenger();
         passenger.setStatus(passengerForm.getStatus());
         passenger.setRouteID(passengerForm.getRouteID());
@@ -62,7 +62,7 @@ public class PassengerWEBController {
     }
 
     @PostMapping("/edit/{id}")
-    String edith(Model model, @PathVariable("id") String id, @ModelAttribute("departmentForm") PassengerForm passengerForm){
+    String edith(Model model, @PathVariable("id") String id, @ModelAttribute("passengerForm") PassengerForm passengerForm){
         Passenger passenger = new Passenger();
         passenger.setId(id);
         passenger.setStatus(passengerForm.getStatus());

@@ -40,7 +40,7 @@ public class DepartmentWEBController {
     }
 
     @PostMapping("/create")
-    String create(Model model, @ModelAttribute("brigadeForm") DepartmentForm departmentForm){
+    String create(Model model, @ModelAttribute("departmentForm") DepartmentForm departmentForm){
         Department department = new Department();
         department.setName(departmentForm.getName());
         department.setAdress(departmentForm.getAdress());
