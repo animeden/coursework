@@ -17,6 +17,7 @@
         Adress:<@spring.formInput "administrationForm.adress" "" "text"/>
         <br>
         Description:<@spring.formInput "administrationForm.descriction" "" "text"/>
+        <br>
 
         <input type="submit" value="Create"/>
 

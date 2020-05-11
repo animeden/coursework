@@ -35,7 +35,7 @@ public class AdministrationWEBController {
     @RequestMapping("/create")
     String create(Model model){
         AdministrationForm administrationForm = new AdministrationForm();
-        model.addAttribute("administrationForm", administrationForm)
+        model.addAttribute("administrationForm", administrationForm);
         return "administrationAdd";
     }
 }
