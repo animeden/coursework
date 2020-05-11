@@ -20,8 +20,11 @@
                 <td>${train.recoveryBrigade}</td>
                 <td>${train.descriction}</td>
                 <td><a href="/web/train/delete/${train.id}"><button>Delete</button></a></td>
-                <td><button>Edit</button></td>
+                <td><a href="/web/train/edit/${train.id}"><button>Edit</button></a></td>
             </tr>
         </#list>
     </table>
+
+    <a href="/web/train/create"><button>Create</button></a>
+
 </div>

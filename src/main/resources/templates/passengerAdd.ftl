@@ -8,11 +8,11 @@
 <body>
 <form name="passenger" action="" method="POST">
 
-    Name:<@spring.formInput "passengerForm.status" "" "text"/>
+    Status:<@spring.formInput "passengerForm.status" "" "text"/>
     <br>
-    Birth:<@spring.formInput "passengerForm.routeID" "" "text"/>
+    Route ID:<@spring.formInput "passengerForm.routeID" "" "text"/>
     <br>
-    Phone:<@spring.formInput "passengerForm.descriction" "" "text"/>
+    Description:<@spring.formInput "passengerForm.descriction" "" "text"/>
     <br>
 
     <input type="submit" value="Create"/>

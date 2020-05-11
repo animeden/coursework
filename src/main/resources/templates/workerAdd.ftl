@@ -10,17 +10,17 @@
 
     Name:<@spring.formInput "workerForm.fullName" "" "text"/>
     <br>
-    Birth:<@spring.formInput "workerForm.phone" "" "text"/>
+    Phone:<@spring.formInput "workerForm.phone" "" "text"/>
     <br>
-    Phone:<@spring.formInput "workerForm.adress" "" "text"/>
+    Adress:<@spring.formInput "workerForm.adress" "" "text"/>
     <br>
-    Adress:<@spring.formInput "workerForm.birth" "" "text"/>
+    Birth:<@spring.formInput "workerForm.birth" "" "text"/>
     <br>
-    Adress:<@spring.formInput "workerForm.subclass" "" "text"/>
+    Subclass:<@spring.formInput "workerForm.subclass" "" "text"/>
     <br>
-    Phone:<@spring.formInput "workerForm.brigateID" "" "text"/>
+    Brigade ID:<@spring.formInput "workerForm.brigateID" "" "text"/>
     <br>
-    Adress:<@spring.formInput "workerForm.descriction" "" "text"/>
+    Description:<@spring.formInput "workerForm.descriction" "" "text"/>
     <br>
 
     <input type="submit" value="Create"/>

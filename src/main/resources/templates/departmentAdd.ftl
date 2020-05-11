@@ -10,13 +10,13 @@
 
     Name:<@spring.formInput "departmentForm.name" "" "text"/>
     <br>
-    Birth:<@spring.formInput "departmentForm.adress" "" "text"/>
+    Adress:<@spring.formInput "departmentForm.adress" "" "text"/>
     <br>
-    Phone:<@spring.formInput "departmentForm.administrationID" "" "text"/>
+    Administration ID:<@spring.formInput "departmentForm.administrationID" "" "text"/>
     <br>
-    Adress:<@spring.formInput "departmentForm.numberOfBrigates" "" "text"/>
+    Number of Brigade:<@spring.formInput "departmentForm.numberOfBrigates" "" "text"/>
     <br>
-    Adress:<@spring.formInput "departmentForm.descriction" "" "text"/>
+    Description:<@spring.formInput "departmentForm.descriction" "" "text"/>
     <br>
 
     <input type="submit" value="Create"/>

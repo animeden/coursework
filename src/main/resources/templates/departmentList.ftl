@@ -22,8 +22,11 @@
                 <td>${department.numberOfBrigates}</td>
                 <td>${department.descriction}</td>
                 <td><a href="/web/department/delete/${department.id}"><button>Delete</button></a></td>
-                <td><button>Edit</button></td>
+                <td><a href="/web/department/edit/${department.id}"><button>Edit</button></a></td>
             </tr>
         </#list>
     </table>
+
+    <a href="/web/department/create"><button>Create</button></a>
+
 </div>

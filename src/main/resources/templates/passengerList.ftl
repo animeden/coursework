@@ -18,8 +18,11 @@
                 <td>${passender.routeID}</td>
                 <td>${passender.descriction}</td>
                 <td><a href="/web/passenger/delete/${passender.id}"><button>Delete</button></a></td>
-                <td><button>Edit</button></td>
+                <td><a href="/web/passenger/edit/${passenger.id}"><button>Edit</button></a></td>
             </tr>
         </#list>
     </table>
+
+    <a href="/web/passenger/create"><button>Create</button></a>
+
 </div>

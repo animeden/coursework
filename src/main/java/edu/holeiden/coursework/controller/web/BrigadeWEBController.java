@@ -29,7 +29,7 @@ public class BrigadeWEBController {
                   @PathVariable("id") String id){
         service.delete(id);
         model.addAttribute("brigades", service.getall());
-        return "brigadeList";
+        return "redirect:/web/brigade/get/list";
     }
 
     @RequestMapping("/create")

@@ -8,15 +8,15 @@
 <body>
 <form name="route" action="" method="POST">
 
-    Name:<@spring.formInput "routeForm.start" "" "text"/>
+    Start:<@spring.formInput "routeForm.start" "" "text"/>
     <br>
-    Birth:<@spring.formInput "routeForm.end" "" "text"/>
+    End:<@spring.formInput "routeForm.end" "" "text"/>
     <br>
-    Phone:<@spring.formInput "routeForm.stations" "" "text"/>
+    Stations:<@spring.formInput "routeForm.stations" "" "text"/>
     <br>
-    Adress:<@spring.formInput "routeForm.typeOfRoute" "" "text"/>
+    Type of route:<@spring.formInput "routeForm.typeOfRoute" "" "text"/>
     <br>
-    Adress:<@spring.formInput "routeForm.descriction" "" "text"/>
+    Description:<@spring.formInput "routeForm.descriction" "" "text"/>
     <br>
 
     <input type="submit" value="Create"/>

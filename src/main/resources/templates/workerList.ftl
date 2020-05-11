@@ -26,8 +26,11 @@
                 <td>${worker.brigateID}</td>
                 <td>${worker.descriction}</td>
                 <td><a href="/web/worker/delete/${worker.id}"><button>Delete</button></a></td>
-                <td><button>Edit</button></td>
+                <td><a href="/web/worker/edit/${worker.id}"><button>Edit</button></a></td>
             </tr>
         </#list>
     </table>
+
+    <a href="/web/worker/create"><button>Create</button></a>
+
 </div>

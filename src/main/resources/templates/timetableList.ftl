@@ -28,8 +28,11 @@
                 <td>${timetable.freeSpace}</td>
                 <td>${timetable.descriction}</td>
                 <td><a href="/web/timetable/delete/${timetable.id}"><button>Delete</button></a></td>
-                <td><button>Edit</button></td>
+                <td><a href="/web/timetable/edit/${timetable.id}"><button>Edit</button></a></td>
             </tr>
         </#list>
     </table>
+
+    <a href="/web/timetable/create"><button>Create</button></a>
+
 </div>

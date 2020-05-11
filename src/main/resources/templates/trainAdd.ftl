@@ -8,13 +8,13 @@
 <body>
 <form name="train" action="" method="POST">
 
-    Name:<@spring.formInput "trainForm.model" "" "text"/>
+    Model:<@spring.formInput "trainForm.model" "" "text"/>
     <br>
-    Birth:<@spring.formInput "trainForm.trainBrigade" "" "text"/>
+    Train brigade:<@spring.formInput "trainForm.trainBrigade" "" "text"/>
     <br>
-    Phone:<@spring.formInput "trainForm.recoveryBrigade" "" "text"/>
+    Recovery brigade:<@spring.formInput "trainForm.recoveryBrigade" "" "text"/>
     <br>
-    Adress:<@spring.formInput "trainForm.descriction" "" "text"/>
+    Description:<@spring.formInput "trainForm.descriction" "" "text"/>
     <br>
 
     <input type="submit" value="Create"/>

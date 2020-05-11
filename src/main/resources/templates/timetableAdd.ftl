@@ -8,21 +8,21 @@
 <body>
 <form name="timetable" action="" method="POST">
 
-    Name:<@spring.formInput "timetableForm.timeOfGoing" "" "text"/>
+    Time of going:<@spring.formInput "timetableForm.timeOfGoing" "" "text"/>
     <br>
-    Birth:<@spring.formInput "timetableForm.timeOfCome" "" "text"/>
+    Time of come:<@spring.formInput "timetableForm.timeOfCome" "" "text"/>
     <br>
-    Phone:<@spring.formInput "timetableForm.numberOfRoute" "" "text"/>
+    Number of route:<@spring.formInput "timetableForm.numberOfRoute" "" "text"/>
     <br>
-    Adress:<@spring.formInput "timetableForm.ticketPrice" "" "text"/>
+    Ticket price:<@spring.formInput "timetableForm.ticketPrice" "" "text"/>
     <br>
-    Adress:<@spring.formInput "timetableForm.readyID" "" "text"/>
+    Ready ID:<@spring.formInput "timetableForm.readyID" "" "text"/>
     <br>
-    Phone:<@spring.formInput "timetableForm.numberOfPassager" "" "text"/>
+    Number of passengers:<@spring.formInput "timetableForm.numberOfPassager" "" "text"/>
     <br>
-    Adress:<@spring.formInput "timetableForm.freeSpace" "" "text"/>
+    Free space:<@spring.formInput "timetableForm.freeSpace" "" "text"/>
     <br>
-    Adress:<@spring.formInput "timetableForm.descriction" "" "text"/>
+    Description:<@spring.formInput "timetableForm.descriction" "" "text"/>
     <br>
 
     <input type="submit" value="Create"/>

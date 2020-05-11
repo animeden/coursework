@@ -8,13 +8,13 @@
 <body>
 <form name="brigade" action="" method="POST">
 
-    Name:<@spring.formInput "brigadeForm.mission" "" "text"/>
+    Mission:<@spring.formInput "brigadeForm.mission" "" "text"/>
     <br>
-    Birth:<@spring.formInput "brigadeForm.numberOfWorkers" "" "text"/>
+    Number of workers:<@spring.formInput "brigadeForm.numberOfWorkers" "" "text"/>
     <br>
-    Phone:<@spring.formInput "brigadeForm.departmentId" "" "text"/>
+    Department ID:<@spring.formInput "brigadeForm.departmentId" "" "text"/>
     <br>
-    Adress:<@spring.formInput "brigadeForm.descriction" "" "text"/>
+    Description:<@spring.formInput "brigadeForm.descriction" "" "text"/>
     <br>
 
     <input type="submit" value="Create"/>

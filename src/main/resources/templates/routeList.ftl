@@ -22,8 +22,11 @@
                 <td>${route.typeOfRoute}</td>
                 <td>${route.descriction}</td>
                 <td><a href="/web/route/delete/${route.id}"><button>Delete</button></a></td>
-                <td><button>Edit</button></td>
+                <td><a href="/web/route/edit/${route.id}"><button>Edit</button></a></td>
             </tr>
         </#list>
     </table>
+
+    <a href="/web/route/create"><button>Create</button></a>
+
 </div>

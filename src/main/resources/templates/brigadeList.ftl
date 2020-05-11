@@ -20,10 +20,11 @@
                 <td>${brigade.departmentId}</td>
                 <td>${brigade.descriction}</td>
                 <td><a href="/web/brigade/delete/${brigade.id}"><button>Delete</button></a></td>
-                <td><a href="/web/brigade/edit/${administration.id}"><button>Edit</button></a></td>
+                <td><a href="/web/brigade/edit/${brigade.id}"><button>Edit</button></a></td>
             </tr>
         </#list>
     </table>
 
     <a href="/web/brigade/create"><button>Create</button></a>
+
 </div>
