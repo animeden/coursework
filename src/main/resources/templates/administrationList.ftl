@@ -22,7 +22,7 @@
                 <td>${administration.adress}</td>
                 <td>${administration.descriction}</td>
                 <td><a href="/web/administration/delete/${administration.id}"><button>Delete</button></a></td>
-                <td><button>Edit</button></td>
+                <td><a href="/web/administration/edit/${administration.id}"><button>Edit</button></a></td>
             </tr>
         </#list>
     </table>
