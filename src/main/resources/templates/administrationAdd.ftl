@@ -10,13 +10,13 @@
 
         Name:<@spring.formInput "administrationForm.name" "" "text"/>
         <br>
-        Birth:<@spring.formInput "administration.birth" "" "text"/>
+        Birth:<@spring.formInput "administrationForm.birth" "" "text"/>
         <br>
-        Phone:<@spring.formInput "administration.phoneNumber" "" "text"/>
+        Phone:<@spring.formInput "administrationForm.phoneNumber" "" "text"/>
         <br>
-        Adress:<@spring.formInput "administration.adress" "" "text"/>
+        Adress:<@spring.formInput "administrationForm.adress" "" "text"/>
         <br>
-        Description:<@spring.formInput "administration.descriction" "" "text"/>
+        Description:<@spring.formInput "administrationForm.descriction" "" "text"/>
 
         <input type="submit" value="Create"/>
 
