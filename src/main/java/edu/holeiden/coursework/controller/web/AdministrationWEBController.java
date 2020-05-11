@@ -1,5 +1,6 @@
 package edu.holeiden.coursework.controller.web;
 
+import edu.holeiden.coursework.form.AdministrationForm;
 import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.service.administration.impls.AdministrationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,10 @@ public class AdministrationWEBController {
         return "administrationList";
     }
 
-   // @RequestMapping("/create")
-    //String create(){
-        //return administrationAdd;
-    //}
+    @RequestMapping("/create")
+    String create(Model model){
+        AdministrationForm administrationForm = new AdministrationForm();
+        model.addAttribute("administrationForm", administrationForm)
+        return "administrationAdd";
+    }
 }

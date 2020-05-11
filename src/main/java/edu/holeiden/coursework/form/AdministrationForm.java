@@ -7,6 +7,9 @@ public class AdministrationForm {
     private String adress;
     private String descriction;
 
+    public AdministrationForm() {
+    }
+
     public AdministrationForm(String name, String birth, String phoneNumber, String adress, String descriction) {
         this.name = name;
         this.birth = birth;

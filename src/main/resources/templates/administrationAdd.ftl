@@ -1,3 +1,4 @@
+<#import "/spring.ftl" as spring/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +6,19 @@
     <title>Title</title>
 </head>
 <body>
-    <form>
+    <form name="administration" action="" method="POST">
 
-        <input type="text" placeholder="ID">
-        <input type="text" placeholder="Name">
-        <input type="text" placeholder="Birth">
-        <input type="text" placeholder="Phone Number">
-        <input type="text" placeholder="Adress">
-        <input type="text" placeholder="Description">
+        Name:<@spring.formInput "administrationForm.name" "" "text"/>
+        <br>
+        Birth:<@spring.formInput "administration.birth" "" "text"/>
+        <br>
+        Phone:<@spring.formInput "administration.phoneNumber" "" "text"/>
+        <br>
+        Adress:<@spring.formInput "administration.adress" "" "text"/>
+        <br>
+        Description:<@spring.formInput "administration.descriction" "" "text"/>
 
-        <input type="submit">
+        <input type="submit" value="Create"/>
 
     </form>
 </body>
