@@ -32,7 +32,7 @@ public class AdministrationAPIController {
         return service.delete(id);
     }
 
-   @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     Administration create(@RequestBody Administration administration){
         return service.save(administration);
     }

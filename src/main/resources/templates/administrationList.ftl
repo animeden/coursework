@@ -26,4 +26,6 @@
             </tr>
         </#list>
     </table>
+
+    <a href="web/administration/create"><button>Create</button></a>
 </div>
