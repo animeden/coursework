@@ -30,4 +30,9 @@ public class AdministrationWEBController {
         model.addAttribute("administrations", service.getall());
         return "administrationList";
     }
+
+   // @RequestMapping("/create")
+    //String create(){
+        //return administrationAdd;
+    //}
 }
