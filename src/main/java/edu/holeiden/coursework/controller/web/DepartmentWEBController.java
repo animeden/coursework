@@ -17,7 +17,7 @@ public class DepartmentWEBController {
     @Autowired
     DepartmentServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     String getall(Model model){
         model.addAttribute("departments", service.getall());
         return "departmentList";

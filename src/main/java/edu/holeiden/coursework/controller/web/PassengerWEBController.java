@@ -17,7 +17,7 @@ public class PassengerWEBController {
     @Autowired
     PassengerServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     String getall(Model model){
         model.addAttribute("passengers", service.getall());
         return "passengerList";

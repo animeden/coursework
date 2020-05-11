@@ -17,7 +17,7 @@ public class RouteWEBController {
     @Autowired
     RouteServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     String getall(Model model){
         model.addAttribute("routes", service.getall());
         return "routeList";

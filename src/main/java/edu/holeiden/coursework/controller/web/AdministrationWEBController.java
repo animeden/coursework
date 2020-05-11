@@ -17,7 +17,7 @@ public class AdministrationWEBController {
     @Autowired
     AdministrationServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     String getall(Model model){
         model.addAttribute("administrations", service.getall());
         return "administrationList";

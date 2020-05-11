@@ -17,7 +17,7 @@ public class BrigadeWEBController {
     @Autowired
     BrigadeServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     String getall(Model model){
         model.addAttribute("brigades", service.getall());
         return "brigadeList";

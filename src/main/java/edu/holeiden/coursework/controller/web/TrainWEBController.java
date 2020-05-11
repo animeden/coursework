@@ -17,7 +17,7 @@ public class TrainWEBController {
     @Autowired
     TrainServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     String getall(Model model){
         model.addAttribute("trains", service.getall());
         return "trainList";

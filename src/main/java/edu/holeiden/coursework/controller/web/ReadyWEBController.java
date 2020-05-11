@@ -17,7 +17,7 @@ public class ReadyWEBController {
     @Autowired
     ReadyServiceImpl service;
 
-    @RequestMapping("/list")
+    @RequestMapping("/get/list")
     String getall(Model model){
         model.addAttribute("readies", service.getall());
         return "readyList";
