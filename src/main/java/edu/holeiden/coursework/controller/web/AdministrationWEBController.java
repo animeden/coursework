@@ -6,9 +6,7 @@ import edu.holeiden.coursework.service.administration.impls.AdministrationServic
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,5 +35,18 @@ public class AdministrationWEBController {
         AdministrationForm administrationForm = new AdministrationForm();
         model.addAttribute("administrationForm", administrationForm);
         return "administrationAdd";
+    }
+
+    @PostMapping("/create")
+    String create(Model model, @ModelAttribute("administrationForm") AdministrationForm administrationForm){
+        Administration administration = new Administration();
+        administration.setName(administrationForm.getName());
+        administration.setBirth(administrationForm.getBirth());
+        administration.setPhoneNumber(administrationForm.getPhoneNumber());
+        administration.setAdress(administrationForm.getAdress());
+        administration.setDescriction(administrationForm.getDescriction());
+        service.save(administration);
+        model.addAttribute("administrations", service.getall());
+        return "administrationList";
     }
 }
