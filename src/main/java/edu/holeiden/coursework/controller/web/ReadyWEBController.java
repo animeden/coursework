@@ -29,7 +29,7 @@ public class ReadyWEBController {
                   @PathVariable("id") String id){
         service.delete(id);
         model.addAttribute("readies", service.getall());
-        return "readyList";
+        return "redirect:/web/ready/get/list";
     }
 
     @RequestMapping("/create")
