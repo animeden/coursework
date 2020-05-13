@@ -6,14 +6,14 @@ import java.time.LocalDateTime;
 
 public class TrainForm {
     private String model;
-    private Brigade trainBrigade;
-    private Brigade recoveryBrigade;
+    private String trainBrigade;
+    private String recoveryBrigade;
     private String descriction;
 
     public TrainForm() {
     }
 
-    public TrainForm(String model, Brigade trainBrigade, Brigade recoveryBrigade, String descriction) {
+    public TrainForm(String model, String trainBrigade, String recoveryBrigade, String descriction) {
         this.model = model;
         this.trainBrigade = trainBrigade;
         this.recoveryBrigade = recoveryBrigade;
@@ -28,19 +28,19 @@ public class TrainForm {
         this.model = model;
     }
 
-    public Brigade getTrainBrigade() {
+    public String getTrainBrigade() {
         return trainBrigade;
     }
 
-    public void setTrainBrigade(Brigade trainBrigade) {
+    public void setTrainBrigade(String trainBrigade) {
         this.trainBrigade = trainBrigade;
     }
 
-    public Brigade getRecoveryBrigade() {
+    public String getRecoveryBrigade() {
         return recoveryBrigade;
     }
 
-    public void setRecoveryBrigade(Brigade recoveryBrigade) {
+    public void setRecoveryBrigade(String recoveryBrigade) {
         this.recoveryBrigade = recoveryBrigade;
     }
 

@@ -10,9 +10,9 @@
 
     Model:<@spring.formInput "trainForm.model" "" "text"/>
     <br>
-    Train brigade:<@spring.formInput "trainForm.trainBrigade" "" "text"/>
+    Train brigade:<@spring.formSingleSelect "trainForm.trainBrigade", mavs, ""/>
     <br>
-    Recovery brigade:<@spring.formInput "trainForm.recoveryBrigade" "" "text"/>
+    Recovery brigade:<@spring.formSingleSelect "trainForm.recoveryBrigade", mavs, ""/>
     <br>
     Description:<@spring.formInput "trainForm.descriction" "" "text"/>
     <br>

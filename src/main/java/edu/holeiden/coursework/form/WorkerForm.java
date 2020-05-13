@@ -10,13 +10,13 @@ public class WorkerForm {
     private String adress;
     private String birth;
     private String subclass;
-    private Brigade brigateID;
+    private String brigateID;
     private String descriction;
 
     public WorkerForm() {
     }
 
-    public WorkerForm(String fullName, String phone, String adress, String birth, String subclass, Brigade brigateID, String descriction) {
+    public WorkerForm(String fullName, String phone, String adress, String birth, String subclass, String brigateID, String descriction) {
         this.fullName = fullName;
         this.phone = phone;
         this.adress = adress;
@@ -66,11 +66,11 @@ public class WorkerForm {
         this.subclass = subclass;
     }
 
-    public Brigade getBrigateID() {
+    public String getBrigateID() {
         return brigateID;
     }
 
-    public void setBrigateID(Brigade brigateID) {
+    public void setBrigateID(String brigateID) {
         this.brigateID = brigateID;
     }
 

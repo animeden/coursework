@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 public class TimetableForm {
     private String timeOfGoing;
     private String timeOfCome;
-    private Route numberOfRoute;
+    private String numberOfRoute;
     private Integer ticketPrice;
-    private Ready readyID;
+    private String readyID;
     private Integer numberOfPassager;
     private Integer freeSpace;
     private String descriction;
@@ -18,7 +18,7 @@ public class TimetableForm {
     public TimetableForm() {
     }
 
-    public TimetableForm(String timeOfGoing, String timeOfCome, Route numberOfRoute, Integer ticketPrice, Ready readyID, Integer numberOfPassager, Integer freeSpace, String descriction) {
+    public TimetableForm(String timeOfGoing, String timeOfCome, String numberOfRoute, Integer ticketPrice, String readyID, Integer numberOfPassager, Integer freeSpace, String descriction) {
         this.timeOfGoing = timeOfGoing;
         this.timeOfCome = timeOfCome;
         this.numberOfRoute = numberOfRoute;
@@ -45,11 +45,11 @@ public class TimetableForm {
         this.timeOfCome = timeOfCome;
     }
 
-    public Route getNumberOfRoute() {
+    public String getNumberOfRoute() {
         return numberOfRoute;
     }
 
-    public void setNumberOfRoute(Route numberOfRoute) {
+    public void setNumberOfRoute(String numberOfRoute) {
         this.numberOfRoute = numberOfRoute;
     }
 
@@ -61,11 +61,11 @@ public class TimetableForm {
         this.ticketPrice = ticketPrice;
     }
 
-    public Ready getReadyID() {
+    public String getReadyID() {
         return readyID;
     }
 
-    public void setReadyID(Ready readyID) {
+    public void setReadyID(String readyID) {
         this.readyID = readyID;
     }
 

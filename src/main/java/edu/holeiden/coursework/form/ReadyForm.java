@@ -5,7 +5,7 @@ import edu.holeiden.coursework.model.Train;
 import java.time.LocalDateTime;
 
 public class ReadyForm {
-    private Train trainID;
+    private String trainID;
     private String review;
     private String clear;
     private String food;
@@ -14,7 +14,7 @@ public class ReadyForm {
     public ReadyForm() {
     }
 
-    public ReadyForm(Train trainID, String review, String clear, String food, String descriction) {
+    public ReadyForm(String trainID, String review, String clear, String food, String descriction) {
         this.trainID = trainID;
         this.review = review;
         this.clear = clear;
@@ -22,11 +22,11 @@ public class ReadyForm {
         this.descriction = descriction;
     }
 
-    public Train getTrainID() {
+    public String getTrainID() {
         return trainID;
     }
 
-    public void setTrainID(Train trainID) {
+    public void setTrainID(String trainID) {
         this.trainID = trainID;
     }
 

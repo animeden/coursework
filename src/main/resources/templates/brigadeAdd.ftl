@@ -12,7 +12,7 @@
     <br>
     Number of workers:<@spring.formInput "brigadeForm.numberOfWorkers" "" "text"/>
     <br>
-    Department ID:<@spring.formInput "brigadeForm.departmentId" "" "text"/>
+    Department ID:<@spring.formSingleSelect "brigadeForm.departmentId", mavs, ""/>
     <br>
     Description:<@spring.formInput "brigadeForm.descriction" "" "text"/>
     <br>

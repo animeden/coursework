@@ -10,7 +10,7 @@
 
     Status:<@spring.formInput "passengerForm.status" "" "text"/>
     <br>
-    Route ID:<@spring.formInput "passengerForm.routeID" "" "text"/>
+    Route ID:<@spring.formSingleSelect "passengerForm.routeID", mavs, ""/>
     <br>
     Description:<@spring.formInput "passengerForm.descriction" "" "text"/>
     <br>

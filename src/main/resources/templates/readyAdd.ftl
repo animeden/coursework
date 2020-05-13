@@ -8,7 +8,7 @@
 <body>
 <form name="ready" action="" method="POST">
 
-    Train ID:<@spring.formInput "readyForm.trainID" "" "text"/>
+    Train ID:<@spring.formSingleSelect "readyForm.trainID", mavs, ""/>
     <br>
     Review:<@spring.formInput "readyForm.review" "" "text"/>
     <br>

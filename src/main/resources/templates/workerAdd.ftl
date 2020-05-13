@@ -18,7 +18,7 @@
     <br>
     Subclass:<@spring.formInput "workerForm.subclass" "" "text"/>
     <br>
-    Brigade ID:<@spring.formInput "workerForm.brigateID" "" "text"/>
+    Brigade ID:<@spring.formSingleSelect "workerForm.brigateID", mavs, ""/>
     <br>
     Description:<@spring.formInput "workerForm.descriction" "" "text"/>
     <br>

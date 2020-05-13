@@ -12,11 +12,11 @@
     <br>
     Time of come:<@spring.formInput "timetableForm.timeOfCome" "" "text"/>
     <br>
-    Number of route:<@spring.formInput "timetableForm.numberOfRoute" "" "text"/>
+    Number of route:<@spring.formSingleSelect "timetableForm.numberOfRoute", mavs, ""/>
     <br>
     Ticket price:<@spring.formInput "timetableForm.ticketPrice" "" "text"/>
     <br>
-    Ready ID:<@spring.formInput "timetableForm.readyID" "" "text"/>
+    Ready ID:<@spring.formSingleSelect "timetableForm.readyID", mavs, ""/>
     <br>
     Number of passengers:<@spring.formInput "timetableForm.numberOfPassager" "" "text"/>
     <br>
