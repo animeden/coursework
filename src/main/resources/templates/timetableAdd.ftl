@@ -16,7 +16,7 @@
     <br>
     Ticket price:<@spring.formInput "timetableForm.ticketPrice" "" "text"/>
     <br>
-    Ready ID:<@spring.formSingleSelect "timetableForm.readyID", mavs, ""/>
+    Ready ID:<@spring.formSingleSelect "timetableForm.readyID", mavss, ""/>
     <br>
     Number of passengers:<@spring.formInput "timetableForm.numberOfPassager" "" "text"/>
     <br>
