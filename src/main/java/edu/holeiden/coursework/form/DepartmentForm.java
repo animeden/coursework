@@ -7,14 +7,14 @@ import java.time.LocalDateTime;
 public class DepartmentForm {
     private String name;
     private String adress;
-    private Administration administrationID;
+    private String administrationID;
     private Integer numberOfBrigates;
     private String descriction;
 
     public DepartmentForm() {
     }
 
-    public DepartmentForm(String name, String adress, Administration administrationID, Integer numberOfBrigates, String descriction) {
+    public DepartmentForm(String name, String adress, String administrationID, Integer numberOfBrigates, String descriction) {
         this.name = name;
         this.adress = adress;
         this.administrationID = administrationID;
@@ -38,11 +38,11 @@ public class DepartmentForm {
         this.adress = adress;
     }
 
-    public Administration getAdministrationID() {
+    public String getAdministrationID() {
         return administrationID;
     }
 
-    public void setAdministrationID(Administration administrationID) {
+    public void setAdministrationID(String administrationID) {
         this.administrationID = administrationID;
     }
 

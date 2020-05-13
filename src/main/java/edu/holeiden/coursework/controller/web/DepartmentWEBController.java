@@ -2,8 +2,10 @@ package edu.holeiden.coursework.controller.web;
 
 import edu.holeiden.coursework.form.BrigadeForm;
 import edu.holeiden.coursework.form.DepartmentForm;
+import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Brigade;
 import edu.holeiden.coursework.model.Department;
+import edu.holeiden.coursework.service.administration.impls.AdministrationServiceImpl;
 import edu.holeiden.coursework.service.department.impls.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,12 +13,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/web/department")
 public class DepartmentWEBController {
     @Autowired
     DepartmentServiceImpl service;
+
+    @Autowired
+    AdministrationServiceImpl administrationService;
 
     @RequestMapping("/get/list")
     String getall(Model model){
@@ -35,6 +42,9 @@ public class DepartmentWEBController {
     @RequestMapping("/create")
     String create(Model model){
         DepartmentForm departmentForm = new DepartmentForm();
+        Map<String, String> mavs = administrationService.getall().stream()
+                .collect(Collectors.toMap(Administration::getId, Administration::getName));
+        model.addAttribute("mavs", mavs);
         model.addAttribute("departmentForm", departmentForm);
         return "departmentAdd";
     }
@@ -42,9 +52,10 @@ public class DepartmentWEBController {
     @PostMapping("/create")
     String create(Model model, @ModelAttribute("departmentForm") DepartmentForm departmentForm){
         Department department = new Department();
+        Administration administration = administrationService.get(departmentForm.getAdministrationID());
         department.setName(departmentForm.getName());
         department.setAdress(departmentForm.getAdress());
-        department.setAdministrationID(departmentForm.getAdministrationID());
+        department.setAdministrationID(administration);
         department.setNumberOfBrigates(departmentForm.getNumberOfBrigates());
         department.setDescriction(departmentForm.getDescriction());
         service.save(department);
@@ -56,11 +67,14 @@ public class DepartmentWEBController {
     String edit(Model model, @PathVariable("id") String id){
         Department department = service.get(id);
         DepartmentForm departmentForm = new DepartmentForm();
+        Map<String, String > mavs = administrationService.getall().stream()
+                .collect(Collectors.toMap(Administration::getId, Administration::getName));
         departmentForm.setName(department.getName());
         departmentForm.setAdress(department.getAdress());
-        departmentForm.setAdministrationID(department.getAdministrationID());
+        departmentForm.setAdministrationID(department.getAdministrationID().getName());
         departmentForm.setNumberOfBrigates(department.getNumberOfBrigates());
         departmentForm.setDescriction(department.getDescriction());
+        model.addAttribute("mavs", mavs);
         model.addAttribute("departmentForm", departmentForm);
         return "departmentAdd";
     }
@@ -68,10 +82,11 @@ public class DepartmentWEBController {
     @PostMapping("/edit/{id}")
     String edith(Model model, @PathVariable("id") String id, @ModelAttribute("departmentForm") DepartmentForm departmentForm){
         Department department = new Department();
+        Administration administration = administrationService.get(departmentForm.getAdministrationID());
         department.setId(id);
         department.setName(departmentForm.getName());
         department.setAdress(departmentForm.getAdress());
-        department.setAdministrationID(departmentForm.getAdministrationID());
+        department.setAdministrationID(administration);
         department.setNumberOfBrigates(departmentForm.getNumberOfBrigates());
         department.setDescriction(departmentForm.getDescriction());
         service.save(department);

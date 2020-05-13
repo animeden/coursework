@@ -12,7 +12,7 @@
     <br>
     Adress:<@spring.formInput "departmentForm.adress" "" "text"/>
     <br>
-    Administration ID:<@spring.formInput "departmentForm.administrationID" "" "text"/>
+    Administration ID:<@spring.formSingleSelect "departmentForm.administrationID", mavs, ""/>
     <br>
     Number of Brigade:<@spring.formInput "departmentForm.numberOfBrigates" "" "text"/>
     <br>
