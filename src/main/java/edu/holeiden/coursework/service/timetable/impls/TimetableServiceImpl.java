@@ -57,7 +57,7 @@ public class TimetableServiceImpl implements ITimetableService {
 
     public List<Timetable> search(String word){
         List<Timetable> list = this.getall().stream()
-                .filter(timetable -> timetable.getTimeOfCome().contains(word))
+                .filter(timetable -> timetable.getTimeOfGoing().contains(word))
                 .collect(Collectors.toList());
         return list;
     }

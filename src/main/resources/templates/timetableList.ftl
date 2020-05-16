@@ -43,7 +43,7 @@
 
             <form name="search" action="" method="POST">
 
-                Time of come:<@spring.formInput "searchForm.string" "" "text"/>
+                Time of going:<@spring.formInput "searchForm.string" "" "text"/>
 
                 <br>
 
