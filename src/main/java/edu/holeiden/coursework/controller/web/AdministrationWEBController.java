@@ -1,6 +1,7 @@
 package edu.holeiden.coursework.controller.web;
 
 import edu.holeiden.coursework.form.AdministrationForm;
+import edu.holeiden.coursework.form.SearchForm;
 import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.service.administration.impls.AdministrationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,24 @@ public class AdministrationWEBController {
     @Autowired
     AdministrationServiceImpl service;
 
-    @RequestMapping("/get/list")
+    @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("administrations", service.getall());
         return "administrationList";
     }
+
+    @RequestMapping(value = "/get/list", method = RequestMethod.POST)
+    public String search(Model model,
+                         @ModelAttribute("searchForm") SearchForm searchForm){
+        String word = searchForm.getString();
+        List<Administration> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("administrations", service.getall());
+        return "administrationList";
+    }
+
 
     @RequestMapping("/delete/{id}")
     String delete(Model model,

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AdministrationServiceImpl implements IAdministrationService {
@@ -51,5 +52,13 @@ public class AdministrationServiceImpl implements IAdministrationService {
         Administration administration = repository.findById(id).orElse(null);
         repository.deleteById(id);
         return administration;
+    }
+
+    public Administration search(String word){
+        List<Administration> administrations = this.getall();
+        List<Administration> list = this.getall().stream()
+                .filter(administration -> administration.getName().contains(word))
+                .collect(Collectors.toList());
+        return list;
     }
 }
