@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PassengerServiceImpl implements IPassengerService {
@@ -52,5 +53,12 @@ public class PassengerServiceImpl implements IPassengerService {
         Passenger passenger = repository.findById(id).orElse(null);
         repository.deleteById(id);
         return passenger;
+    }
+
+    public List<Passenger> search(String word){
+        List<Passenger> list = this.getall().stream()
+                .filter(passenger -> passenger.getId().contains(word))
+                .collect(Collectors.toList());
+        return list;
     }
 }

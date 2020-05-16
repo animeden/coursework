@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class WorkerServiceImpl implements IWorkerService {
@@ -52,5 +53,12 @@ public class WorkerServiceImpl implements IWorkerService {
         Worker worker = repository.findById(id).orElse(null);
         repository.deleteById(id);
         return worker;
+    }
+
+    public List<Worker> search(String word){
+        List<Worker> list = this.getall().stream()
+                .filter(worker -> worker.getFullName().contains(word))
+                .collect(Collectors.toList());
+        return list;
     }
 }

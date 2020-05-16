@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RouteServiceImpl implements IRouteService {
@@ -52,5 +53,12 @@ public class RouteServiceImpl implements IRouteService {
         Route route = repository.findById(id).orElse(null);
         repository.deleteById(id);
         return route;
+    }
+
+    public List<Route> search(String word){
+        List<Route> list = this.getall().stream()
+                .filter(route -> route.getStations().contains(word))
+                .collect(Collectors.toList());
+        return list;
     }
 }

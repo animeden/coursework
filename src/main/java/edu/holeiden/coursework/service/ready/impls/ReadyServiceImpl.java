@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ReadyServiceImpl implements IReadyService {
@@ -52,5 +53,12 @@ public class ReadyServiceImpl implements IReadyService {
         Ready ready = repository.findById(id).orElse(null);
         repository.deleteById(id);
         return ready;
+    }
+
+    public List<Ready> search(String word){
+        List<Ready> list = this.getall().stream()
+                .filter(ready -> ready.getDescriction().contains(word))
+                .collect(Collectors.toList());
+        return list;
     }
 }

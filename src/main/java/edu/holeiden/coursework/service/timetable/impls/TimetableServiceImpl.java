@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TimetableServiceImpl implements ITimetableService {
@@ -52,5 +53,12 @@ public class TimetableServiceImpl implements ITimetableService {
         Timetable timetable = repository.findById(id).orElse(null);
         repository.deleteById(id);
         return timetable;
+    }
+
+    public List<Timetable> search(String word){
+        List<Timetable> list = this.getall().stream()
+                .filter(timetable -> timetable.getTimeOfCome().contains(word))
+                .collect(Collectors.toList());
+        return list;
     }
 }

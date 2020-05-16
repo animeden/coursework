@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DepartmentServiceImpl implements IDepartmentService {
@@ -51,5 +52,12 @@ public class DepartmentServiceImpl implements IDepartmentService {
         Department department = repository.findById(id).orElse(null);
         repository.deleteById(id);
         return department;
+    }
+
+    public List<Department> search(String word){
+        List<Department> list = this.getall().stream()
+                .filter(department -> department.getName().contains(word))
+                .collect(Collectors.toList());
+        return list;
     }
 }
