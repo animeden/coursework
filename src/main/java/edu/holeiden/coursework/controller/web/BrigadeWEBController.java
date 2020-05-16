@@ -2,6 +2,7 @@ package edu.holeiden.coursework.controller.web;
 
 import edu.holeiden.coursework.form.AdministrationForm;
 import edu.holeiden.coursework.form.BrigadeForm;
+import edu.holeiden.coursework.form.SearchForm;
 import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Brigade;
 import edu.holeiden.coursework.model.Department;
@@ -25,9 +26,21 @@ public class BrigadeWEBController {
     @Autowired
     DepartmentServiceImpl departmentService;
 
-    @RequestMapping("/get/list")
+    @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("brigades", service.getall());
+        return "brigadeList";
+    }
+
+    @RequestMapping(value = "/get/list", method = RequestMethod.POST)
+    public String search(Model model,
+                         @ModelAttribute("searchForm") SearchForm searchForm){
+        String word = searchForm.getString();
+        List<Brigade> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("brigades", list);
         return "brigadeList";
     }
 

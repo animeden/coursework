@@ -1,11 +1,9 @@
 package edu.holeiden.coursework.controller.web;
 
 import edu.holeiden.coursework.form.AdministrationForm;
+import edu.holeiden.coursework.form.SearchForm;
 import edu.holeiden.coursework.form.TrainForm;
-import edu.holeiden.coursework.model.Administration;
-import edu.holeiden.coursework.model.Brigade;
-import edu.holeiden.coursework.model.Ready;
-import edu.holeiden.coursework.model.Train;
+import edu.holeiden.coursework.model.*;
 import edu.holeiden.coursework.service.brigade.impls.BrigadeServiceImpl;
 import edu.holeiden.coursework.service.train.impls.TrainServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +24,21 @@ public class TrainWEBController {
     @Autowired
     BrigadeServiceImpl brigadeService;
 
-    @RequestMapping("/get/list")
+    @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("trains", service.getall());
+        return "trainList";
+    }
+
+    @RequestMapping(value = "/get/list", method = RequestMethod.POST)
+    public String search(Model model,
+                         @ModelAttribute("searchForm") SearchForm searchForm){
+        String word = searchForm.getString();
+        List<Train> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("trains", list);
         return "trainList";
     }
 

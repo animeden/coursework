@@ -2,6 +2,8 @@ package edu.holeiden.coursework.controller.web;
 
 import edu.holeiden.coursework.form.DepartmentForm;
 import edu.holeiden.coursework.form.PassengerForm;
+import edu.holeiden.coursework.form.SearchForm;
+import edu.holeiden.coursework.model.Brigade;
 import edu.holeiden.coursework.model.Department;
 import edu.holeiden.coursework.model.Passenger;
 import edu.holeiden.coursework.model.Route;
@@ -25,9 +27,21 @@ public class PassengerWEBController {
     @Autowired
     RouteServiceImpl routeService;
 
-    @RequestMapping("/get/list")
+    @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("passengers", service.getall());
+        return "passengerList";
+    }
+
+    @RequestMapping(value = "/get/list", method = RequestMethod.POST)
+    public String search(Model model,
+                         @ModelAttribute("searchForm") SearchForm searchForm){
+        String word = searchForm.getString();
+        List<Passenger> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("passengers", list);
         return "passengerList";
     }
 

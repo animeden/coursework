@@ -1,6 +1,7 @@
 package edu.holeiden.coursework.controller.web;
 
 import edu.holeiden.coursework.form.RouteForm;
+import edu.holeiden.coursework.form.SearchForm;
 import edu.holeiden.coursework.form.TimetableForm;
 import edu.holeiden.coursework.model.Ready;
 import edu.holeiden.coursework.model.Route;
@@ -30,11 +31,24 @@ public class TimetableWEBController {
     @Autowired
     RouteServiceImpl routeService;
 
-    @RequestMapping("/get/list")
+    @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("timetables", service.getall());
         return "timetableList";
     }
+
+    @RequestMapping(value = "/get/list", method = RequestMethod.POST)
+    public String search(Model model,
+                         @ModelAttribute("searchForm") SearchForm searchForm){
+        String word = searchForm.getString();
+        List<Timetable> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("timetables", list);
+        return "timetableList";
+    }
+
 
     @RequestMapping("/delete/{id}")
     String delete(Model model,

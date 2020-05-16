@@ -2,7 +2,9 @@ package edu.holeiden.coursework.controller.web;
 
 import edu.holeiden.coursework.form.DepartmentForm;
 import edu.holeiden.coursework.form.RouteForm;
+import edu.holeiden.coursework.form.SearchForm;
 import edu.holeiden.coursework.model.Department;
+import edu.holeiden.coursework.model.Ready;
 import edu.holeiden.coursework.model.Route;
 import edu.holeiden.coursework.service.route.impls.RouteServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +20,21 @@ public class RouteWEBController {
     @Autowired
     RouteServiceImpl service;
 
-    @RequestMapping("/get/list")
+    @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("routes", service.getall());
+        return "routeList";
+    }
+
+    @RequestMapping(value = "/get/list", method = RequestMethod.POST)
+    public String search(Model model,
+                         @ModelAttribute("searchForm") SearchForm searchForm){
+        String word = searchForm.getString();
+        List<Route> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("routes", list);
         return "routeList";
     }
 

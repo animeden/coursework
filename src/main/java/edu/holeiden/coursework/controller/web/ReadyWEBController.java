@@ -2,10 +2,8 @@ package edu.holeiden.coursework.controller.web;
 
 import edu.holeiden.coursework.form.DepartmentForm;
 import edu.holeiden.coursework.form.ReadyForm;
-import edu.holeiden.coursework.model.Department;
-import edu.holeiden.coursework.model.Ready;
-import edu.holeiden.coursework.model.Route;
-import edu.holeiden.coursework.model.Train;
+import edu.holeiden.coursework.form.SearchForm;
+import edu.holeiden.coursework.model.*;
 import edu.holeiden.coursework.service.ready.impls.ReadyServiceImpl;
 import edu.holeiden.coursework.service.train.impls.TrainServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +24,21 @@ public class ReadyWEBController {
     @Autowired
     TrainServiceImpl trainService;
 
-    @RequestMapping("/get/list")
+    @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
         model.addAttribute("readies", service.getall());
+        return "readyList";
+    }
+
+    @RequestMapping(value = "/get/list", method = RequestMethod.POST)
+    public String search(Model model,
+                         @ModelAttribute("searchForm") SearchForm searchForm){
+        String word = searchForm.getString();
+        List<Ready> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("readies", list);
         return "readyList";
     }
 
