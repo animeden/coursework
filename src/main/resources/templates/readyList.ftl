@@ -29,4 +29,24 @@
 
     <a href="/web/ready/create"><button>Create</button></a>
 
+    <div>
+
+        <fieldset>
+
+            <legend>Find ready</legend>
+
+            <form name="search" action="" method="POST">
+
+                Description:<@spring.formInput "searchForm.string" "" "text"/>
+
+                <br>
+
+                <input type="submit" value="Search"/>
+
+            </form>
+
+        </fieldset>
+
+    </div>
+
 </div>

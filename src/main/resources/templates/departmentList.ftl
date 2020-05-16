@@ -29,4 +29,24 @@
 
     <a href="/web/department/create"><button>Create</button></a>
 
+    <div>
+
+        <fieldset>
+
+            <legend>Find department</legend>
+
+            <form name="search" action="" method="POST">
+
+                Name:<@spring.formInput "searchForm.string" "" "text"/>
+
+                <br>
+
+                <input type="submit" value="Search"/>
+
+            </form>
+
+        </fieldset>
+
+    </div>
+
 </div>

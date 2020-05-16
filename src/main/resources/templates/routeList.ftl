@@ -29,4 +29,24 @@
 
     <a href="/web/route/create"><button>Create</button></a>
 
+    <div>
+
+        <fieldset>
+
+            <legend>Find route</legend>
+
+            <form name="search" action="" method="POST">
+
+                Station:<@spring.formInput "searchForm.string" "" "text"/>
+
+                <br>
+
+                <input type="submit" value="Search"/>
+
+            </form>
+
+        </fieldset>
+
+    </div>
+
 </div>

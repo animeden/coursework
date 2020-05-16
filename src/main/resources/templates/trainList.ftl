@@ -27,4 +27,24 @@
 
     <a href="/web/train/create"><button>Create</button></a>
 
+    <div>
+
+        <fieldset>
+
+            <legend>Find train</legend>
+
+            <form name="search" action="" method="POST">
+
+                Model:<@spring.formInput "searchForm.string" "" "text"/>
+
+                <br>
+
+                <input type="submit" value="Search"/>
+
+            </form>
+
+        </fieldset>
+
+    </div>
+
 </div>

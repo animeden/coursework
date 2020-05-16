@@ -25,4 +25,25 @@
 
     <a href="/web/passenger/create"><button>Create</button></a>
 
+
+    <div>
+
+        <fieldset>
+
+            <legend>Find passenger</legend>
+
+            <form name="search" action="" method="POST">
+
+                ID:<@spring.formInput "searchForm.string" "" "text"/>
+
+                <br>
+
+                <input type="submit" value="Search"/>
+
+            </form>
+
+        </fieldset>
+
+    </div>
+
 </div>

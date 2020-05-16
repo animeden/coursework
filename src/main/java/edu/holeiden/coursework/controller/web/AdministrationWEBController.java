@@ -31,7 +31,7 @@ public class AdministrationWEBController {
         String word = searchForm.getString();
         List<Administration> list = service.search(word);
         model.addAttribute("searchForm", searchForm);
-        model.addAttribute("administrations", service.getall());
+        model.addAttribute("administrations", list);
         return "administrationList";
     }
 

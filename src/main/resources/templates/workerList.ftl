@@ -33,4 +33,24 @@
 
     <a href="/web/worker/create"><button>Create</button></a>
 
+    <div>
+
+        <fieldset>
+
+            <legend>Find worker</legend>
+
+            <form name="search" action="" method="POST">
+
+                Last name:<@spring.formInput "searchForm.string" "" "text"/>
+
+                <br>
+
+                <input type="submit" value="Search"/>
+
+            </form>
+
+        </fieldset>
+
+    </div>
+
 </div>
