@@ -54,8 +54,7 @@ public class AdministrationServiceImpl implements IAdministrationService {
         return administration;
     }
 
-    public Administration search(String word){
-        List<Administration> administrations = this.getall();
+    public List<Administration> search(String word){
         List<Administration> list = this.getall().stream()
                 .filter(administration -> administration.getName().contains(word))
                 .collect(Collectors.toList());
