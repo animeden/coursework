@@ -3,12 +3,15 @@ package edu.holeiden.coursework.service.passanger.impls;
 import edu.holeiden.coursework.dao.repository.PassengerRepository;
 import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Passenger;
+import edu.holeiden.coursework.service.administration.impls.AdministrationServiceImpl;
 import edu.holeiden.coursework.service.passanger.interfaces.IPassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,5 +63,18 @@ public class PassengerServiceImpl implements IPassengerService {
                 .filter(passenger -> passenger.getId().contains(word))
                 .collect(Collectors.toList());
         return list;
+    }
+
+    public List<Passenger> sortByName(List<Passenger> people){
+
+        Collections.sort(people, new PassangerComparator());
+
+        return people;
+    }
+
+    private class PassangerComparator implements Comparator<Passenger> {
+        public int compare(Passenger p1, Passenger p2) {
+            return p1.getId().compareTo(p2.getId());
+        }
     }
 }

@@ -4,12 +4,15 @@ import edu.holeiden.coursework.dao.repository.TrainRepository;
 import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Timetable;
 import edu.holeiden.coursework.model.Train;
+import edu.holeiden.coursework.service.administration.impls.AdministrationServiceImpl;
 import edu.holeiden.coursework.service.train.interfaces.ITrainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -61,5 +64,18 @@ public class TrainServiceImpl implements ITrainService {
                 .filter(train -> train.getModel().contains(word))
                 .collect(Collectors.toList());
         return list;
+    }
+
+    public List<Train> sortByName(List<Train> people){
+
+        Collections.sort(people, new Traincomparator());
+
+        return people;
+    }
+
+    private class Traincomparator implements Comparator<Train> {
+        public int compare(Train p1, Train p2) {
+            return p1.getModel().compareTo(p2.getModel());
+        }
     }
 }

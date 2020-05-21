@@ -3,12 +3,15 @@ package edu.holeiden.coursework.service.brigade.impls;
 import edu.holeiden.coursework.dao.repository.BrigadeRepository;
 import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Brigade;
+import edu.holeiden.coursework.service.administration.impls.AdministrationServiceImpl;
 import edu.holeiden.coursework.service.brigade.interfaces.IBrigadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,5 +63,18 @@ public class BrigadeServiceImpl implements IBrigadeService {
                 .filter(brigade -> brigade.getMission().contains(word))
                 .collect(Collectors.toList());
         return list;
+    }
+
+    public List<Brigade> sortByName(List<Brigade> people){
+
+        Collections.sort(people, new BrigadeComparator());
+
+        return people;
+    }
+
+    private class BrigadeComparator implements Comparator<Brigade> {
+        public int compare(Brigade p1, Brigade p2) {
+            return p1.getMission().compareTo(p2.getMission());
+        }
     }
 }

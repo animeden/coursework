@@ -27,19 +27,6 @@ public class AdministrationServiceImpl implements IAdministrationService {
 
     }
 
-    public List<Administration> sortByName(List<Administration> people){
-
-        Collections.sort(people, new AdministarationNameComparator());
-
-        return people;
-    }
-
-    private class AdministarationNameComparator implements Comparator<Administration> {
-        public int compare(Administration p1, Administration p2) {
-            return p1.getName().compareTo(p2.getName());
-        }
-    }
-
     @Override
     public Administration save(Administration administration) {
         administration.setCreate(LocalDateTime.now());
@@ -75,5 +62,18 @@ public class AdministrationServiceImpl implements IAdministrationService {
                 .filter(administration -> administration.getName().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
+    }
+
+    public List<Administration> sortByName(List<Administration> people){
+
+        Collections.sort(people, new AdministarationNameComparator());
+
+        return people;
+    }
+
+    private class AdministarationNameComparator implements Comparator<Administration> {
+        public int compare(Administration p1, Administration p2) {
+            return p1.getName().compareTo(p2.getName());
+        }
     }
 }
