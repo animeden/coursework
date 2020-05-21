@@ -90,4 +90,24 @@ public class AdministrationWEBController {
         model.addAttribute("administrations", service.getall());
         return "redirect:/web/administration/get/list";
     }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.GET)
+    public String showSorted(Model model) {
+        List<Administration> administrations = service.getall();
+        List<Administration> sorted = service.sortByName(administrations);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("administrations", sorted);
+        return "administrationList";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Administration> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("administrations", list);
+        return "administrationList";
+    }
 }

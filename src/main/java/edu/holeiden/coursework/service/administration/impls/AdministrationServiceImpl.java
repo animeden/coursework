@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +25,19 @@ public class AdministrationServiceImpl implements IAdministrationService {
 
         //repository.saveAll(list);
 
+    }
+
+    public List<Administration> sortByName(List<Administration> people){
+
+        Collections.sort(people, new AdministarationNameComparator());
+
+        return people;
+    }
+
+    private class AdministarationNameComparator implements Comparator<Administration> {
+        public int compare(Administration p1, Administration p2) {
+            return p1.getName().compareTo(p2.getName());
+        }
     }
 
     @Override
@@ -56,7 +72,7 @@ public class AdministrationServiceImpl implements IAdministrationService {
 
     public List<Administration> search(String word){
         List<Administration> list = this.getall().stream()
-                .filter(administration -> administration.getName().contains(word))
+                .filter(administration -> administration.getName().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }
