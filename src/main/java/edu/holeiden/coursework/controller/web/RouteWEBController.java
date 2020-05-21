@@ -3,6 +3,7 @@ package edu.holeiden.coursework.controller.web;
 import edu.holeiden.coursework.form.DepartmentForm;
 import edu.holeiden.coursework.form.RouteForm;
 import edu.holeiden.coursework.form.SearchForm;
+import edu.holeiden.coursework.model.Administration;
 import edu.holeiden.coursework.model.Department;
 import edu.holeiden.coursework.model.Ready;
 import edu.holeiden.coursework.model.Route;
@@ -91,5 +92,25 @@ public class RouteWEBController {
         service.save(route);
         model.addAttribute("routes", service.getall());
         return "redirect:/web/route/get/list";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.GET)
+    public String showSorted(Model model) {
+        List<Route> routes = service.getall();
+        List<Route> sorted = service.sortByName(routes);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("routes", sorted);
+        return "routeList";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Route> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("routes", list);
+        return "routeList";
     }
 }

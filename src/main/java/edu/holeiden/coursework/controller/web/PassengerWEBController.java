@@ -3,10 +3,7 @@ package edu.holeiden.coursework.controller.web;
 import edu.holeiden.coursework.form.DepartmentForm;
 import edu.holeiden.coursework.form.PassengerForm;
 import edu.holeiden.coursework.form.SearchForm;
-import edu.holeiden.coursework.model.Brigade;
-import edu.holeiden.coursework.model.Department;
-import edu.holeiden.coursework.model.Passenger;
-import edu.holeiden.coursework.model.Route;
+import edu.holeiden.coursework.model.*;
 import edu.holeiden.coursework.service.passanger.impls.PassengerServiceImpl;
 import edu.holeiden.coursework.service.route.impls.RouteServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,6 +97,26 @@ public class PassengerWEBController {
         service.save(passenger);
         model.addAttribute("passengers", service.getall());
         return "redirect:/web/passenger/get/list";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.GET)
+    public String showSorted(Model model) {
+        List<Passenger> passengers = service.getall();
+        List<Passenger> sorted = service.sortByName(passengers);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("passengers", sorted);
+        return "passengerList";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Passenger> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("passengers", list);
+        return "passengerList";
     }
 }
 

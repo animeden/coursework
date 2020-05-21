@@ -106,4 +106,24 @@ public class DepartmentWEBController {
         model.addAttribute("departments", service.getall());
         return "redirect:/web/department/get/list";
     }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.GET)
+    public String showSorted(Model model) {
+        List<Department> departments = service.getall();
+        List<Department> sorted = service.sortByName(departments);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("departments", sorted);
+        return "departmentList";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Department> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("departments", list);
+        return "departmentList";
+    }
 }

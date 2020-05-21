@@ -113,4 +113,24 @@ public class WorkerWEBController {
         model.addAttribute("workers", service.getall());
         return "redirect:/web/worker/get/list";
     }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.GET)
+    public String showSorted(Model model) {
+        List<Worker> workers = service.getall();
+        List<Worker> sorted = service.sortByName(workers);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("workers", sorted);
+        return "workerList";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Worker> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("workers", list);
+        return "workerList";
+    }
 }

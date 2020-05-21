@@ -103,4 +103,24 @@ public class TrainWEBController {
         model.addAttribute("trains", service.getall());
         return "redirect:/web/train/get/list";
     }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.GET)
+    public String showSorted(Model model) {
+        List<Train> trains = service.getall();
+        List<Train> sorted = service.sortByName(trains);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("trains", sorted);
+        return "trainList";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Train> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("trains", list);
+        return "trainList";
+    }
 }

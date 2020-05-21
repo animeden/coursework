@@ -103,4 +103,24 @@ public class BrigadeWEBController {
         model.addAttribute("brigades", service.getall());
         return "redirect:/web/brigade/get/list";
     }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.GET)
+    public String showSorted(Model model) {
+        List<Brigade> brigades = service.getall();
+        List<Brigade> sorted = service.sortByName(brigades);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("brigades", sorted);
+        return "brigadeList";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Brigade> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("brigades", list);
+        return "brigadeList";
+    }
 }

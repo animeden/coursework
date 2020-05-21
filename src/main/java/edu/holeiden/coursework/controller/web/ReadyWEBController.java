@@ -104,4 +104,24 @@ public class ReadyWEBController {
         model.addAttribute("readies", service.getall());
         return "redirect:/web/ready/get/list";
     }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.GET)
+    public String showSorted(Model model) {
+        List<Ready> readies = service.getall();
+        List<Ready> sorted = service.sortByName(readies);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("readies", sorted);
+        return "readyList";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Ready> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("readies", list);
+        return "readyList";
+    }
 }

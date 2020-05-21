@@ -3,10 +3,7 @@ package edu.holeiden.coursework.controller.web;
 import edu.holeiden.coursework.form.RouteForm;
 import edu.holeiden.coursework.form.SearchForm;
 import edu.holeiden.coursework.form.TimetableForm;
-import edu.holeiden.coursework.model.Ready;
-import edu.holeiden.coursework.model.Route;
-import edu.holeiden.coursework.model.Timetable;
-import edu.holeiden.coursework.model.Train;
+import edu.holeiden.coursework.model.*;
 import edu.holeiden.coursework.service.ready.impls.ReadyServiceImpl;
 import edu.holeiden.coursework.service.route.impls.RouteServiceImpl;
 import edu.holeiden.coursework.service.timetable.impls.TimetableServiceImpl;
@@ -128,5 +125,25 @@ public class TimetableWEBController {
         service.save(timetable);
         model.addAttribute("timetables", service.getall());
         return "redirect:/web/timetable/get/list";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.GET)
+    public String showSorted(Model model) {
+        List<Timetable> timetables = service.getall();
+        List<Timetable> sorted = service.sortByName(timetables);
+        SearchForm searchForm = new SearchForm();
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("timetables", sorted);
+        return "timetableList";
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
+    public String searchSorted(Model model,
+                               @ModelAttribute("searchForm") SearchForm searchForm) {
+        String word = searchForm.getString();
+        List<Timetable> list = service.search(word);
+        model.addAttribute("searchForm", searchForm);
+        model.addAttribute("timetables", list);
+        return "timetableList";
     }
 }
