@@ -53,6 +53,6 @@
 
 <div>
 
-    <a href="/web/administration/sort"><button>Sort</button></a>
+    <a href="/web/ready/sort"><button>Sort</button></a>
 
 </div>

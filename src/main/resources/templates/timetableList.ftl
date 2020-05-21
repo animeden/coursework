@@ -59,6 +59,6 @@
 
 <div>
 
-    <a href="/web/administration/sort"><button>Sort</button></a>
+    <a href="/web/timetable/sort"><button>Sort</button></a>
 
 </div>
