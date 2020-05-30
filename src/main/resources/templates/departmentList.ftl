@@ -18,7 +18,7 @@
                 <td>${department.id}</td>
                 <td>${department.name}</td>
                 <td>${department.adress}</td>
-                <td>${department.administrationID}</td>
+                <td>${department.administrationID.name}</td>
                 <td>${department.numberOfBrigates}</td>
                 <td>${department.descriction}</td>
                 <td><a href="/web/department/delete/${department.id}"><button>Delete</button></a></td>
