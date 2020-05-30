@@ -21,9 +21,9 @@
                 <td>${timetable.id}</td>
                 <td>${timetable.timeOfGoing}</td>
                 <td>${timetable.timeOfCome}</td>
-                <td>${timetable.numberOfRoute}</td>
+                <td>${timetable.numberOfRoute.stations}</td>
                 <td>${timetable.ticketPrice}</td>
-                <td>${timetable.readyID}</td>
+                <td>${timetable.readyID.descriction}</td>
                 <td>${timetable.numberOfPassager}</td>
                 <td>${timetable.freeSpace}</td>
                 <td>${timetable.descriction}</td>

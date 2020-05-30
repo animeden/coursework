@@ -23,7 +23,7 @@
                 <td>${worker.adress}</td>
                 <td>${worker.birth}</td>
                 <td>${worker.subclass}</td>
-                <td>${worker.brigateID}</td>
+                <td>${worker.brigateID.mission}</td>
                 <td>${worker.descriction}</td>
                 <td><a href="/web/worker/delete/${worker.id}"><button>Delete</button></a></td>
                 <td><a href="/web/worker/edit/${worker.id}"><button>Edit</button></a></td>

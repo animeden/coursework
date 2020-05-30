@@ -16,8 +16,8 @@
             <tr class="bg-primary">
                 <td>${train.id}</td>
                 <td>${train.model}</td>
-                <td>${train.trainBrigade}</td>
-                <td>${train.recoveryBrigade}</td>
+                <td>${train.trainBrigade.mission}</td>
+                <td>${train.recoveryBrigade.mission}</td>
                 <td>${train.descriction}</td>
                 <td><a href="/web/train/delete/${train.id}"><button>Delete</button></a></td>
                 <td><a href="/web/train/edit/${train.id}"><button>Edit</button></a></td>

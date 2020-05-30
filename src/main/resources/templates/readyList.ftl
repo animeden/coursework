@@ -16,7 +16,7 @@
         <#list readies as ready>
             <tr class="bg-primary">
                 <td>${ready.id}</td>
-                <td>${ready.trainID}</td>
+                <td>${ready.trainID.model}</td>
                 <td>${ready.review}</td>
                 <td>${ready.clear}</td>
                 <td>${ready.food}</td>

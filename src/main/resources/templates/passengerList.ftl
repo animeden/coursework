@@ -15,7 +15,7 @@
             <tr class="bg-primary">
                 <td>${passenger.id}</td>
                 <td>${passenger.status}</td>
-                <td>${passenger.routeID}</td>
+                <td>${passenger.routeID.stations}</td>
                 <td>${passenger.descriction}</td>
                 <td><a href="/web/passenger/delete/${passenger.id}"><button>Delete</button></a></td>
                 <td><a href="/web/passenger/edit/${passenger.id}"><button>Edit</button></a></td>
