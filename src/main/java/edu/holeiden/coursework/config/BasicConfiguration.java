@@ -21,8 +21,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .withUser("admin")
                 .password("{noop}admin")
-                .roles("USER", "ADMIN")
-        ;
+                .roles("ADMIN");
     }
 
     @Override
