@@ -20,7 +20,7 @@ public class AdministrationWEBController {
 
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/get/list", method = RequestMethod.GET)
-    String getall(Model model){
+    public String getall(Model model){
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("administrations", service.getall());
@@ -41,7 +41,7 @@ public class AdministrationWEBController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/delete/{id}")
-    String delete(Model model,
+    public String delete(Model model,
                   @PathVariable("id") String id){
         service.delete(id);
         model.addAttribute("administrations", service.getall());
@@ -50,7 +50,7 @@ public class AdministrationWEBController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/create")
-    String create(Model model){
+    public String create(Model model){
         AdministrationForm administrationForm = new AdministrationForm();
         model.addAttribute("administrationForm", administrationForm);
         return "administrationAdd";
@@ -58,7 +58,7 @@ public class AdministrationWEBController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
-    String create(Model model, @ModelAttribute("administrationForm") AdministrationForm administrationForm){
+    public String create(Model model, @ModelAttribute("administrationForm") AdministrationForm administrationForm){
         Administration administration = new Administration();
         administration.setName(administrationForm.getName());
         administration.setBirth(administrationForm.getBirth());
@@ -72,7 +72,7 @@ public class AdministrationWEBController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    String edit(Model model, @PathVariable("id") String id){
+    public String edit(Model model, @PathVariable("id") String id){
         Administration administration = service.get(id);
         AdministrationForm administrationForm = new AdministrationForm();
         administrationForm.setName(administration.getName());
@@ -86,7 +86,7 @@ public class AdministrationWEBController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/edit/{id}")
-    String edith(Model model, @PathVariable("id") String id, @ModelAttribute("administrationForm") AdministrationForm administrationForm){
+    public String edith(Model model, @PathVariable("id") String id, @ModelAttribute("administrationForm") AdministrationForm administrationForm){
         Administration administration = new Administration();
         administration.setId(id);
         administration.setName(administrationForm.getName());
