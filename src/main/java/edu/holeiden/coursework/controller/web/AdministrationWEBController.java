@@ -18,7 +18,7 @@ public class AdministrationWEBController {
     @Autowired
     AdministrationServiceImpl service;
 
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
         SearchForm searchForm = new SearchForm();
@@ -27,7 +27,7 @@ public class AdministrationWEBController {
         return "administrationList";
     }
 
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/get/list", method = RequestMethod.POST)
     public String search(Model model,
                          @ModelAttribute("searchForm") SearchForm searchForm){
@@ -99,7 +99,7 @@ public class AdministrationWEBController {
         return "redirect:/web/administration/get/list";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/sort", method = RequestMethod.GET)
     public String showSorted(Model model) {
         List<Administration> administrations = service.getall();
@@ -110,7 +110,7 @@ public class AdministrationWEBController {
         return "administrationList";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/sort", method = RequestMethod.POST)
     public String searchSorted(Model model,
                                @ModelAttribute("searchForm") SearchForm searchForm) {
