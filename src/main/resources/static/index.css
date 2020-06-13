@@ -1,0 +1,52 @@
+*{
+    margin: 0px;
+}
+
+.full{
+    height: 100%;
+    width: 100%;
+    background: url("images/головна_сторінка_фон.jpg");
+    background-size: cover;
+}
+
+.head{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    font-size: 200%;
+}
+
+.links{
+    width: 100%;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 200%;
+    background: none;
+}
+
+.links_2{
+    width: 100%;
+    height: 190px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+a{
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+}
+
+h1{
+    color: white;
+}
+

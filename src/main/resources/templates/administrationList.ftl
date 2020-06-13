@@ -1,6 +1,29 @@
 <#import "/spring.ftl" as spring>
+
 <h3>Administration List</h3>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div>
+
+    <fieldset>
+
+        <legend>Find administration</legend>
+
+        <form name="search" action="" method="POST">
+
+            Last name:<@spring.formInput "searchForm.string" "" "text"/>
+
+            <br>
+
+            <input type="submit" value="Search"/>
+
+        </form>
+
+    </fieldset>
+
+</div>
+
 <div>
 
     <table border="3", bgcolor="f0f8ff", class="table table-dark">
@@ -8,7 +31,7 @@
         <tr class="bg-success">
 
             <th>ID</th>
-            <th>Name</th>
+            <th>Name<a href="/web/administration/sort"><img src="images/sort.png" width="32px" height="32px"></a></th>
             <th>Birth</th>
             <th>Phone Number</th>
             <th>Adress</th>
@@ -39,31 +62,5 @@
     </table>
 
     <a href="/web/administration/create"><button>Create</button></a>
-
-</div>
-
-<div>
-
-    <fieldset>
-
-        <legend>Find administration</legend>
-
-        <form name="search" action="" method="POST">
-
-            Last name:<@spring.formInput "searchForm.string" "" "text"/>
-
-            <br>
-
-            <input type="submit" value="Search"/>
-
-        </form>
-
-    </fieldset>
-
-</div>
-
-<div>
-
-    <a href="/web/administration/sort"><button>Sort</button></a>
 
 </div>
