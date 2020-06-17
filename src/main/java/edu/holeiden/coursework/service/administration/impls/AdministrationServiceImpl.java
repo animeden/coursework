@@ -59,7 +59,7 @@ public class AdministrationServiceImpl implements IAdministrationService {
 
     public List<Administration> search(String word){
         List<Administration> list = this.getall().stream()
-                .filter(administration -> administration.getName().contains(word.toLowerCase()))
+                .filter(administration -> administration.getName().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Controller
@@ -68,12 +70,67 @@ public class WorkerWEBController {
         Worker worker = new Worker();
         Brigade brigade = brigadeService.get(workerForm.getBrigateID());
         worker.setFullName(workerForm.getFullName());
+
+            String name = workerForm.getFullName();
+            Pattern pattern1 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,26}$|^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[-]{0,1}[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[-]{0,1}[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[-]{0,1}[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}$|^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,8}[']{0,1}[a-zа-яіїєґ]{0,8}[']{0,1}[a-zа-яіїєґ]{1,18}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,8}[']{0,1}[а-я]{0,8}[']{0,1}[a-zа-яіїєґ]{1,18}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,8}[']{0,1}[a-zа-яіїєґ]{0,8}[']{0,1}[a-zа-яіїєґ]{1,18}");
+            Matcher matcher1 = pattern1.matcher(name);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/worker/error1";
+            }
+
         worker.setPhone(workerForm.getPhone());
+
+            String number = workerForm.getPhone();
+            Pattern pattern2 = Pattern.compile("^[0][6][8][0-9]{7}$|^[0][3][9][0-9]{7}$|^[0][6][7][0-9]{7}$|^[0][9][6][0-9]{7}$|^[0][9][7][0-9]{7}$|^[0][9][8][0-9]{7}$|^[0][5][0][0-9]{7}$|^[0][6][6][0-9]{7}$|^[0][9][5][0-9]{7}$|^[0][9][9][0-9]{7}$|^[0][6][3][0-9]{7}$|^[0][9][3][0-9]{7}$|^[0][9][1][0-9]{7}$|^[0][9][2][0-9]{7}$|^[0][9][4][0-9]{7}$");
+            Matcher matcher2 = pattern2.matcher(number);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/worker/error3";
+            }
+
         worker.setAdress(workerForm.getAdress());
+
+            String adress = workerForm.getAdress();
+            Pattern pattern3 = Pattern.compile(".{10,100}");
+            Matcher matcher3 = pattern3.matcher(adress);
+
+            if(!matcher3.matches()){
+                return "redirect:/web/worker/error9";
+            }
+
         worker.setBirth(workerForm.getBirth());
+
+            String birth = workerForm.getBirth();
+            Pattern pattern4 = Pattern.compile("^[0-2][0-9][.][0][0-9][.][1-2][09][0-9][0-9]$|^[3][0-1][.][0][0-9][.][1-2][09][0-9][0-9]$|^[0-2][0-9][.][1][0-2][.][1-2][09][0-9][0-9]$|^[3][0-1][.][1][0-2][.][1-2][09][0-9][0-9]$");
+            Matcher matcher4 = pattern4.matcher(birth);
+
+            if(!matcher4.matches()){
+                return "redirect:/web/worker/error2";
+            }
+
         worker.setSubclass(workerForm.getSubclass());
+
+            String subclass = workerForm.getSubclass();
+            Pattern pattern5 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher5 = pattern5.matcher(subclass);
+
+            if(!matcher5.matches()){
+                return "redirect:/web/worker/error15";
+            }
+
         worker.setBrigateID(brigade);
+
         worker.setDescriction(workerForm.getDescriction());
+
+            String description = workerForm.getDescriction();
+            Pattern pattern6 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher6 = pattern6.matcher(description);
+
+            if(!matcher6.matches()){
+                return "redirect:/web/worker/error5";
+            }
+
         service.save(worker);
         model.addAttribute("workers", service.getall());
         return "redirect:/web/worker/get/list";
@@ -102,13 +159,69 @@ public class WorkerWEBController {
         Worker worker = new Worker();
         Brigade brigade = brigadeService.get(workerForm.getBrigateID());
         worker.setId(id);
+
         worker.setFullName(workerForm.getFullName());
+
+            String name = workerForm.getFullName();
+            Pattern pattern1 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,26}$|^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[-]{0,1}[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[-]{0,1}[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}[-]{0,1}[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{2,20}$|^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,8}[']{0,1}[a-zа-яіїєґ]{0,8}[']{0,1}[a-zа-яіїєґ]{1,18}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,8}[']{0,1}[а-я]{0,8}[']{0,1}[a-zа-яіїєґ]{1,18}[\\s][A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,8}[']{0,1}[a-zа-яіїєґ]{0,8}[']{0,1}[a-zа-яіїєґ]{1,18}");
+            Matcher matcher1 = pattern1.matcher(name);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/worker/error1";
+            }
+
         worker.setPhone(workerForm.getPhone());
+
+            String number = workerForm.getPhone();
+            Pattern pattern2 = Pattern.compile("^[0][6][8][0-9]{7}$|^[0][3][9][0-9]{7}$|^[0][6][7][0-9]{7}$|^[0][9][6][0-9]{7}$|^[0][9][7][0-9]{7}$|^[0][9][8][0-9]{7}$|^[0][5][0][0-9]{7}$|^[0][6][6][0-9]{7}$|^[0][9][5][0-9]{7}$|^[0][9][9][0-9]{7}$|^[0][6][3][0-9]{7}$|^[0][9][3][0-9]{7}$|^[0][9][1][0-9]{7}$|^[0][9][2][0-9]{7}$|^[0][9][4][0-9]{7}$");
+            Matcher matcher2 = pattern2.matcher(number);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/worker/error3";
+            }
+
         worker.setAdress(workerForm.getAdress());
+
+            String adress = workerForm.getAdress();
+            Pattern pattern3 = Pattern.compile(".{10,100}");
+            Matcher matcher3 = pattern3.matcher(adress);
+
+            if(!matcher3.matches()){
+                return "redirect:/web/worker/error9";
+            }
+
         worker.setBirth(workerForm.getBirth());
+
+            String birth = workerForm.getBirth();
+            Pattern pattern4 = Pattern.compile("^[0-2][0-9][.][0][0-9][.][1-2][09][0-9][0-9]$|^[3][0-1][.][0][0-9][.][1-2][09][0-9][0-9]$|^[0-2][0-9][.][1][0-2][.][1-2][09][0-9][0-9]$|^[3][0-1][.][1][0-2][.][1-2][09][0-9][0-9]$");
+            Matcher matcher4 = pattern4.matcher(birth);
+
+            if(!matcher4.matches()){
+                return "redirect:/web/worker/error2";
+            }
+
         worker.setSubclass(workerForm.getSubclass());
+
+            String subclass = workerForm.getSubclass();
+            Pattern pattern5 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher5 = pattern5.matcher(subclass);
+
+            if(!matcher5.matches()){
+                return "redirect:/web/worker/error15";
+            }
+
         worker.setBrigateID(brigade);
+
         worker.setDescriction(workerForm.getDescriction());
+
+            String description = workerForm.getDescriction();
+            Pattern pattern6 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher6 = pattern6.matcher(description);
+
+            if(!matcher6.matches()){
+                return "redirect:/web/worker/error5";
+            }
+
         service.save(worker);
         model.addAttribute("workers", service.getall());
         return "redirect:/web/worker/get/list";
@@ -132,5 +245,35 @@ public class WorkerWEBController {
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("workers", list);
         return "workerList";
+    }
+
+    @PostMapping("/error5")
+    public String errorfinder5(){
+        return "error";
+    }
+
+    @PostMapping("/error15")
+    public String errorfinder15(){
+        return "error";
+    }
+
+    @PostMapping("/error1")
+    public String errorfinder1(){
+        return "error";
+    }
+
+    @PostMapping("/error3")
+    public String errorfinder3(){
+        return "error";
+    }
+
+    @PostMapping("/error9")
+    public String errorfinder9(){
+        return "error";
+    }
+
+    @PostMapping("/error2")
+    public String errorfinder2(){
+        return "error";
     }
 }

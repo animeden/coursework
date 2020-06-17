@@ -13,7 +13,7 @@ public class Department {
     private String name;
     private String adress;
     private Administration administrationID;
-    private Integer numberOfBrigates;
+    private String numberOfBrigates;
     private LocalDateTime create;
     private LocalDateTime modified;
     private String descriction;
@@ -21,7 +21,7 @@ public class Department {
     public Department() {
     }
 
-    public Department(String id, String name, String adress, Administration administrationID, Integer numberOfBrigates, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Department(String id, String name, String adress, Administration administrationID, String numberOfBrigates, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
         this.name = name;
         this.adress = adress;
@@ -56,11 +56,11 @@ public class Department {
         this.administrationID = administrationID;
     }
 
-    public Integer getNumberOfBrigates() {
+    public String getNumberOfBrigates() {
         return numberOfBrigates;
     }
 
-    public void setNumberOfBrigates(Integer numberOfBrigates) {
+    public void setNumberOfBrigates(String numberOfBrigates) {
         this.numberOfBrigates = numberOfBrigates;
     }
 

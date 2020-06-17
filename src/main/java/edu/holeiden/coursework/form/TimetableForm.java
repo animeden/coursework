@@ -9,16 +9,16 @@ public class TimetableForm {
     private String timeOfGoing;
     private String timeOfCome;
     private String numberOfRoute;
-    private Integer ticketPrice;
+    private String ticketPrice;
     private String readyID;
-    private Integer numberOfPassager;
-    private Integer freeSpace;
+    private String numberOfPassager;
+    private String freeSpace;
     private String descriction;
 
     public TimetableForm() {
     }
 
-    public TimetableForm(String timeOfGoing, String timeOfCome, String numberOfRoute, Integer ticketPrice, String readyID, Integer numberOfPassager, Integer freeSpace, String descriction) {
+    public TimetableForm(String timeOfGoing, String timeOfCome, String numberOfRoute, String ticketPrice, String readyID, String numberOfPassager, String freeSpace, String descriction) {
         this.timeOfGoing = timeOfGoing;
         this.timeOfCome = timeOfCome;
         this.numberOfRoute = numberOfRoute;
@@ -53,11 +53,11 @@ public class TimetableForm {
         this.numberOfRoute = numberOfRoute;
     }
 
-    public Integer getTicketPrice() {
+    public String getTicketPrice() {
         return ticketPrice;
     }
 
-    public void setTicketPrice(Integer ticketPrice) {
+    public void setTicketPrice(String ticketPrice) {
         this.ticketPrice = ticketPrice;
     }
 
@@ -69,19 +69,19 @@ public class TimetableForm {
         this.readyID = readyID;
     }
 
-    public Integer getNumberOfPassager() {
+    public String getNumberOfPassager() {
         return numberOfPassager;
     }
 
-    public void setNumberOfPassager(Integer numberOfPassager) {
+    public void setNumberOfPassager(String numberOfPassager) {
         this.numberOfPassager = numberOfPassager;
     }
 
-    public Integer getFreeSpace() {
+    public String getFreeSpace() {
         return freeSpace;
     }
 
-    public void setFreeSpace(Integer freeSpace) {
+    public void setFreeSpace(String freeSpace) {
         this.freeSpace = freeSpace;
     }
 

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Controller
@@ -65,10 +67,31 @@ public class TrainWEBController {
         Train train = new Train();
         Brigade brigade = brigadeService.get(trainForm.getTrainBrigade());
         Brigade brigadee = brigadeService.get(trainForm.getRecoveryBrigade());
+
         train.setModel(trainForm.getModel());
+
+            String model1 = trainForm.getModel();
+            Pattern pattern1 = Pattern.compile(".{3,30}");
+            Matcher matcher1 = pattern1.matcher(model1);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/train/error14";
+            }
+
         train.setTrainBrigade(brigade);
+
         train.setRecoveryBrigade(brigadee);
+
         train.setDescriction(trainForm.getDescriction());
+
+            String description = trainForm.getDescriction();
+            Pattern pattern2 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher2 = pattern2.matcher(description);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/train/error5";
+            }
+
         service.save(train);
         model.addAttribute("trains", service.getall());
         return "redirect:/web/train/get/list";
@@ -96,9 +119,29 @@ public class TrainWEBController {
         Brigade brigadee = brigadeService.get(trainForm.getRecoveryBrigade());
         train.setId(id);
         train.setModel(trainForm.getModel());
+
+            String model1 = trainForm.getModel();
+            Pattern pattern1 = Pattern.compile(".{3,30}");
+            Matcher matcher1 = pattern1.matcher(model1);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/train/error14";
+            }
+
         train.setTrainBrigade(brigade);
+
         train.setRecoveryBrigade(brigadee);
+
         train.setDescriction(trainForm.getDescriction());
+
+            String description = trainForm.getDescriction();
+            Pattern pattern2 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher2 = pattern2.matcher(description);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/train/error5";
+            }
+
         service.save(train);
         model.addAttribute("trains", service.getall());
         return "redirect:/web/train/get/list";
@@ -122,5 +165,15 @@ public class TrainWEBController {
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("trains", list);
         return "trainList";
+    }
+
+    @PostMapping("/error5")
+    public String errorfinder5(){
+        return "error";
+    }
+
+    @PostMapping("/error14")
+    public String errorfinder14(){
+        return "error";
     }
 }

@@ -8,13 +8,13 @@ public class DepartmentForm {
     private String name;
     private String adress;
     private String administrationID;
-    private Integer numberOfBrigates;
+    private String numberOfBrigates;
     private String descriction;
 
     public DepartmentForm() {
     }
 
-    public DepartmentForm(String name, String adress, String administrationID, Integer numberOfBrigates, String descriction) {
+    public DepartmentForm(String name, String adress, String administrationID, String numberOfBrigates, String descriction) {
         this.name = name;
         this.adress = adress;
         this.administrationID = administrationID;
@@ -46,11 +46,11 @@ public class DepartmentForm {
         this.administrationID = administrationID;
     }
 
-    public Integer getNumberOfBrigates() {
+    public String getNumberOfBrigates() {
         return numberOfBrigates;
     }
 
-    public void setNumberOfBrigates(Integer numberOfBrigates) {
+    public void setNumberOfBrigates(String numberOfBrigates) {
         this.numberOfBrigates = numberOfBrigates;
     }
 

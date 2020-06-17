@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Controller
@@ -73,14 +75,72 @@ public class TimetableWEBController {
         Timetable timetable = new Timetable();
         Ready ready = readyService.get(timetableForm.getReadyID());
         Route route = routeService.get(timetableForm.getNumberOfRoute());
+
         timetable.setTimeOfGoing(timetableForm.getTimeOfGoing());
+
+            String timeOfGoing = timetableForm.getTimeOfGoing();
+            Pattern pattern1 = Pattern.compile("^[01][0-9][:][0-5][0-9]$|^[2][0-3][:][0-5][0-9]$");
+            Matcher matcher1 = pattern1.matcher(timeOfGoing);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/timetable/error13";
+            }
+
         timetable.setTimeOfCome(timetableForm.getTimeOfCome());
+
+            String timeOfCome = timetableForm.getTimeOfCome();
+            Pattern pattern2 = Pattern.compile("^[01][0-9][:][0-5][0-9]$|^[2][0-3][:][0-5][0-9]$");
+            Matcher matcher2 = pattern2.matcher(timeOfCome);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/timetable/error13";
+            }
+
         timetable.setNumberOfRoute(route);
+
         timetable.setTicketPrice(timetableForm.getTicketPrice());
+
+            String price = timetableForm.getTicketPrice();
+            Pattern pattern3 = Pattern.compile("^[1-9][0-9]{0,2}[.][0-9]{0,2}$");
+            Matcher matcher3 = pattern3.matcher(price);
+
+            if(!matcher3.matches()){
+                return "redirect:/web/timetable/error12";
+            }
+
         timetable.setReadyID(ready);
+
         timetable.setNumberOfPassager(timetableForm.getNumberOfPassager());
+
+            String numberOfPassager = timetableForm.getNumberOfPassager();
+            Pattern pattern4 = Pattern.compile("^[1-9][0-9]{0,2}$");
+            Matcher matcher4 = pattern4.matcher(numberOfPassager);
+
+            if(!matcher4.matches()){
+                return "redirect:/web/timetable/error6";
+            }
+
         timetable.setFreeSpace(timetableForm.getFreeSpace());
+
+            String freeSpace = timetableForm.getFreeSpace();
+            Pattern pattern5 = Pattern.compile("^[1-9][0-9]{0,2}$");
+            Matcher matcher5 = pattern5.matcher(freeSpace);
+
+            if(!matcher5.matches()){
+                return "redirect:/web/timetable/error6";
+            }
+
         timetable.setDescriction(timetableForm.getDescriction());
+
+            String description = timetableForm.getDescriction();
+            Pattern pattern6 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher6 = pattern6.matcher(description);
+
+            if(!matcher6.matches()){
+                return "redirect:/web/timetable/error5";
+            }
+
+
         service.save(timetable);
         model.addAttribute("timetables", service.getall());
         return "redirect:/web/timetable/get/list";
@@ -114,14 +174,71 @@ public class TimetableWEBController {
         timetable.setId(id);
         Ready ready = readyService.get(timetableForm.getReadyID());
         Route route = routeService.get(timetableForm.getNumberOfRoute());
+
         timetable.setTimeOfGoing(timetableForm.getTimeOfGoing());
+
+            String timeOfGoing = timetableForm.getTimeOfGoing();
+            Pattern pattern1 = Pattern.compile("^[01][0-9][:][0-5][0-9]$|^[2][0-3][:][0-5][0-9]$");
+            Matcher matcher1 = pattern1.matcher(timeOfGoing);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/timetable/error13";
+            }
+
         timetable.setTimeOfCome(timetableForm.getTimeOfCome());
+
+            String timeOfCome = timetableForm.getTimeOfCome();
+            Pattern pattern2 = Pattern.compile("^[01][0-9][:][0-5][0-9]$|^[2][0-3][:][0-5][0-9]$");
+            Matcher matcher2 = pattern2.matcher(timeOfCome);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/timetable/error13";
+            }
+
         timetable.setNumberOfRoute(route);
+
         timetable.setTicketPrice(timetableForm.getTicketPrice());
+
+            String price = timetableForm.getTicketPrice();
+            Pattern pattern3 = Pattern.compile("^[1-9][0-9]{0,2}[.][0-9]{0,2}$");
+            Matcher matcher3 = pattern3.matcher(price);
+
+            if(!matcher3.matches()){
+                return "redirect:/web/timetable/error12";
+            }
+
         timetable.setReadyID(ready);
+
         timetable.setNumberOfPassager(timetableForm.getNumberOfPassager());
+
+            String numberOfPassager = timetableForm.getNumberOfPassager();
+            Pattern pattern4 = Pattern.compile("^[1-9][0-9]{0,2}$");
+            Matcher matcher4 = pattern4.matcher(numberOfPassager);
+
+            if(!matcher4.matches()){
+                return "redirect:/web/timetable/error6";
+            }
+
         timetable.setFreeSpace(timetableForm.getFreeSpace());
+
+            String freeSpace = timetableForm.getFreeSpace();
+            Pattern pattern5 = Pattern.compile("^[1-9][0-9]{0,2}$");
+            Matcher matcher5 = pattern5.matcher(freeSpace);
+
+            if(!matcher5.matches()){
+                return "redirect:/web/timetable/error6";
+            }
+
         timetable.setDescriction(timetableForm.getDescriction());
+
+            String description = timetableForm.getDescriction();
+            Pattern pattern6 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher6 = pattern6.matcher(description);
+
+            if(!matcher6.matches()){
+                return "redirect:/web/timetable/error5";
+            }
+
         service.save(timetable);
         model.addAttribute("timetables", service.getall());
         return "redirect:/web/timetable/get/list";
@@ -145,5 +262,25 @@ public class TimetableWEBController {
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("timetables", list);
         return "timetableList";
+    }
+
+    @PostMapping("/error6")
+    public String errorfinder6(){
+        return "error";
+    }
+
+    @PostMapping("/error5")
+    public String errorfinder5(){
+        return "error";
+    }
+
+    @PostMapping("/error12")
+    public String errorfinder12(){
+        return "error";
+    }
+
+    @PostMapping("/error13")
+    public String errorfinder13(){
+        return "error";
     }
 }

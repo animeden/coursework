@@ -13,10 +13,10 @@ public class Timetable {
     private String timeOfGoing;
     private String timeOfCome;
     private Route numberOfRoute;
-    private Integer ticketPrice;
+    private String ticketPrice;
     private Ready readyID;
-    private Integer numberOfPassager;
-    private Integer freeSpace;
+    private String numberOfPassager;
+    private String freeSpace;
     private LocalDateTime create;
     private LocalDateTime modified;
     private String descriction;
@@ -24,7 +24,7 @@ public class Timetable {
     public Timetable() {
     }
 
-    public Timetable(String id, String timeOfGoing, String timeOfCome, Route numberOfRoute, Integer ticketPrice, Ready readyID, Integer numberOfPassager, Integer freeSpace, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Timetable(String id, String timeOfGoing, String timeOfCome, Route numberOfRoute, String ticketPrice, Ready readyID, String numberOfPassager, String freeSpace, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
         this.timeOfGoing = timeOfGoing;
         this.timeOfCome = timeOfCome;
@@ -64,11 +64,11 @@ public class Timetable {
         this.numberOfRoute = numberOfRoute;
     }
 
-    public Integer getTicketPrice() {
+    public String getTicketPrice() {
         return ticketPrice;
     }
 
-    public void setTicketPrice(Integer ticketPrice) {
+    public void setTicketPrice(String ticketPrice) {
         this.ticketPrice = ticketPrice;
     }
 
@@ -80,17 +80,17 @@ public class Timetable {
         this.readyID = readyID;
     }
 
-    public Integer getNumberOfPassager() {
+    public String getNumberOfPassager() {
         return numberOfPassager;
     }
 
-    public void setNumberOfPassager(Integer numberOfPassager) {
+    public void setNumberOfPassager(String numberOfPassager) {
         this.numberOfPassager = numberOfPassager;
     }
 
-    public Integer getFreeSpace() { return freeSpace; }
+    public String getFreeSpace() { return freeSpace; }
 
-    public void setFreeSpace(Integer freeSpace) { this.freeSpace = freeSpace; }
+    public void setFreeSpace(String freeSpace) { this.freeSpace = freeSpace; }
 
     public LocalDateTime getCreate() {
         return create;

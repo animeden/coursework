@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Controller
@@ -64,11 +66,25 @@ public class ReadyWEBController {
     String create(Model model, @ModelAttribute("readyForm") ReadyForm readyForm){
         Ready ready = new Ready();
         Train train = trainService.get(readyForm.getTrainID());
+
         ready.setTrainID(train);
+
         ready.setReview(readyForm.getReview());
+
         ready.setClear(readyForm.getClear());
+
         ready.setFood(readyForm.getFood());
+
         ready.setDescriction(readyForm.getDescriction());
+
+            String description = readyForm.getDescriction();
+            Pattern pattern1 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher1 = pattern1.matcher(description);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/department/error1";
+            }
+
         service.save(ready);
         model.addAttribute("readies", service.getall());
         return "redirect:/web/ready/get/list";
@@ -95,11 +111,25 @@ public class ReadyWEBController {
         Ready ready = new Ready();
         Train train = trainService.get(readyForm.getTrainID());
         ready.setId(id);
+
         ready.setTrainID(train);
+
         ready.setReview(readyForm.getReview());
+
         ready.setClear(readyForm.getClear());
+
         ready.setFood(readyForm.getFood());
+
         ready.setDescriction(readyForm.getDescriction());
+
+            String description = readyForm.getDescriction();
+            Pattern pattern1 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher1 = pattern1.matcher(description);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/department/error5";
+            }
+
         service.save(ready);
         model.addAttribute("readies", service.getall());
         return "redirect:/web/ready/get/list";
@@ -123,5 +153,10 @@ public class ReadyWEBController {
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("readies", list);
         return "readyList";
+    }
+
+    @PostMapping("/error5")
+    public String errorfinder5(){
+        return "error";
     }
 }

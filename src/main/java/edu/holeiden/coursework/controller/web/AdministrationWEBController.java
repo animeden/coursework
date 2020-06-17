@@ -96,6 +96,14 @@ public class AdministrationWEBController {
 
         administration.setAdress(administrationForm.getAdress());
 
+            String adress = administrationForm.getAdress();
+            Pattern pattern4 = Pattern.compile(".{10,100}");
+            Matcher matcher4 = pattern4.matcher(adress);
+
+            if(!matcher4.matches()){
+                return "redirect:/web/administration/error9";
+            }
+
         administration.setDescriction(administrationForm.getDescriction());
 
             String description = administrationForm.getDescriction();
@@ -163,11 +171,11 @@ public class AdministrationWEBController {
         administration.setAdress(administrationForm.getAdress());
 
             String adress = administrationForm.getAdress();
-            Pattern pattern4 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][A-ZА-ЯІЇЄҐa-zа-яіїєґ.' -]{5,70}[0,9]{1,3}$");
+            Pattern pattern4 = Pattern.compile(".{10,100}");
             Matcher matcher4 = pattern4.matcher(adress);
 
             if(!matcher4.matches()){
-                return "redirect:/web/administration/error4";
+                return "redirect:/web/administration/error9";
             }
 
         administration.setDescriction(administrationForm.getDescriction());
@@ -222,13 +230,13 @@ public class AdministrationWEBController {
         return "error";
     }
 
-    @PostMapping("/error6")
-    public String errorfinder6(){
+    @PostMapping("/error5")
+    public String errorfinder5(){
         return "error";
     }
 
-    @PostMapping("/error5")
-    public String errorfinder5(){
+    @PostMapping("/error9")
+    public String errorfinder9(){
         return "error";
     }
 }

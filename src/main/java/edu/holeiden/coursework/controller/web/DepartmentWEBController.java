@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Controller
@@ -67,10 +69,47 @@ public class DepartmentWEBController {
         Department department = new Department();
         Administration administration = administrationService.get(departmentForm.getAdministrationID());
         department.setName(departmentForm.getName());
+
+            String name = departmentForm.getName();
+            Pattern pattern1 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s][a-zа-яіїєґ]{3,12}[\\s]{0,1}[№][1-9][0-9]{0,1}$");
+            Matcher matcher1 = pattern1.matcher(name);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/department/error7";
+            }
+
         department.setAdress(departmentForm.getAdress());
+
+            String adress = departmentForm.getAdress();
+            Pattern pattern4 = Pattern.compile(".{10,100}");
+            Matcher matcher4 = pattern4.matcher(adress);
+
+            if(!matcher4.matches()){
+                return "redirect:/web/department/error9";
+            }
+
         department.setAdministrationID(administration);
+
         department.setNumberOfBrigates(departmentForm.getNumberOfBrigates());
+
+            String numberOfBrigates = departmentForm.getNumberOfBrigates();
+            Pattern pattern2 = Pattern.compile("^[1-9][0-9]{0,1}$");
+            Matcher matcher2 = pattern2.matcher(numberOfBrigates);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/department/error8";
+            }
+
         department.setDescriction(departmentForm.getDescriction());
+
+            String description = departmentForm.getDescriction();
+            Pattern pattern3 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher3 = pattern3.matcher(description);
+
+            if(!matcher3.matches()){
+                return "redirect:/web/department/error5";
+            }
+
         service.save(department);
         model.addAttribute("departments", service.getall());
         return "redirect:/web/department/get/list";
@@ -83,10 +122,48 @@ public class DepartmentWEBController {
         Map<String, String > mavs = administrationService.getall().stream()
                 .collect(Collectors.toMap(Administration::getId, Administration::getName));
         departmentForm.setName(department.getName());
+
+            String name = departmentForm.getName();
+            Pattern pattern1 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s][a-zа-яіїєґ]{3,12}[\\s]{0,1}[№][1-9][0-9]{0,1}$");
+            Matcher matcher1 = pattern1.matcher(name);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/department/error7";
+            }
+
+
         departmentForm.setAdress(department.getAdress());
+
+            String adress = departmentForm.getAdress();
+            Pattern pattern4 = Pattern.compile(".{10,100}");
+            Matcher matcher4 = pattern4.matcher(adress);
+
+            if(!matcher4.matches()){
+                return "redirect:/web/department/error9";
+            }
+
         departmentForm.setAdministrationID(department.getAdministrationID().getName());
+
         departmentForm.setNumberOfBrigates(department.getNumberOfBrigates());
+
+            String numberOfBrigates = departmentForm.getNumberOfBrigates();
+            Pattern pattern2 = Pattern.compile("^[1-9][0-9]{0,1}$");
+            Matcher matcher2 = pattern2.matcher(numberOfBrigates);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/department/error8";
+            }
+
         departmentForm.setDescriction(department.getDescriction());
+
+            String description = departmentForm.getDescriction();
+            Pattern pattern3 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher3 = pattern3.matcher(description);
+
+            if(!matcher3.matches()){
+                return "redirect:/web/department/error5";
+            }
+
         model.addAttribute("mavs", mavs);
         model.addAttribute("departmentForm", departmentForm);
         return "departmentAdd";
@@ -125,5 +202,25 @@ public class DepartmentWEBController {
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("departments", list);
         return "departmentList";
+    }
+
+    @PostMapping("/error7")
+    public String errorfinder7(){
+        return "error";
+    }
+
+    @PostMapping("/error8")
+    public String errorfinder8(){
+        return "error";
+    }
+
+    @PostMapping("/error5")
+    public String errorfinder5(){
+        return "error";
+    }
+
+    @PostMapping("/error9")
+    public String errorfinder9(){
+        return "error";
     }
 }
