@@ -60,7 +60,7 @@ public class ReadyServiceImpl implements IReadyService {
 
     public List<Ready> search(String word){
         List<Ready> list = this.getall().stream()
-                .filter(ready -> ready.getDescriction().contains(word))
+                .filter(ready -> ready.getDescriction().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }

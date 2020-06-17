@@ -60,7 +60,7 @@ public class WorkerServiceImpl implements IWorkerService {
 
     public List<Worker> search(String word){
         List<Worker> list = this.getall().stream()
-                .filter(worker -> worker.getFullName().contains(word))
+                .filter(worker -> worker.getFullName().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }

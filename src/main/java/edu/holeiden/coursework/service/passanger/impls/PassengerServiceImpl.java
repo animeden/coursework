@@ -60,7 +60,7 @@ public class PassengerServiceImpl implements IPassengerService {
 
     public List<Passenger> search(String word){
         List<Passenger> list = this.getall().stream()
-                .filter(passenger -> passenger.getId().contains(word))
+                .filter(passenger -> passenger.getId().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }

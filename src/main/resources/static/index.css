@@ -46,6 +46,10 @@ a{
     color: white;
 }
 
+a:hover{
+    color: #09414d;
+}
+
 h1{
     color: white;
 }

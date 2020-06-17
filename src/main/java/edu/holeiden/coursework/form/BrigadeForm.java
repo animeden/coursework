@@ -6,14 +6,14 @@ import java.time.LocalDateTime;
 
 public class BrigadeForm {
     private String mission;
-    private Integer numberOfWorkers;
+    private String numberOfWorkers;
     private String departmentId;
     private String descriction;
 
     public BrigadeForm() {
     }
 
-    public BrigadeForm(String mission, Integer numberOfWorkers, String departmentId, String descriction) {
+    public BrigadeForm(String mission, String numberOfWorkers, String departmentId, String descriction) {
         this.mission = mission;
         this.numberOfWorkers = numberOfWorkers;
         this.departmentId = departmentId;
@@ -28,11 +28,11 @@ public class BrigadeForm {
         this.mission = mission;
     }
 
-    public Integer getNumberOfWorkers() {
+    public String getNumberOfWorkers() {
         return numberOfWorkers;
     }
 
-    public void setNumberOfWorkers(Integer numberOfWorkers) {
+    public void setNumberOfWorkers(String numberOfWorkers) {
         this.numberOfWorkers = numberOfWorkers;
     }
 

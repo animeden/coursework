@@ -60,7 +60,7 @@ public class BrigadeServiceImpl implements IBrigadeService {
 
     public List<Brigade> search(String word){
         List<Brigade> list = this.getall().stream()
-                .filter(brigade -> brigade.getMission().contains(word))
+                .filter(brigade -> brigade.getMission().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }

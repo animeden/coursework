@@ -60,7 +60,7 @@ public class TimetableServiceImpl implements ITimetableService {
 
     public List<Timetable> search(String word){
         List<Timetable> list = this.getall().stream()
-                .filter(timetable -> timetable.getTimeOfGoing().contains(word))
+                .filter(timetable -> timetable.getTimeOfGoing().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }

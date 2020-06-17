@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Controller
@@ -66,10 +68,39 @@ public class BrigadeWEBController {
     String create(Model model, @ModelAttribute("brigadeForm") BrigadeForm brigadeForm){
         Brigade brigade = new Brigade();
         Department department = departmentService.get(brigadeForm.getDepartmentId());
+
         brigade.setMission(brigadeForm.getMission());
+
+            String mission = brigadeForm.getMission();
+            Pattern pattern1 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher1 = pattern1.matcher(mission);
+
+            if(!matcher1.matches()){
+                return "redirect:/web/brigade/error4";
+            }
+
         brigade.setNumberOfWorkers(brigadeForm.getNumberOfWorkers());
+
+            String numberOfWorkers = brigadeForm.getNumberOfWorkers();
+            Pattern pattern2 = Pattern.compile("^[1-9][0-9]{0,2}$");
+            Matcher matcher2 = pattern2.matcher(numberOfWorkers);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/brigade/error7";
+            }
+
         brigade.setDepartmentId(department);
+
         brigade.setDescriction(brigadeForm.getDescriction());
+
+            String description = brigadeForm.getDescriction();
+            Pattern pattern3 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher3 = pattern3.matcher(description);
+
+            if(!matcher3.matches()){
+                return "redirect:/web/brigade/error5";
+            }
+
         service.save(brigade);
         model.addAttribute("brigades", service.getall());
         return "redirect:/web/brigade/get/list";
@@ -122,5 +153,20 @@ public class BrigadeWEBController {
         model.addAttribute("searchForm", searchForm);
         model.addAttribute("brigades", list);
         return "brigadeList";
+    }
+
+    @PostMapping("/error4")
+    public String errorfinder4(){
+        return "error";
+    }
+
+    @PostMapping("/error7")
+    public String errorfinder7(){
+        return "error";
+    }
+
+    @PostMapping("/error5")
+    public String errorfinder5(){
+        return "error";
     }
 }

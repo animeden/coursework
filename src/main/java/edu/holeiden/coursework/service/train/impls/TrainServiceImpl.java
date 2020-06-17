@@ -61,7 +61,7 @@ public class TrainServiceImpl implements ITrainService {
 
     public List<Train> search(String word){
         List<Train> list = this.getall().stream()
-                .filter(train -> train.getModel().contains(word))
+                .filter(train -> train.getModel().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }

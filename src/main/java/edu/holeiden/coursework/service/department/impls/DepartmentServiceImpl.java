@@ -59,7 +59,7 @@ public class DepartmentServiceImpl implements IDepartmentService {
 
     public List<Department> search(String word){
         List<Department> list = this.getall().stream()
-                .filter(department -> department.getName().contains(word))
+                .filter(department -> department.getName().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }

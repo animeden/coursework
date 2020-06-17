@@ -60,7 +60,7 @@ public class RouteServiceImpl implements IRouteService {
 
     public List<Route> search(String word){
         List<Route> list = this.getall().stream()
-                .filter(route -> route.getStations().contains(word))
+                .filter(route -> route.getStations().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }

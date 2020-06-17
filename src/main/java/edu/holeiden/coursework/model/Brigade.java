@@ -11,7 +11,7 @@ public class Brigade {
     @Id
     private String id;
     private String mission;
-    private Integer numberOfWorkers;
+    private String numberOfWorkers;
     private Department departmentId;
     private LocalDateTime create;
     private LocalDateTime modified;
@@ -20,7 +20,7 @@ public class Brigade {
     public Brigade() {
     }
 
-    public Brigade(String id, String mission, Integer numberOfWorkers, Department departmentId, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Brigade(String id, String mission, String numberOfWorkers, Department departmentId, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
         this.mission = mission;
         this.numberOfWorkers = numberOfWorkers;
@@ -46,11 +46,11 @@ public class Brigade {
         this.mission = mission;
     }
 
-    public Integer getNumberOfWorkers() {
+    public String getNumberOfWorkers() {
         return numberOfWorkers;
     }
 
-    public void setNumberOfWorkers(Integer numberOfWorkers) {
+    public void setNumberOfWorkers(String numberOfWorkers) {
         this.numberOfWorkers = numberOfWorkers;
     }
 
