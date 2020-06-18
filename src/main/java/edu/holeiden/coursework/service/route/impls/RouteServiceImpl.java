@@ -60,7 +60,7 @@ public class RouteServiceImpl implements IRouteService {
 
     public List<Route> search(String word){
         List<Route> list = this.getall().stream()
-                .filter(route -> route.getStations().toLowerCase().contains(word.toLowerCase()))
+                .filter(route -> route.getNumber().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }
@@ -74,7 +74,7 @@ public class RouteServiceImpl implements IRouteService {
 
     private class RouteComparator implements Comparator<Route> {
         public int compare(Route p1, Route p2) {
-            return p1.getStart().compareTo(p2.getStart());
+            return p1.getNumber().compareTo(p2.getNumber());
         }
     }
 }

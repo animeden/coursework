@@ -181,6 +181,30 @@
 
     </div>
 
+    <div style="width: 100%; height: 100%; display: none; justify-content: center; flex-direction: column; align-items: center"; id="er20">
+
+        <h1>Incorrect type of train</h1>
+        <a>-You can use only 2 words</a>
+        <a>-First word start from big letter</a>
+
+    </div>
+
+    <div style="width: 100%; height: 100%; display: none; justify-content: center; flex-direction: column; align-items: center"; id="er21">
+
+        <h1>Incorrect name</h1>
+        <a>-You can use at max 5 words</a>
+        <a>-First word start from big letter</a>
+
+    </div>
+
+    <div style="width: 100%; height: 100%; display: none; justify-content: center; flex-direction: column; align-items: center"; id="er22">
+
+        <h1>Incorrect place</h1>
+        <a>-You can use at max 5 words</a>
+        <a>-First word start from big letter</a>
+
+    </div>
+
 </body>
 
 </html>
@@ -350,6 +374,50 @@
             if(f == "http://localhost:1821/web/ftrain/error17")
             {
                 document.getElementById("er17").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/carman/error20")
+            {
+                document.getElementById("er20").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/carman/error1")
+            {
+                document.getElementById("er1").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/carman/error2")
+            {
+                document.getElementById("er2").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/carman/error3")
+            {
+                document.getElementById("er3").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/carman/error5")
+            {
+                document.getElementById("er5").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/carman/error8")
+            {
+                document.getElementById("er8").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/carman/error9")
+            {
+                document.getElementById("er9").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/carman/error15")
+            {
+                document.getElementById("er15").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/station/error21")
+            {
+                document.getElementById("er21").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/station/error22")
+            {
+                document.getElementById("er22").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/station/error5")
+            {
+                document.getElementById("er5").style.display = 'flex';
             }
         }
 
