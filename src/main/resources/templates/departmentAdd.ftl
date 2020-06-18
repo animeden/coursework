@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create/Edith</title>
 
 </head>
 
@@ -21,7 +21,7 @@
         <br>
         Administration ID:<@spring.formSingleSelect "departmentForm.administrationID", mavs, ""/>
         <br>
-        Number of Brigade:<@spring.formInput "departmentForm.numberOfBrigates" "" "text"/>
+        Number of brigade:<@spring.formInput "departmentForm.numberOfBrigates" "" "text"/>
         <br>
         Description:<@spring.formInput "departmentForm.descriction" "" "text"/>
         <br>

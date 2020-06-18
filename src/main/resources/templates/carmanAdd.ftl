@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create/Edith</title>
 
 </head>
 
@@ -15,15 +15,13 @@
 
 <form name="carman" action="" method="POST" style="width: 700px; height: 500px; line-height: 2; margin-left: 15px; margin-top: 8px">
 
-    Name:<@spring.formInput "carmanForm.fullName" "" "text"/>
+    Full name:<@spring.formInput "carmanForm.fullName" "" "text"/>
     <br>
     Phone:<@spring.formInput "carmanForm.phone" "" "text"/>
     <br>
     Adress:<@spring.formInput "carmanForm.adress" "" "text"/>
     <br>
-    Birth(Day.Month.Year):<@spring.formInput "carmanForm.birth" "" "text"/>
-    <br>
-    Subclass:<@spring.formInput "carmanForm.subclass" "" "text"/>
+    Birth date(Day.Month.Year):<@spring.formInput "carmanForm.birth" "" "text"/>
     <br>
     Brigade ID:<@spring.formSingleSelect "carmanForm.brigateID", mavs, ""/>
     <br>

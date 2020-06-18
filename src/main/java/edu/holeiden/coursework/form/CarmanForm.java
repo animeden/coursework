@@ -9,7 +9,6 @@ public class CarmanForm {
     private String phone;
     private String adress;
     private String birth;
-    private String subclass;
     private String brigateID;
     private String driveExperience;
     private String typeOfTrains;
@@ -18,12 +17,11 @@ public class CarmanForm {
     public CarmanForm() {
     }
 
-    public CarmanForm(String fullName, String phone, String adress, String birth, String subclass, String brigateID, String driveExperience, String typeOfTrains, String descriction) {
+    public CarmanForm(String fullName, String phone, String adress, String birth, String brigateID, String driveExperience, String typeOfTrains, String descriction) {
         this.fullName = fullName;
         this.phone = phone;
         this.adress = adress;
         this.birth = birth;
-        this.subclass = subclass;
         this.brigateID = brigateID;
         this.driveExperience = driveExperience;
         this.typeOfTrains = typeOfTrains;
@@ -60,14 +58,6 @@ public class CarmanForm {
 
     public void setBirth(String birth) {
         this.birth = birth;
-    }
-
-    public String getSubclass() {
-        return subclass;
-    }
-
-    public void setSubclass(String subclass) {
-        this.subclass = subclass;
     }
 
     public String getBrigateID() {
@@ -109,7 +99,6 @@ public class CarmanForm {
                 ", phone='" + phone + '\'' +
                 ", adress='" + adress + '\'' +
                 ", birth='" + birth + '\'' +
-                ", subclass='" + subclass + '\'' +
                 ", brigateID='" + brigateID + '\'' +
                 ", driveExperience='" + driveExperience + '\'' +
                 ", typeOfTrains='" + typeOfTrains + '\'' +

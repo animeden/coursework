@@ -12,21 +12,19 @@ public class TimetableForm {
     private String dateOfCome;
     private String numberOfRoute;
     private String ticketPrice;
-    private String readyID;
     private String numberOfPassager;
     private String descriction;
 
     public TimetableForm() {
     }
 
-    public TimetableForm(String timeOfGoing, String dateOfGoing, String timeOfCome, String dateOfCome, String numberOfRoute, String ticketPrice, String readyID, String numberOfPassager, String descriction) {
+    public TimetableForm(String timeOfGoing, String dateOfGoing, String timeOfCome, String dateOfCome, String numberOfRoute, String ticketPrice, String numberOfPassager, String descriction) {
         this.timeOfGoing = timeOfGoing;
         this.dateOfGoing = dateOfGoing;
         this.timeOfCome = timeOfCome;
         this.dateOfCome = dateOfCome;
         this.numberOfRoute = numberOfRoute;
         this.ticketPrice = ticketPrice;
-        this.readyID = readyID;
         this.numberOfPassager = numberOfPassager;
         this.descriction = descriction;
     }
@@ -61,14 +59,6 @@ public class TimetableForm {
 
     public void setTicketPrice(String ticketPrice) {
         this.ticketPrice = ticketPrice;
-    }
-
-    public String getReadyID() {
-        return readyID;
-    }
-
-    public void setReadyID(String readyID) {
-        this.readyID = readyID;
     }
 
     public String getNumberOfPassager() {
@@ -112,7 +102,6 @@ public class TimetableForm {
                 ", dateOfCome='" + dateOfCome + '\'' +
                 ", numberOfRoute='" + numberOfRoute + '\'' +
                 ", ticketPrice='" + ticketPrice + '\'' +
-                ", readyID='" + readyID + '\'' +
                 ", numberOfPassager='" + numberOfPassager + '\'' +
                 ", descriction='" + descriction + '\'' +
                 '}';

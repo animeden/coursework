@@ -11,8 +11,8 @@ public class Route {
     @Id
     private String id;
     private String number;
-    private String start;
-    private String end;
+    private Station start;
+    private Station end;
     private String stations;
     private String typeOfRoute;
     private LocalDateTime create;
@@ -22,7 +22,7 @@ public class Route {
     public Route() {
     }
 
-    public Route(String id, String number, String start, String end, String stations, String typeOfRoute, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Route(String id, String number, Station start, Station end, String stations, String typeOfRoute, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
         this.number = number;
         this.start = start;
@@ -42,19 +42,19 @@ public class Route {
         this.id = id;
     }
 
-    public String getStart() {
+    public Station getStart() {
         return start;
     }
 
-    public void setStart(String start) {
+    public void setStart(Station start) {
         this.start = start;
     }
 
-    public String getEnd() {
+    public Station getEnd() {
         return end;
     }
 
-    public void setEnd(String end) {
+    public void setEnd(Station end) {
         this.end = end;
     }
 

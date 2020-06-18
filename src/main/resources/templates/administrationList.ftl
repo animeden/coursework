@@ -4,6 +4,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <title>Administration</title>
+
 </head>
 
 <div style="width: 100%; height: 100%; background: #08032b">
@@ -64,8 +66,8 @@
                 <tr style="background-color: #a81919">
 
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Birth</th>
+                    <th>Full name</th>
+                    <th>Birth date</th>
                     <th>Phone Number</th>
                     <th>Adress</th>
                     <th>Discription</th>

@@ -16,7 +16,6 @@ public class Timetable {
     private String dateOfCome;
     private Route numberOfRoute;
     private String ticketPrice;
-    private Ready readyID;
     private String numberOfPassager;
     private LocalDateTime create;
     private LocalDateTime modified;
@@ -25,7 +24,7 @@ public class Timetable {
     public Timetable() {
     }
 
-    public Timetable(String id, String timeOfGoing, String dateOfGoing, String timeOfCome, String dateOfCome, Route numberOfRoute, String ticketPrice, Ready readyID, String numberOfPassager, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Timetable(String id, String timeOfGoing, String dateOfGoing, String timeOfCome, String dateOfCome, Route numberOfRoute, String ticketPrice, String numberOfPassager, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
         this.timeOfGoing = timeOfGoing;
         this.dateOfGoing = dateOfGoing;
@@ -33,7 +32,6 @@ public class Timetable {
         this.dateOfCome = dateOfCome;
         this.numberOfRoute = numberOfRoute;
         this.ticketPrice = ticketPrice;
-        this.readyID = readyID;
         this.numberOfPassager = numberOfPassager;
         this.create = create;
         this.modified = modified;
@@ -72,14 +70,6 @@ public class Timetable {
 
     public void setTicketPrice(String ticketPrice) {
         this.ticketPrice = ticketPrice;
-    }
-
-    public Ready getReadyID() {
-        return readyID;
-    }
-
-    public void setReadyID(Ready readyID) {
-        this.readyID = readyID;
     }
 
     public String getNumberOfPassager() {
@@ -153,7 +143,6 @@ public class Timetable {
                 ", dateOfCome='" + dateOfCome + '\'' +
                 ", numberOfRoute=" + numberOfRoute +
                 ", ticketPrice='" + ticketPrice + '\'' +
-                ", readyID=" + readyID +
                 ", numberOfPassager='" + numberOfPassager + '\'' +
                 ", create=" + create +
                 ", modified=" + modified +

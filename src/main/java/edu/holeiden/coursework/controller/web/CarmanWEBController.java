@@ -109,16 +109,6 @@ public class CarmanWEBController {
                 return "redirect:/web/carman/error2";
             }
 
-        carman.setSubclass(carmanForm.getSubclass());
-
-            String subclass = carmanForm.getSubclass();
-            Pattern pattern5 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
-            Matcher matcher5 = pattern5.matcher(subclass);
-
-            if(!matcher5.matches()){
-                return "redirect:/web/carman/error15";
-            }
-
         carman.setBrigateID(brigade);
 
         carman.setDriveExperience(carmanForm.getDriveExperience());
@@ -166,7 +156,6 @@ public class CarmanWEBController {
         carmanForm.setPhone(carman.getPhone());
         carmanForm.setAdress(carman.getAdress());
         carmanForm.setBirth(carman.getBirth());
-        carmanForm.setSubclass(carman.getSubclass());
         carmanForm.setBrigateID(carman.getBrigateID().getMission());
         carmanForm.setDriveExperience(carman.getDriveExperience());
         carmanForm.setTypeOfTrains(carman.getTypeOfTrains());
@@ -220,16 +209,6 @@ public class CarmanWEBController {
 
             if (!matcher4.matches()) {
                 return "redirect:/web/carman/error2";
-            }
-
-        carman.setSubclass(carmanForm.getSubclass());
-
-            String subclass = carmanForm.getSubclass();
-            Pattern pattern5 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
-            Matcher matcher5 = pattern5.matcher(subclass);
-
-            if (!matcher5.matches()) {
-                return "redirect:/web/carman/error15";
             }
 
         carman.setBrigateID(brigade);
@@ -291,11 +270,6 @@ public class CarmanWEBController {
 
     @PostMapping("/error5")
     public String errorfinder5(){
-        return "error";
-    }
-
-    @PostMapping("/error15")
-    public String errorfinder15(){
         return "error";
     }
 

@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create/Edith</title>
 
 </head>
 
@@ -15,13 +15,13 @@
 
     <form name="worker" action="" method="POST" style="width: 700px; height: 500px; line-height: 2; margin-left: 15px; margin-top: 8px">
 
-        Name:<@spring.formInput "workerForm.fullName" "" "text"/>
+        Full name:<@spring.formInput "workerForm.fullName" "" "text"/>
         <br>
         Phone:<@spring.formInput "workerForm.phone" "" "text"/>
         <br>
         Adress:<@spring.formInput "workerForm.adress" "" "text"/>
         <br>
-        Birth(Day.Month.Year):<@spring.formInput "workerForm.birth" "" "text"/>
+        Birth date(Day.Month.Year):<@spring.formInput "workerForm.birth" "" "text"/>
         <br>
         Subclass:<@spring.formInput "workerForm.subclass" "" "text"/>
         <br>

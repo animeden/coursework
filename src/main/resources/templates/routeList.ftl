@@ -4,6 +4,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <title>Route</title>
+
 </head>
 
 <div style="width: 100%; height: 100%; background: #08032b">
@@ -81,8 +83,8 @@
 
                         <td>${route.id}</td>
                         <td>${route.number}</td>
-                        <td>${route.start}</td>
-                        <td>${route.end}</td>
+                        <td>${route.start.getPlace()}</td>
+                        <td>${route.end.getPlace()}</td>
                         <td>${route.stations}</td>
                         <td>${route.typeOfRoute}</td>
                         <td>${route.descriction}</td>

@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create/Edith</title>
 
 </head>
 
@@ -21,9 +21,9 @@
     <br>
     Recovery brigade:<@spring.formSingleSelect "ftrainsForm.recoveryBrigade", mavs, ""/>
     <br>
-    Year of Manufacture:<@spring.formInput "ftrainsForm.yearOfManufacture" "" "text"/>
+    Year of manufacture:<@spring.formInput "ftrainsForm.yearOfManufacture" "" "text"/>
     <br>
-    Number of passengers:<@spring.formInput "ftrainsForm.loadCapasity" "" "text"/>
+    Load capacity:<@spring.formInput "ftrainsForm.loadCapasity" "" "text"/>
     <br>
     Description:<@spring.formInput "ftrainsForm.descriction" "" "text"/>
     <br>

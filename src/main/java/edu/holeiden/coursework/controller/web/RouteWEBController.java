@@ -3,25 +3,28 @@ package edu.holeiden.coursework.controller.web;
 import edu.holeiden.coursework.form.DepartmentForm;
 import edu.holeiden.coursework.form.RouteForm;
 import edu.holeiden.coursework.form.SearchForm;
-import edu.holeiden.coursework.model.Administration;
-import edu.holeiden.coursework.model.Department;
-import edu.holeiden.coursework.model.Ready;
-import edu.holeiden.coursework.model.Route;
+import edu.holeiden.coursework.model.*;
 import edu.holeiden.coursework.service.route.impls.RouteServiceImpl;
+import edu.holeiden.coursework.service.station.impls.StationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/web/route")
 public class RouteWEBController {
     @Autowired
     RouteServiceImpl service;
+
+    @Autowired
+    StationServiceImpl stationService;
 
     @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
@@ -52,6 +55,9 @@ public class RouteWEBController {
     @RequestMapping("/create")
     String create(Model model){
         RouteForm routeForm = new RouteForm();
+        Map<String, String> mavs = stationService.getall().stream()
+                .collect(Collectors.toMap(Station::getId, Station::getPlace));
+        model.addAttribute("mavs", mavs);
         model.addAttribute("routeForm", routeForm);
         return "routeAdd";
     }
@@ -59,6 +65,8 @@ public class RouteWEBController {
     @PostMapping("/create")
     String create(Model model, @ModelAttribute("routeForm") RouteForm routeForm){
         Route route = new Route();
+        Station station1 = stationService.get(routeForm.getStart());
+        Station station2 = stationService.get(routeForm.getEnd());
 
         route.setNumber(routeForm.getNumber());
 
@@ -70,25 +78,9 @@ public class RouteWEBController {
                 return "redirect:/web/route/error6";
             }
 
-        route.setStart(routeForm.getStart());
+        route.setStart(station1);
 
-            String start = routeForm.getStart();
-            Pattern pattern1 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$|^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s][A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}");
-            Matcher matcher1 = pattern1.matcher(start);
-
-            if(!matcher1.matches()){
-                return "redirect:/web/route/error10";
-            }
-
-        route.setEnd(routeForm.getEnd());
-
-            String end = routeForm.getEnd();
-            Pattern pattern2 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$|^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s][A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}");
-            Matcher matcher2 = pattern2.matcher(end);
-
-            if(!matcher2.matches()){
-                return "redirect:/web/route/error10";
-            }
+        route.setEnd(station2);
 
         route.setStations(routeForm.getStations());
 
@@ -120,13 +112,16 @@ public class RouteWEBController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     String edit(Model model, @PathVariable("id") String id){
         Route route = service.get(id);
+        Map<String, String> mavs = stationService.getall().stream()
+                .collect(Collectors.toMap(Station::getId, Station::getPlace));
         RouteForm routeForm = new RouteForm();
         routeForm.setNumber(route.getNumber());
-        routeForm.setStart(route.getStart());
-        routeForm.setEnd(route.getEnd());
+        routeForm.setStart(route.getStart().getPlace());
+        routeForm.setEnd(route.getEnd().getPlace());
         routeForm.setStations(route.getStations());
         routeForm.setTypeOfRoute(route.getTypeOfRoute());
         routeForm.setDescriction(route.getDescriction());
+        model.addAttribute("mavs", mavs);
         model.addAttribute("routeForm", routeForm);
         return "routeAdd";
     }
@@ -134,6 +129,8 @@ public class RouteWEBController {
     @PostMapping("/edit/{id}")
     String edith(Model model, @PathVariable("id") String id, @ModelAttribute("routeForm") RouteForm routeForm){
         Route route = new Route();
+        Station station1 = stationService.get(routeForm.getStart());
+        Station station2 = stationService.get(routeForm.getEnd());
         route.setId(id);
 
         route.setNumber(routeForm.getNumber());
@@ -146,25 +143,9 @@ public class RouteWEBController {
                 return "redirect:/web/route/error6";
             }
 
-        route.setStart(routeForm.getStart());
+        route.setStart(station1);
 
-            String start = routeForm.getStart();
-            Pattern pattern1 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$|^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s][A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}");
-            Matcher matcher1 = pattern1.matcher(start);
-
-            if(!matcher1.matches()){
-                return "redirect:/web/route/error10";
-            }
-
-        route.setEnd(routeForm.getEnd());
-
-            String end = routeForm.getEnd();
-            Pattern pattern2 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$|^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[\\s][A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}");
-            Matcher matcher2 = pattern2.matcher(end);
-
-            if(!matcher2.matches()){
-                return "redirect:/web/route/error10";
-            }
+        route.setEnd(station2);
 
         route.setStations(routeForm.getStations());
 
@@ -215,11 +196,6 @@ public class RouteWEBController {
 
     @PostMapping("/error5")
     public String errorfinder5(){
-        return "error";
-    }
-
-    @PostMapping("/error10")
-    public String errorfinder10(){
         return "error";
     }
 

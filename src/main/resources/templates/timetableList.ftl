@@ -4,6 +4,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <title>Timetable</title>
+
 </head>
 
 <div style="width: 100%; height: 100%; background: #08032b">
@@ -68,9 +70,8 @@
                     <th>Date of going</th>
                     <th>Time of come</th>
                     <th>Date of come</th>
-                    <th>Route</th>
+                    <th>Route number</th>
                     <th>Ticket price</th>
-                    <th>Ready</th>
                     <th>Number of passenger</th>
                     <th>Description</th>
                     <th>Edit</th>
@@ -89,7 +90,6 @@
                         <td>${timetable.dateOfCome}</td>
                         <td>${timetable.numberOfRoute.stations}</td>
                         <td>${timetable.ticketPrice}</td>
-                        <td>${timetable.readyID.descriction}</td>
                         <td>${timetable.numberOfPassager}</td>
                         <td>${timetable.descriction}</td>
 

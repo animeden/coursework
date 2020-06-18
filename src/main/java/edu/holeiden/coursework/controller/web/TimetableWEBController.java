@@ -73,7 +73,6 @@ public class TimetableWEBController {
     @PostMapping("/create")
     String create(Model model, @ModelAttribute("timetableForm") TimetableForm timetableForm){
         Timetable timetable = new Timetable();
-        Ready ready = readyService.get(timetableForm.getReadyID());
         Route route = routeService.get(timetableForm.getNumberOfRoute());
 
         timetable.setTimeOfGoing(timetableForm.getTimeOfGoing());
@@ -127,8 +126,6 @@ public class TimetableWEBController {
             if(!matcher3.matches()){
                 return "redirect:/web/timetable/error12";
             }
-
-        timetable.setReadyID(ready);
 
         timetable.setNumberOfPassager(timetableForm.getNumberOfPassager());
 
@@ -170,7 +167,6 @@ public class TimetableWEBController {
         timetableForm.setDateOfGoing(timetable.getDateOfGoing());
         timetableForm.setNumberOfRoute(timetable.getNumberOfRoute().getStations());
         timetableForm.setTicketPrice(timetable.getTicketPrice());
-        timetableForm.setReadyID(timetable.getReadyID().getDescriction());
         timetableForm.setNumberOfPassager(timetable.getNumberOfPassager());
         timetableForm.setDescriction(timetable.getDescriction());
         model.addAttribute("mavs", mavs);
@@ -183,7 +179,6 @@ public class TimetableWEBController {
     String edith(Model model, @PathVariable("id") String id, @ModelAttribute("timetableForm") TimetableForm timetableForm){
         Timetable timetable = new Timetable();
         timetable.setId(id);
-        Ready ready = readyService.get(timetableForm.getReadyID());
         Route route = routeService.get(timetableForm.getNumberOfRoute());
 
         timetable.setTimeOfGoing(timetableForm.getTimeOfGoing());
@@ -237,8 +232,6 @@ public class TimetableWEBController {
             if(!matcher3.matches()){
                 return "redirect:/web/timetable/error12";
             }
-
-        timetable.setReadyID(ready);
 
         timetable.setNumberOfPassager(timetableForm.getNumberOfPassager());
 

@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create/Edith</title>
 
 </head>
 
@@ -17,7 +17,7 @@
 
     Name:<@spring.formInput "stationForm.name" "" "text"/>
     <br>
-    Place:<@spring.formInput "stationForm.place" "" "text"/>
+    Location:<@spring.formInput "stationForm.place" "" "text"/>
     <br>
     Description:<@spring.formInput "stationForm.descriction" "" "text"/>
     <br>

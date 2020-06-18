@@ -12,7 +12,6 @@ public class Carman {
     private String phone;
     private String adress;
     private String birth;
-    private String subclass;
     private Brigade brigateID;
     private String driveExperience;
     private String typeOfTrains;
@@ -23,13 +22,12 @@ public class Carman {
     public Carman() {
     }
 
-    public Carman(String id, String fullName, String phone, String adress, String birth, String subclass, Brigade brigateID, String driveExperience, String typeOfTrains, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Carman(String id, String fullName, String phone, String adress, String birth, Brigade brigateID, String driveExperience, String typeOfTrains, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
         this.fullName = fullName;
         this.phone = phone;
         this.adress = adress;
         this.birth = birth;
-        this.subclass = subclass;
         this.brigateID = brigateID;
         this.driveExperience = driveExperience;
         this.typeOfTrains = typeOfTrains;
@@ -76,14 +74,6 @@ public class Carman {
 
     public void setBirth(String birth) {
         this.birth = birth;
-    }
-
-    public String getSubclass() {
-        return subclass;
-    }
-
-    public void setSubclass(String subclass) {
-        this.subclass = subclass;
     }
 
     public Brigade getBrigateID() {
@@ -155,7 +145,6 @@ public class Carman {
                 ", phone='" + phone + '\'' +
                 ", adress='" + adress + '\'' +
                 ", birth='" + birth + '\'' +
-                ", subclass='" + subclass + '\'' +
                 ", brigateID=" + brigateID +
                 ", driveExperience='" + driveExperience + '\'' +
                 ", typeOfTrains='" + typeOfTrains + '\'' +

@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create/Edith</title>
 
 </head>
 
@@ -26,8 +26,6 @@
         Number of route:<@spring.formSingleSelect "timetableForm.numberOfRoute", mavs, ""/>
         <br>
         Ticket price:<@spring.formInput "timetableForm.ticketPrice" "" "text"/>
-        <br>
-        Ready ID:<@spring.formSingleSelect "timetableForm.readyID", mavss, ""/>
         <br>
         Number of passengers:<@spring.formInput "timetableForm.numberOfPassager" "" "text"/>
         <br>

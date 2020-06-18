@@ -4,6 +4,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <title>Carman</title>
+
 </head>
 
 <div style="width: 100%; height: 100%; background: #08032b">
@@ -64,11 +66,10 @@
                 <tr style="background-color: #a81919">
 
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Full name</th>
                     <th>Phone</th>
                     <th>Adress</th>
-                    <th>Birth</th>
-                    <th>Subclass</th>
+                    <th>Birth date</th>
                     <th>Brigade</th>
                     <th>Drive experience</th>
                     <th>Type of trains</th>
@@ -87,7 +88,6 @@
                         <td>${carman.phone}</td>
                         <td>${carman.adress}</td>
                         <td>${carman.birth}</td>
-                        <td>${carman.subclass}</td>
                         <td>${carman.brigateID.mission}</td>
                         <td>${carman.driveExperience}</td>
                         <td>${carman.typeOfTrains}</td>

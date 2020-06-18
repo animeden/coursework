@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create/Edith</title>
 
 </head>
 
@@ -17,11 +17,11 @@
 
     Train ID:<@spring.formSingleSelect "readyForm.trainID", mavs, ""/>
     <br>
-    Review:<@spring.formInput "readyForm.review" "" "text"/>
+    Review(+/-):<@spring.formInput "readyForm.review" "" "text"/>
     <br>
-    Clear:<@spring.formInput "readyForm.clear" "" "text"/>
+    Clear(+/-):<@spring.formInput "readyForm.clear" "" "text"/>
     <br>
-    Food:<@spring.formInput "readyForm.food" "" "text"/>
+    Food(+/-):<@spring.formInput "readyForm.food" "" "text"/>
     <br>
     Description:<@spring.formInput "readyForm.descriction" "" "text"/>
     <br>

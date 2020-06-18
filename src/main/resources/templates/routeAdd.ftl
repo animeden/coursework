@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create/Edith</title>
 
 </head>
 
@@ -17,9 +17,9 @@
 
         Number:<@spring.formInput "routeForm.number" "" "text"/>
         <br>
-        Start:<@spring.formInput "routeForm.start" "" "text"/>
+        Start point:<@spring.formSingleSelect "routeForm.start" mavs "text"/>
         <br>
-        End:<@spring.formInput "routeForm.end" "" "text"/>
+        End point:<@spring.formSingleSelect "routeForm.end" mavs "text"/>
         <br>
         Stations:<@spring.formInput "routeForm.stations" "" "text"/>
         <br>

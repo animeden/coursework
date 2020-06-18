@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create/Edith</title>
 
 </head>
 
@@ -17,7 +17,7 @@
 
         Number:<@spring.formInput "brigadeForm.number" "" "text"/>
         <br>
-        Mission:<@spring.formInput "brigadeForm.mission" "" "text"/>
+        Function:<@spring.formInput "brigadeForm.mission" "" "text"/>
         <br>
         Number of workers:<@spring.formInput "brigadeForm.numberOfWorkers" "" "text"/>
         <br>
