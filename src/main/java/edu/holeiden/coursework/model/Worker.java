@@ -16,6 +16,7 @@ public class Worker {
     private String birth;
     private String subclass;
     private Brigade brigateID;
+    private String experience;
     private LocalDateTime create;
     private LocalDateTime modified;
     private String descriction;
@@ -23,7 +24,7 @@ public class Worker {
     public Worker() {
     }
 
-    public Worker(String id, String fullName, String phone, String adress, String birth, String subclass, Brigade brigateID, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Worker(String id, String fullName, String phone, String adress, String birth, String subclass, Brigade brigateID, String experience, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
         this.fullName = fullName;
         this.phone = phone;
@@ -31,6 +32,7 @@ public class Worker {
         this.birth = birth;
         this.subclass = subclass;
         this.brigateID = brigateID;
+        this.experience = experience;
         this.create = create;
         this.modified = modified;
         this.descriction = descriction;
@@ -112,6 +114,14 @@ public class Worker {
         this.descriction = descriction;
     }
 
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -130,11 +140,12 @@ public class Worker {
         return "Worker{" +
                 "id='" + id + '\'' +
                 ", fullName='" + fullName + '\'' +
-                ", phone=" + phone +
+                ", phone='" + phone + '\'' +
                 ", adress='" + adress + '\'' +
                 ", birth='" + birth + '\'' +
                 ", subclass='" + subclass + '\'' +
                 ", brigateID=" + brigateID +
+                ", experience='" + experience + '\'' +
                 ", create=" + create +
                 ", modified=" + modified +
                 ", descriction='" + descriction + '\'' +

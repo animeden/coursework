@@ -27,6 +27,8 @@
         <br>
         Brigade ID:<@spring.formSingleSelect "workerForm.brigateID", mavs, ""/>
         <br>
+        Experience:<@spring.formInput "workerForm.experience" "" "text"/>
+        <br>
         Description:<@spring.formInput "workerForm.descriction" "" "text"/>
         <br>
 

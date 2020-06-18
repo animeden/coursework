@@ -71,9 +71,33 @@ public class ReadyWEBController {
 
         ready.setReview(readyForm.getReview());
 
+            String review = readyForm.getReview();
+            Pattern pattern2 = Pattern.compile("^[+-]$");
+            Matcher matcher2 = pattern2.matcher(review);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/department/error19";
+            }
+
         ready.setClear(readyForm.getClear());
 
+            String clear = readyForm.getClear();
+            Pattern pattern3 = Pattern.compile("^[+-]$");
+            Matcher matcher3 = pattern3.matcher(clear);
+
+            if(!matcher3.matches()){
+                return "redirect:/web/department/error19";
+            }
+
         ready.setFood(readyForm.getFood());
+
+            String food = readyForm.getFood();
+            Pattern pattern4 = Pattern.compile("^[+-]$");
+            Matcher matcher4 = pattern4.matcher(food);
+
+            if(!matcher4.matches()){
+                return "redirect:/web/department/error19";
+            }
 
         ready.setDescriction(readyForm.getDescriction());
 
@@ -116,9 +140,33 @@ public class ReadyWEBController {
 
         ready.setReview(readyForm.getReview());
 
+            String review = readyForm.getReview();
+            Pattern pattern2 = Pattern.compile("^[+-]$");
+            Matcher matcher2 = pattern2.matcher(review);
+
+            if(!matcher2.matches()){
+                return "redirect:/web/department/error19";
+            }
+
         ready.setClear(readyForm.getClear());
 
+            String clear = readyForm.getClear();
+            Pattern pattern3 = Pattern.compile("^[+-]$");
+            Matcher matcher3 = pattern3.matcher(clear);
+
+            if(!matcher3.matches()){
+                return "redirect:/web/department/error19";
+            }
+
         ready.setFood(readyForm.getFood());
+
+            String food = readyForm.getFood();
+            Pattern pattern4 = Pattern.compile("^[+-]$");
+            Matcher matcher4 = pattern4.matcher(food);
+
+            if(!matcher4.matches()){
+                return "redirect:/web/department/error19";
+            }
 
         ready.setDescriction(readyForm.getDescriction());
 

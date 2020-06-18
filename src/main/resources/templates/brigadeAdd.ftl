@@ -15,6 +15,8 @@
 
     <form name="brigade" action="" method="POST" style="width: 700px; height: 500px; line-height: 2; margin-left: 15px; margin-top: 8px">
 
+        Number:<@spring.formInput "brigadeForm.number" "" "text"/>
+        <br>
         Mission:<@spring.formInput "brigadeForm.mission" "" "text"/>
         <br>
         Number of workers:<@spring.formInput "brigadeForm.numberOfWorkers" "" "text"/>

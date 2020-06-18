@@ -146,6 +146,41 @@
 
     </div>
 
+    <div style="width: 100%; height: 100%; display: none; justify-content: center; flex-direction: column; align-items: center"; id="er16">
+
+        <h1>Incorrect date</h1>
+        <a>-Dates lover that 10 must be writed like(09,03,08.....)</a>
+        <a>-Days can't be more that 31</a>
+        <a>-Mounts can't be more that 12</a>
+        <a>-Didn't write years</a>
+        <a>-You can't use letters</a>
+
+    </div>
+
+    <div style="width: 100%; height: 100%; display: none; justify-content: center; flex-direction: column; align-items: center"; id="er17">
+
+        <h1>Incorrect year</h1>
+        <a>-Lower year is 1900</a>
+        <a>-Heighter year is 2099</a>
+        <a>-You can't use letters</a>
+
+    </div>
+
+    <div style="width: 100%; height: 100%; display: none; justify-content: center; flex-direction: column; align-items: center"; id="er18">
+
+        <h1>Incorrect status</h1>
+        <a>-You can use only one word</a>
+        <a>-First letter must be big</a>
+
+    </div>
+
+    <div style="width: 100%; height: 100%; display: none; justify-content: center; flex-direction: column; align-items: center"; id="er19">
+
+        <h1>Incorrect status</h1>
+        <a>-Use "+" if it's done and "-" if not</a>
+
+    </div>
+
 </body>
 
 </html>
@@ -240,11 +275,11 @@
             {
                 document.getElementById("er13").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/train/error14")
+            if(f == "http://localhost:1821/web/ptrain/error14")
             {
                 document.getElementById("er14").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/train/error5")
+            if(f == "http://localhost:1821/web/ptrain/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
@@ -271,6 +306,50 @@
             if(f == "http://localhost:1821/web/worker/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/timetable/error16")
+            {
+                document.getElementById("er16").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/ptrain/error17")
+            {
+                document.getElementById("er17").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/route/error6")
+            {
+                document.getElementById("er6").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/passenger/error18")
+            {
+                document.getElementById("er18").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/ready/error19")
+            {
+                document.getElementById("er19").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/worker/error8")
+            {
+                document.getElementById("er8").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/ptrain/error6")
+            {
+                document.getElementById("er6").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/ftrain/error6")
+            {
+                document.getElementById("er6").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/ftrain/error5")
+            {
+                document.getElementById("er5").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/ftrain/error14")
+            {
+                document.getElementById("er14").style.display = 'flex';
+            }
+            if(f == "http://localhost:1821/web/ftrain/error17")
+            {
+                document.getElementById("er17").style.display = 'flex';
             }
         }
 

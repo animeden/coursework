@@ -10,6 +10,7 @@ import java.util.Objects;
 public class Route {
     @Id
     private String id;
+    private String number;
     private String start;
     private String end;
     private String stations;
@@ -21,8 +22,9 @@ public class Route {
     public Route() {
     }
 
-    public Route(String id, String start, String end, String stations, String typeOfRoute, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Route(String id, String number, String start, String end, String stations, String typeOfRoute, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
+        this.number = number;
         this.start = start;
         this.end = end;
         this.stations = stations;
@@ -96,6 +98,14 @@ public class Route {
         this.descriction = descriction;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -109,16 +119,18 @@ public class Route {
         return Objects.hash(getId());
     }
 
+
     @Override
     public String toString() {
         return "Route{" +
-                "routeID=" + id +
+                "id='" + id + '\'' +
+                ", number='" + number + '\'' +
                 ", start='" + start + '\'' +
                 ", end='" + end + '\'' +
                 ", stations='" + stations + '\'' +
                 ", typeOfRoute='" + typeOfRoute + '\'' +
-                ", create='" + create + '\'' +
-                ", modified='" + modified + '\'' +
+                ", create=" + create +
+                ", modified=" + modified +
                 ", descriction='" + descriction + '\'' +
                 '}';
     }

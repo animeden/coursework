@@ -1,10 +1,7 @@
 package edu.holeiden.coursework.service.train.impls;
 
 import edu.holeiden.coursework.dao.repository.TrainRepository;
-import edu.holeiden.coursework.model.Administration;
-import edu.holeiden.coursework.model.Timetable;
 import edu.holeiden.coursework.model.Train;
-import edu.holeiden.coursework.service.administration.impls.AdministrationServiceImpl;
 import edu.holeiden.coursework.service.train.interfaces.ITrainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

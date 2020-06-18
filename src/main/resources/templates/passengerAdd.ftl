@@ -15,9 +15,11 @@
 
     <form name="passenger" action="" method="POST" style="width: 700px; height: 500px; line-height: 2; margin-left: 15px; margin-top: 8px">
 
-        Status:<@spring.formInput "passengerForm.status" "" "text"/>
+        Ticket status:<@spring.formInput "passengerForm.status" "" "text"/>
         <br>
-        Route ID:<@spring.formSingleSelect "passengerForm.routeID", mavs, ""/>
+        Timetable:<@spring.formSingleSelect "passengerForm.timetableID", mavs, ""/>
+        <br>
+        Baggage status:<@spring.formInput "passengerForm.baggageStatus" "" "text"/>
         <br>
         Description:<@spring.formInput "passengerForm.descriction" "" "text"/>
         <br>

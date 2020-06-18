@@ -10,8 +10,9 @@ import java.util.Objects;
 public class Passenger {
     @Id
     private String id;
-    private String status;
-    private Route routeID;
+    private String ticketStatus;
+    private Timetable timetableID;
+    private String baggageStatus;
     private LocalDateTime create;
     private LocalDateTime modified;
     private String descriction;
@@ -19,10 +20,11 @@ public class Passenger {
     public Passenger() {
     }
 
-    public Passenger(String id, String status, Route routeID, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Passenger(String id, String ticketStatus, Timetable timetableID, String baggageStatus, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
-        this.status = status;
-        this.routeID = routeID;
+        this.ticketStatus = ticketStatus;
+        this.timetableID = timetableID;
+        this.baggageStatus = baggageStatus;
         this.create = create;
         this.modified = modified;
         this.descriction = descriction;
@@ -32,20 +34,20 @@ public class Passenger {
 
     public void setId(String id) { this.id = id; }
 
-    public String getStatus() {
-        return status;
+    public String getTicketStatus() {
+        return ticketStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTicketStatus(String ticketStatus) {
+        this.ticketStatus = ticketStatus;
     }
 
-    public Route getRouteID() {
-        return routeID;
+    public Timetable getTimetableID() {
+        return timetableID;
     }
 
-    public void setRouteID(Route routeID) {
-        this.routeID = routeID;
+    public void setTimetableID(Timetable timetableID) {
+        this.timetableID = timetableID;
     }
 
     public LocalDateTime getCreate() {
@@ -72,6 +74,14 @@ public class Passenger {
         this.descriction = descriction;
     }
 
+    public String getBaggageStatus() {
+        return baggageStatus;
+    }
+
+    public void setBaggageStatus(String baggageStatus) {
+        this.baggageStatus = baggageStatus;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -88,9 +98,10 @@ public class Passenger {
     @Override
     public String toString() {
         return "Passenger{" +
-                "passengID='" + id + '\'' +
-                ", status='" + status + '\'' +
-                ", routeID=" + routeID +
+                "id='" + id + '\'' +
+                ", ticketStatus='" + ticketStatus + '\'' +
+                ", timetableID=" + timetableID +
+                ", baggageStatus='" + baggageStatus + '\'' +
                 ", create=" + create +
                 ", modified=" + modified +
                 ", descriction='" + descriction + '\'' +

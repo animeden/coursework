@@ -1,11 +1,11 @@
 package edu.holeiden.coursework.controller.web;
 
-import edu.holeiden.coursework.form.DepartmentForm;
 import edu.holeiden.coursework.form.PassengerForm;
 import edu.holeiden.coursework.form.SearchForm;
 import edu.holeiden.coursework.model.*;
 import edu.holeiden.coursework.service.passanger.impls.PassengerServiceImpl;
 import edu.holeiden.coursework.service.route.impls.RouteServiceImpl;
+import edu.holeiden.coursework.service.timetable.impls.TimetableServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +24,7 @@ public class PassengerWEBController {
     PassengerServiceImpl service;
 
     @Autowired
-    RouteServiceImpl routeService;
+    TimetableServiceImpl timetableService;
 
     @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
@@ -55,8 +55,8 @@ public class PassengerWEBController {
     @RequestMapping("/create")
     String create(Model model){
         PassengerForm passengerForm = new PassengerForm();
-        Map<String, String> mavs = routeService.getall().stream()
-                .collect(Collectors.toMap(Route::getId, Route::getStations));
+        Map<String, String> mavs = timetableService.getall().stream()
+                .collect(Collectors.toMap(Timetable::getId, Timetable::getTimeOfGoing));
         model.addAttribute("mavs", mavs);
         model.addAttribute("passengerForm", passengerForm);
         return "passengerAdd";
@@ -65,11 +65,29 @@ public class PassengerWEBController {
     @PostMapping("/create")
     String create(Model model, @ModelAttribute("passengerForm") PassengerForm passengerForm){
         Passenger passenger = new Passenger();
-        Route route = routeService.get(passengerForm.getRouteID());
+        Timetable timetable = timetableService.get(passengerForm.getTimetableID());
 
-        passenger.setStatus(passengerForm.getStatus());
+        passenger.setTicketStatus(passengerForm.getStatus());
 
-        passenger.setRouteID(route);
+            String  ticketStatus = passengerForm.getStatus();
+            Pattern pattern2 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher2 = pattern2.matcher((ticketStatus));
+
+            if(!matcher2.matches()){
+                return "redirect:/web/passenger/error18";
+            }
+
+        passenger.setTimetableID(timetable);
+
+        passenger.setBaggageStatus(passengerForm.getBaggageStatus());
+
+            String  baggageStatus = passengerForm.getBaggageStatus();
+            Pattern pattern3 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher3 = pattern3.matcher((baggageStatus));
+
+            if(!matcher3.matches()){
+                return "redirect:/web/passenger/error18";
+            }
 
         passenger.setDescriction(passengerForm.getDescriction());
 
@@ -90,10 +108,11 @@ public class PassengerWEBController {
     String edit(Model model, @PathVariable("id") String id){
         Passenger passenger = service.get(id);
         PassengerForm passengerForm = new PassengerForm();
-        Map<String, String> mavs = routeService.getall().stream()
-                .collect(Collectors.toMap(Route::getId, Route::getStations));
-        passengerForm.setStatus(passenger.getStatus());
-        passengerForm.setRouteID(passenger.getRouteID().getStations());
+        Map<String, String> mavs = timetableService.getall().stream()
+                .collect(Collectors.toMap(Timetable::getId, Timetable::getTimeOfGoing));
+        passengerForm.setStatus(passenger.getTicketStatus());
+        passengerForm.setTimetableID(passenger.getTimetableID().getTimeOfGoing());
+        passengerForm.setBaggageStatus(passenger.getBaggageStatus());
         passengerForm.setDescriction(passenger.getDescriction());
         model.addAttribute("mavs", mavs);
         model.addAttribute("passengerForm", passengerForm);
@@ -103,12 +122,30 @@ public class PassengerWEBController {
     @PostMapping("/edit/{id}")
     String edith(Model model, @PathVariable("id") String id, @ModelAttribute("passengerForm") PassengerForm passengerForm){
         Passenger passenger = new Passenger();
-        Route route = routeService.get(passengerForm.getRouteID());
+        Timetable timetable = timetableService.get(passengerForm.getTimetableID());
         passenger.setId(id);
 
-        passenger.setStatus(passengerForm.getStatus());
+        passenger.setTicketStatus(passengerForm.getStatus());
 
-        passenger.setRouteID(route);
+            String  ticketStatus = passengerForm.getStatus();
+            Pattern pattern2 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher2 = pattern2.matcher((ticketStatus));
+
+            if(!matcher2.matches()){
+                return "redirect:/web/passenger/error18";
+            }
+
+        passenger.setTimetableID(timetable);
+
+        passenger.setBaggageStatus(passengerForm.getBaggageStatus());
+
+            String  baggageStatus = passengerForm.getBaggageStatus();
+            Pattern pattern3 = Pattern.compile("^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}[-]{0,1}[A-ZА-ЯІЇЄҐ]{0,1}[a-zа-яіїєґ]{0,15}[']{0,1}[a-zа-яіїєґ]{0,15}$");
+            Matcher matcher3 = pattern3.matcher((baggageStatus));
+
+            if(!matcher3.matches()){
+                return "redirect:/web/passenger/error18";
+            }
 
         passenger.setDescriction(passengerForm.getDescriction());
 
@@ -147,6 +184,11 @@ public class PassengerWEBController {
 
     @PostMapping("/error5")
     public String errorfinder5(){
+        return "error";
+    }
+
+    @PostMapping("/error18")
+    public String errorfinder18(){
         return "error";
     }
 }

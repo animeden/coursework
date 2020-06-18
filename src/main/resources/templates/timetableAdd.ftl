@@ -17,7 +17,11 @@
 
         Time of going:<@spring.formInput "timetableForm.timeOfGoing" "" "text"/>
         <br>
+        Date of going:<@spring.formInput "timetableForm.dateOfGoing" "" "text"/>
+        <br>
         Time of come:<@spring.formInput "timetableForm.timeOfCome" "" "text"/>
+        <br>
+        Date of come:<@spring.formInput "timetableForm.dateOfCome" "" "text"/>
         <br>
         Number of route:<@spring.formSingleSelect "timetableForm.numberOfRoute", mavs, ""/>
         <br>
@@ -26,8 +30,6 @@
         Ready ID:<@spring.formSingleSelect "timetableForm.readyID", mavss, ""/>
         <br>
         Number of passengers:<@spring.formInput "timetableForm.numberOfPassager" "" "text"/>
-        <br>
-        Free space:<@spring.formInput "timetableForm.freeSpace" "" "text"/>
         <br>
         Description:<@spring.formInput "timetableForm.descriction" "" "text"/>
         <br>

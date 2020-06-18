@@ -11,18 +11,20 @@ public class WorkerForm {
     private String birth;
     private String subclass;
     private String brigateID;
+    private String experience;
     private String descriction;
 
     public WorkerForm() {
     }
 
-    public WorkerForm(String fullName, String phone, String adress, String birth, String subclass, String brigateID, String descriction) {
+    public WorkerForm(String fullName, String phone, String adress, String birth, String subclass, String brigateID, String experience, String descriction) {
         this.fullName = fullName;
         this.phone = phone;
         this.adress = adress;
         this.birth = birth;
         this.subclass = subclass;
         this.brigateID = brigateID;
+        this.experience = experience;
         this.descriction = descriction;
     }
 
@@ -82,6 +84,14 @@ public class WorkerForm {
         this.descriction = descriction;
     }
 
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
     @Override
     public String toString() {
         return "WorkerForm{" +
@@ -90,7 +100,8 @@ public class WorkerForm {
                 ", adress='" + adress + '\'' +
                 ", birth='" + birth + '\'' +
                 ", subclass='" + subclass + '\'' +
-                ", brigateID=" + brigateID +
+                ", brigateID='" + brigateID + '\'' +
+                ", experience='" + experience + '\'' +
                 ", descriction='" + descriction + '\'' +
                 '}';
     }

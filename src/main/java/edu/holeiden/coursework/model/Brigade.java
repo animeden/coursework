@@ -10,6 +10,7 @@ import java.util.Objects;
 public class Brigade {
     @Id
     private String id;
+    private String number;
     private String mission;
     private String numberOfWorkers;
     private Department departmentId;
@@ -20,11 +21,12 @@ public class Brigade {
     public Brigade() {
     }
 
-    public Brigade(String id, String mission, String numberOfWorkers, Department departmentId, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Brigade(String id, String number, String mission, String numberOfWorkers, Department departmentId, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
+        this.number = number;
         this.mission = mission;
         this.numberOfWorkers = numberOfWorkers;
-        this. departmentId = departmentId;
+        this.departmentId = departmentId;
         this.create = create;
         this.modified = modified;
         this.descriction = descriction;
@@ -82,6 +84,14 @@ public class Brigade {
         this.descriction = descriction;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -99,8 +109,9 @@ public class Brigade {
     public String toString() {
         return "Brigade{" +
                 "id='" + id + '\'' +
+                ", number='" + number + '\'' +
                 ", mission='" + mission + '\'' +
-                ", numberOfWorkers=" + numberOfWorkers +
+                ", numberOfWorkers='" + numberOfWorkers + '\'' +
                 ", departmentId=" + departmentId +
                 ", create=" + create +
                 ", modified=" + modified +

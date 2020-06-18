@@ -26,7 +26,7 @@
                     <a class="pl-2 pt-1" href="/web/passenger/get/list" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Unsort</a>
                 </div>
                 <div style="height: 35px; background: limegreen; width: 70px; display: flex; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px">
-                    <a class="pl-2 pt-1" href="#create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
+                    <a class="pl-2 pt-1" href="/web/passenger/create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
                 </div>
             </div>
 
@@ -64,8 +64,9 @@
                 <tr style="background-color: #a81919">
 
                     <th>ID</th>
-                    <th>Status</th>
-                    <th>Route</th>
+                    <th>Ticket status</th>
+                    <th>Timetable</th>
+                    <th>Baggage status</th>
                     <th>Description</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -77,8 +78,9 @@
                     <tr style="background: white; color: black">
 
                         <td>${passenger.id}</td>
-                        <td>${passenger.status}</td>
-                        <td>${passenger.routeID.stations}</td>
+                        <td>${passenger.ticketStatus}</td>
+                        <td>${passenger.timetableID.timeOfGoing + " " + passenger.timetableID.dateOfGoing + " - " + passenger.timetableID.timeOfCome + " " + passenger.timetableID.dateOfCome}</td>
+                        <td>${passenger.baggageStatus}</td>
                         <td>${passenger.descriction}</td>
 
                         <td><a href="/web/passenger/edit/${passenger.id}"><button class="btn" style="background: #def511">Edit</button></a></td>
@@ -90,10 +92,6 @@
 
             </table>
 
-        </div>
-
-        <div class="ml-2">
-            <a href="/web/passenger/create" name="create"><button class="btn" style="background: #206b19; color: white">Create</button></a>
         </div>
 
         <div style="width: 100%; height: 20px"></div>

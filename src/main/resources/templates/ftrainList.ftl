@@ -20,13 +20,13 @@
                     <a class="pl-2 pt-1" href="#src" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Search</a>
                 </div>
                 <div style="height: 35px; background: deeppink; width: 70px; display: flex; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px" id="sr" onclick="fup()">
-                    <a class="pl-3 pt-1" href="/web/ready/sort" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Sort</a>
+                    <a class="pl-3 pt-1" href="/web/ftrain/sort" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Sort</a>
                 </div>
                 <div style="height: 35px; background: rebeccapurple; width: 70px; display: none; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px" id="nsr" onclick="fup()">
-                    <a class="pl-2 pt-1" href="/web/ready/get/list" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Unsort</a>
+                    <a class="pl-2 pt-1" href="/web/ftrain/get/list" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Unsort</a>
                 </div>
                 <div style="height: 35px; background: limegreen; width: 70px; display: flex; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px">
-                    <a class="pl-2 pt-1" href="/web/ready/create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
+                    <a class="pl-2 pt-1" href="/web/ftrain/create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
                 </div>
             </div>
 
@@ -34,14 +34,14 @@
 
         <a name="src"></a>
         <div class="mb-4 pt-3 text-center" style="width: 100%; color: white">
-            <h1>Ready List</h1>
+            <h1>FTrain List</h1>
         </div>
 
         <div>
 
             <fieldset class="text-center" style="color: white">
 
-                <legend>Find ready</legend>
+                <legend>Find train</legend>
 
                 <form name="search" action="" method="POST">
 
@@ -64,33 +64,35 @@
                 <tr style="background-color: #a81919">
 
                     <th>ID</th>
-                    <th>Train</th>
-                    <th>Review</th>
-                    <th>Clear</th>
-                    <th>Food</th>
+                    <th>Model</th>
+                    <th>Train Brigade</th>
+                    <th>Recovery Brigade</th>
+                    <th>Year of manufacture</th>
+                    <th>Load capasity</th>
                     <th>Description</th>
                     <th>Edit</th>
                     <th>Delete</th>
 
                 </tr>
 
-                <#list readies as ready>
+                <#list ftrains as ftrain>
 
-                    <tr style="background: white; color: black">
+                <tr style="background: white; color: black">
 
-                        <td>${ready.id}</td>
-                        <td>${ready.trainID.model}</td>
-                        <td>${ready.review}</td>
-                        <td>${ready.clear}</td>
-                        <td>${ready.food}</td>
-                        <td>${ready.descriction}</td>
+                    <td>${ftrain.id}</td>
+                    <td>${ftrain.model}</td>
+                    <td>${ftrain.trainBrigade.number + " " + ftrain.trainBrigade.mission}</td>
+                    <td>${ftrain.recoveryBrigade.number + " " + ftrain.recoveryBrigade.mission}</td>
+                    <td>${ftrain.yearOfManufacture}</td>
+                    <td>${ftrain.loadCapasity}</td>
+                    <td>${ftrain.descriction}</td>
 
-                        <td><a href="/web/ready/edit/${ready.id}"><button class="btn" style="background: #def511">Edit</button></a></td>
-                        <td><a href="/web/ready/delete/${ready.id}" style="color: white"><button class="btn" style="background: #d60202; color: white">Delete</button></a></td>
+                    <td><a href="/web/ftrain/edit/${ftrain.id}"><button class="btn" style="background: #def511">Edit</button></a></td>
+                    <td><a href="/web/ftrain/delete/${ftrain.id}" style="color: white"><button class="btn" style="background: #d60202; color: white">Delete</button></a></td>
 
-                    </tr>
+                </tr>
 
-                </#list>
+            </#list>
 
             </table>
 
@@ -108,12 +110,12 @@
 
     function src() {
         let f = window.location.href;
-        if (f == "http://localhost:1821/web/ready/sort")
+        if (f == "http://localhost:1821/web/ftrain/sort")
         {
             document.getElementById("sr").style.display = 'none';
             document.getElementById("nsr").style.display = 'flex';
         }
-        if (f == "http://localhost:1821/web/ready/get/list")
+        if (f == "http://localhost:1821/web/ftrain/get/list")
         {
             document.getElementById("sr").style.display = 'flex';
             document.getElementById("nsr").style.display = 'none';

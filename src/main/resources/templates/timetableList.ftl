@@ -26,7 +26,7 @@
                     <a class="pl-2 pt-1" href="/web/timetable/get/list" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Unsort</a>
                 </div>
                 <div style="height: 35px; background: limegreen; width: 70px; display: flex; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px">
-                    <a class="pl-2 pt-1" href="#create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
+                    <a class="pl-2 pt-1" href="/web/timetable/create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
                 </div>
             </div>
 
@@ -65,12 +65,13 @@
 
                     <th>ID</th>
                     <th>Time of going</th>
+                    <th>Date of going</th>
                     <th>Time of come</th>
+                    <th>Date of come</th>
                     <th>Route</th>
                     <th>Ticket price</th>
                     <th>Ready</th>
                     <th>Number of passenger</th>
-                    <th>Free space</th>
                     <th>Description</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -83,12 +84,13 @@
 
                         <td>${timetable.id}</td>
                         <td>${timetable.timeOfGoing}</td>
+                        <td>${timetable.dateOfGoing}</td>
                         <td>${timetable.timeOfCome}</td>
+                        <td>${timetable.dateOfCome}</td>
                         <td>${timetable.numberOfRoute.stations}</td>
                         <td>${timetable.ticketPrice}</td>
                         <td>${timetable.readyID.descriction}</td>
                         <td>${timetable.numberOfPassager}</td>
-                        <td>${timetable.freeSpace}</td>
                         <td>${timetable.descriction}</td>
 
                         <td><a href="/web/timetable/edit/${timetable.id}"><button class="btn" style="background: #def511">Edit</button></a></td>
@@ -100,10 +102,6 @@
 
             </table>
 
-        </div>
-
-        <div class="ml-2">
-            <a href="/web/timetable/create" name="create"><button class="btn" style="background: #206b19; color: white">Create</button></a>
         </div>
 
         <div style="width: 100%; height: 20px"></div>

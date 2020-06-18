@@ -5,6 +5,7 @@ import edu.holeiden.coursework.model.Department;
 import java.time.LocalDateTime;
 
 public class BrigadeForm {
+    private String number;
     private String mission;
     private String numberOfWorkers;
     private String departmentId;
@@ -13,7 +14,8 @@ public class BrigadeForm {
     public BrigadeForm() {
     }
 
-    public BrigadeForm(String mission, String numberOfWorkers, String departmentId, String descriction) {
+    public BrigadeForm(String number, String mission, String numberOfWorkers, String departmentId, String descriction) {
+        this.number = number;
         this.mission = mission;
         this.numberOfWorkers = numberOfWorkers;
         this.departmentId = departmentId;
@@ -52,12 +54,21 @@ public class BrigadeForm {
         this.descriction = descriction;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     @Override
     public String toString() {
         return "BrigadeForm{" +
-                "mission='" + mission + '\'' +
-                ", numberOfWorkers=" + numberOfWorkers +
-                ", departmentId=" + departmentId +
+                "number='" + number + '\'' +
+                ", mission='" + mission + '\'' +
+                ", numberOfWorkers='" + numberOfWorkers + '\'' +
+                ", departmentId='" + departmentId + '\'' +
                 ", descriction='" + descriction + '\'' +
                 '}';
     }

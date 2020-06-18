@@ -11,12 +11,13 @@ public class Timetable {
     @Id
     private String id;
     private String timeOfGoing;
+    private String dateOfGoing;
     private String timeOfCome;
+    private String dateOfCome;
     private Route numberOfRoute;
     private String ticketPrice;
     private Ready readyID;
     private String numberOfPassager;
-    private String freeSpace;
     private LocalDateTime create;
     private LocalDateTime modified;
     private String descriction;
@@ -24,15 +25,16 @@ public class Timetable {
     public Timetable() {
     }
 
-    public Timetable(String id, String timeOfGoing, String timeOfCome, Route numberOfRoute, String ticketPrice, Ready readyID, String numberOfPassager, String freeSpace, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Timetable(String id, String timeOfGoing, String dateOfGoing, String timeOfCome, String dateOfCome, Route numberOfRoute, String ticketPrice, Ready readyID, String numberOfPassager, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
         this.timeOfGoing = timeOfGoing;
+        this.dateOfGoing = dateOfGoing;
         this.timeOfCome = timeOfCome;
+        this.dateOfCome = dateOfCome;
         this.numberOfRoute = numberOfRoute;
         this.ticketPrice = ticketPrice;
         this.readyID = readyID;
         this.numberOfPassager = numberOfPassager;
-        this.freeSpace = freeSpace;
         this.create = create;
         this.modified = modified;
         this.descriction = descriction;
@@ -88,10 +90,6 @@ public class Timetable {
         this.numberOfPassager = numberOfPassager;
     }
 
-    public String getFreeSpace() { return freeSpace; }
-
-    public void setFreeSpace(String freeSpace) { this.freeSpace = freeSpace; }
-
     public LocalDateTime getCreate() {
         return create;
     }
@@ -116,6 +114,22 @@ public class Timetable {
         this.descriction = descriction;
     }
 
+    public String getDateOfGoing() {
+        return dateOfGoing;
+    }
+
+    public void setDateOfGoing(String dateOfGoing) {
+        this.dateOfGoing = dateOfGoing;
+    }
+
+    public String getDateOfCome() {
+        return dateOfCome;
+    }
+
+    public void setDateOfCome(String dateOfCome) {
+        this.dateOfCome = dateOfCome;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -132,14 +146,15 @@ public class Timetable {
     @Override
     public String toString() {
         return "Timetable{" +
-                "timeID='" + id + '\'' +
+                "id='" + id + '\'' +
                 ", timeOfGoing='" + timeOfGoing + '\'' +
+                ", dateOfGoing='" + dateOfGoing + '\'' +
                 ", timeOfCome='" + timeOfCome + '\'' +
+                ", dateOfCome='" + dateOfCome + '\'' +
                 ", numberOfRoute=" + numberOfRoute +
-                ", ticketPrice=" + ticketPrice +
+                ", ticketPrice='" + ticketPrice + '\'' +
                 ", readyID=" + readyID +
-                ", numberOfPassager=" + numberOfPassager +
-                ", freeSpace=" + freeSpace +
+                ", numberOfPassager='" + numberOfPassager + '\'' +
                 ", create=" + create +
                 ", modified=" + modified +
                 ", descriction='" + descriction + '\'' +

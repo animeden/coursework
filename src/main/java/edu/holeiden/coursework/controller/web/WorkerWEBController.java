@@ -102,7 +102,7 @@ public class WorkerWEBController {
         worker.setBirth(workerForm.getBirth());
 
             String birth = workerForm.getBirth();
-            Pattern pattern4 = Pattern.compile("^[0-2][0-9][.][0][0-9][.][1-2][09][0-9][0-9]$|^[3][0-1][.][0][0-9][.][1-2][09][0-9][0-9]$|^[0-2][0-9][.][1][0-2][.][1-2][09][0-9][0-9]$|^[3][0-1][.][1][0-2][.][1-2][09][0-9][0-9]$");
+            Pattern pattern4 = Pattern.compile("^[0-2][0-9][.][0][1-9][.][1][9][0-9][0-9]$|[3][0-1][.][0][1-9][.][1][9][0-9][0-9]$|[0-2][0-9][.][1][0-2][.][1][9][0-9][0-9]$|[3][0-1][.][1][0-2][.][1][9][0-9][0-9]$|[0-2][0-9][.][0][1-9][.][2][0][0-9][0-9]$|[3][0-1][.][0][1-9][.][2][0][0-9][0-9]$|[0-2][0-9][.][1][0-2][.][2][0][0-9][0-9]$|[3][0-1][.][1][0-2][.][2][0][0-9][0-9]$");
             Matcher matcher4 = pattern4.matcher(birth);
 
             if(!matcher4.matches()){
@@ -120,6 +120,16 @@ public class WorkerWEBController {
             }
 
         worker.setBrigateID(brigade);
+
+        worker.setExperience(workerForm.getExperience());
+
+            String experience = workerForm.getExperience();
+            Pattern pattern7 = Pattern.compile("^[0-9][0-9]{0,1}$");
+            Matcher matcher7 = pattern7.matcher(experience);
+
+            if(!matcher7.matches()){
+                return "redirect:/web/worker/error8";
+            }
 
         worker.setDescriction(workerForm.getDescriction());
 
@@ -148,6 +158,7 @@ public class WorkerWEBController {
         workerForm.setBirth(worker.getBirth());
         workerForm.setSubclass(worker.getSubclass());
         workerForm.setBrigateID(worker.getBrigateID().getMission());
+        workerForm.setExperience(worker.getExperience());
         workerForm.setDescriction(worker.getDescriction());
         model.addAttribute("mavs", mavs);
         model.addAttribute("workerForm", workerForm);
@@ -193,7 +204,7 @@ public class WorkerWEBController {
         worker.setBirth(workerForm.getBirth());
 
             String birth = workerForm.getBirth();
-            Pattern pattern4 = Pattern.compile("^[0-2][0-9][.][0][0-9][.][1-2][09][0-9][0-9]$|^[3][0-1][.][0][0-9][.][1-2][09][0-9][0-9]$|^[0-2][0-9][.][1][0-2][.][1-2][09][0-9][0-9]$|^[3][0-1][.][1][0-2][.][1-2][09][0-9][0-9]$");
+            Pattern pattern4 = Pattern.compile("^[0-2][0-9][.][0][1-9][.][1][9][0-9][0-9]$|[3][0-1][.][0][1-9][.][1][9][0-9][0-9]$|[0-2][0-9][.][1][0-2][.][1][9][0-9][0-9]$|[3][0-1][.][1][0-2][.][1][9][0-9][0-9]$|[0-2][0-9][.][0][1-9][.][2][0][0-9][0-9]$|[3][0-1][.][0][1-9][.][2][0][0-9][0-9]$|[0-2][0-9][.][1][0-2][.][2][0][0-9][0-9]$|[3][0-1][.][1][0-2][.][2][0][0-9][0-9]$");
             Matcher matcher4 = pattern4.matcher(birth);
 
             if(!matcher4.matches()){
@@ -211,6 +222,16 @@ public class WorkerWEBController {
             }
 
         worker.setBrigateID(brigade);
+
+        worker.setExperience(workerForm.getExperience());
+
+            String experience = workerForm.getExperience();
+            Pattern pattern7 = Pattern.compile("^[0-9][0-9]{0,1}$");
+            Matcher matcher7 = pattern7.matcher(experience);
+
+            if(!matcher7.matches()){
+                return "redirect:/web/worker/error8";
+            }
 
         worker.setDescriction(workerForm.getDescriction());
 
@@ -274,6 +295,11 @@ public class WorkerWEBController {
 
     @PostMapping("/error2")
     public String errorfinder2(){
+        return "error";
+    }
+
+    @PostMapping("/error8")
+    public String errorfinder8(){
         return "error";
     }
 }

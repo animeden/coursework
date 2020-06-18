@@ -7,25 +7,27 @@ import java.time.LocalDateTime;
 
 public class TimetableForm {
     private String timeOfGoing;
+    private String dateOfGoing;
     private String timeOfCome;
+    private String dateOfCome;
     private String numberOfRoute;
     private String ticketPrice;
     private String readyID;
     private String numberOfPassager;
-    private String freeSpace;
     private String descriction;
 
     public TimetableForm() {
     }
 
-    public TimetableForm(String timeOfGoing, String timeOfCome, String numberOfRoute, String ticketPrice, String readyID, String numberOfPassager, String freeSpace, String descriction) {
+    public TimetableForm(String timeOfGoing, String dateOfGoing, String timeOfCome, String dateOfCome, String numberOfRoute, String ticketPrice, String readyID, String numberOfPassager, String descriction) {
         this.timeOfGoing = timeOfGoing;
+        this.dateOfGoing = dateOfGoing;
         this.timeOfCome = timeOfCome;
+        this.dateOfCome = dateOfCome;
         this.numberOfRoute = numberOfRoute;
         this.ticketPrice = ticketPrice;
         this.readyID = readyID;
         this.numberOfPassager = numberOfPassager;
-        this.freeSpace = freeSpace;
         this.descriction = descriction;
     }
 
@@ -77,14 +79,6 @@ public class TimetableForm {
         this.numberOfPassager = numberOfPassager;
     }
 
-    public String getFreeSpace() {
-        return freeSpace;
-    }
-
-    public void setFreeSpace(String freeSpace) {
-        this.freeSpace = freeSpace;
-    }
-
     public String getDescriction() {
         return descriction;
     }
@@ -93,16 +87,33 @@ public class TimetableForm {
         this.descriction = descriction;
     }
 
+    public String getDateOfGoing() {
+        return dateOfGoing;
+    }
+
+    public void setDateOfGoing(String dateOfGoing) {
+        this.dateOfGoing = dateOfGoing;
+    }
+
+    public String getDateOfCome() {
+        return dateOfCome;
+    }
+
+    public void setDateOfCome(String dateOfCome) {
+        this.dateOfCome = dateOfCome;
+    }
+
     @Override
     public String toString() {
         return "TimetableForm{" +
                 "timeOfGoing='" + timeOfGoing + '\'' +
+                ", dateOfGoing='" + dateOfGoing + '\'' +
                 ", timeOfCome='" + timeOfCome + '\'' +
-                ", numberOfRoute=" + numberOfRoute +
-                ", ticketPrice=" + ticketPrice +
-                ", readyID=" + readyID +
-                ", numberOfPassager=" + numberOfPassager +
-                ", freeSpace=" + freeSpace +
+                ", dateOfCome='" + dateOfCome + '\'' +
+                ", numberOfRoute='" + numberOfRoute + '\'' +
+                ", ticketPrice='" + ticketPrice + '\'' +
+                ", readyID='" + readyID + '\'' +
+                ", numberOfPassager='" + numberOfPassager + '\'' +
                 ", descriction='" + descriction + '\'' +
                 '}';
     }

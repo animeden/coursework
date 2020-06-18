@@ -26,7 +26,7 @@
                     <a class="pl-2 pt-1" href="/web/worker/get/list" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Unsort</a>
                 </div>
                 <div style="height: 35px; background: limegreen; width: 70px; display: flex; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px">
-                    <a class="pl-2 pt-1" href="#create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
+                    <a class="pl-2 pt-1" href="/web/worker/create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
                 </div>
             </div>
 
@@ -70,6 +70,7 @@
                     <th>Birth</th>
                     <th>Subclass</th>
                     <th>Brigade</th>
+                    <th>Experience</th>
                     <th>Description</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -87,6 +88,7 @@
                         <td>${worker.birth}</td>
                         <td>${worker.subclass}</td>
                         <td>${worker.brigateID.mission}</td>
+                        <td>${worker.experience}</td>
                         <td>${worker.descriction}</td>
 
                         <td><a href="/web/worker/edit/${worker.id}"><button class="btn" style="background: #def511">Edit</button></a></td>
@@ -98,10 +100,6 @@
 
             </table>
 
-        </div>
-
-        <div class="ml-2">
-            <a href="/web/worker/create" name="create"><button class="btn" style="background: #206b19; color: white">Create</button></a>
         </div>
 
         <div style="width: 100%; height: 20px"></div>

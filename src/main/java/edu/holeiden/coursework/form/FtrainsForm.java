@@ -4,23 +4,23 @@ import edu.holeiden.coursework.model.Brigade;
 
 import java.time.LocalDateTime;
 
-public class TrainForm {
+public class FtrainsForm {
     private String model;
     private String trainBrigade;
     private String recoveryBrigade;
     private String yearOfManufacture;
-    private String numberOfPassengers;
+    private String loadCapasity;
     private String descriction;
 
-    public TrainForm() {
+    public FtrainsForm() {
     }
 
-    public TrainForm(String model, String trainBrigade, String recoveryBrigade, String yearOfManufacture, String numberOfPassengers, String descriction) {
+    public FtrainsForm(String model, String trainBrigade, String recoveryBrigade, String yearOfManufacture, String loadCapasity, String descriction) {
         this.model = model;
         this.trainBrigade = trainBrigade;
         this.recoveryBrigade = recoveryBrigade;
         this.yearOfManufacture = yearOfManufacture;
-        this.numberOfPassengers = numberOfPassengers;
+        this.loadCapasity = loadCapasity;
         this.descriction = descriction;
     }
 
@@ -48,14 +48,6 @@ public class TrainForm {
         this.recoveryBrigade = recoveryBrigade;
     }
 
-    public String getDescriction() {
-        return descriction;
-    }
-
-    public void setDescriction(String descriction) {
-        this.descriction = descriction;
-    }
-
     public String getYearOfManufacture() {
         return yearOfManufacture;
     }
@@ -64,22 +56,30 @@ public class TrainForm {
         this.yearOfManufacture = yearOfManufacture;
     }
 
-    public String getNumberOfPassengers() {
-        return numberOfPassengers;
+    public String getLoadCapasity() {
+        return loadCapasity;
     }
 
-    public void setNumberOfPassengers(String numberOfPassengers) {
-        this.numberOfPassengers = numberOfPassengers;
+    public void setLoadCapasity(String loadCapasity) {
+        this.loadCapasity = loadCapasity;
+    }
+
+    public String getDescriction() {
+        return descriction;
+    }
+
+    public void setDescriction(String descriction) {
+        this.descriction = descriction;
     }
 
     @Override
     public String toString() {
-        return "TrainForm{" +
+        return "FtrainsForm{" +
                 "model='" + model + '\'' +
-                ", trainBrigade='" + trainBrigade + '\'' +
-                ", recoveryBrigade='" + recoveryBrigade + '\'' +
+                ", trainBrigade=" + trainBrigade +
+                ", recoveryBrigade=" + recoveryBrigade +
                 ", yearOfManufacture='" + yearOfManufacture + '\'' +
-                ", numberOfPassengers='" + numberOfPassengers + '\'' +
+                ", loadCapasity='" + loadCapasity + '\'' +
                 ", descriction='" + descriction + '\'' +
                 '}';
     }

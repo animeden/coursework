@@ -15,6 +15,8 @@
 
     <form name="route" action="" method="POST" style="width: 700px; height: 500px; line-height: 2; margin-left: 15px; margin-top: 8px">
 
+        Number:<@spring.formInput "routeForm.number" "" "text"/>
+        <br>
         Start:<@spring.formInput "routeForm.start" "" "text"/>
         <br>
         End:<@spring.formInput "routeForm.end" "" "text"/>

@@ -26,7 +26,7 @@
                     <a class="pl-2 pt-1" href="/web/brigade/get/list" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Unsort</a>
                 </div>
                 <div style="height: 35px; background: limegreen; width: 70px; display: flex; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px">
-                    <a class="pl-2 pt-1" href="#create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
+                    <a class="pl-2 pt-1" href="/web/brigade/create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
                 </div>
             </div>
 
@@ -64,6 +64,7 @@
                 <tr style="background-color: #a81919">
 
                     <th>ID</th>
+                    <th>Number</th>
                     <th>Mission</th>
                     <th>Number of worker</th>
                     <th>Department</th>
@@ -78,6 +79,7 @@
                     <tr style="background: white; color: black">
 
                         <td>${brigade.id}</td>
+                        <td>${brigade.number}</td>
                         <td>${brigade.mission}</td>
                         <td>${brigade.numberOfWorkers}</td>
                         <td>${brigade.departmentId.name}</td>
@@ -92,10 +94,6 @@
 
             </table>
 
-        </div>
-
-        <div class="ml-2">
-            <a href="/web/brigade/create" name="create"><button class="btn" style="background: #206b19; color: white">Create</button></a>
         </div>
 
         <div style="width: 100%; height: 20px"></div>

@@ -59,6 +59,17 @@ public class RouteWEBController {
     @PostMapping("/create")
     String create(Model model, @ModelAttribute("routeForm") RouteForm routeForm){
         Route route = new Route();
+
+        route.setNumber(routeForm.getNumber());
+
+            String number = routeForm.getNumber();
+            Pattern pattern5 = Pattern.compile("^[1-9][0-9]{0,1}[0-9]{0,1}$");
+            Matcher matcher5 = pattern5.matcher(number);
+
+            if(!matcher5.matches()){
+                return "redirect:/web/route/error6";
+            }
+
         route.setStart(routeForm.getStart());
 
             String start = routeForm.getStart();
@@ -110,6 +121,7 @@ public class RouteWEBController {
     String edit(Model model, @PathVariable("id") String id){
         Route route = service.get(id);
         RouteForm routeForm = new RouteForm();
+        routeForm.setNumber(route.getNumber());
         routeForm.setStart(route.getStart());
         routeForm.setEnd(route.getEnd());
         routeForm.setStations(route.getStations());
@@ -123,6 +135,16 @@ public class RouteWEBController {
     String edith(Model model, @PathVariable("id") String id, @ModelAttribute("routeForm") RouteForm routeForm){
         Route route = new Route();
         route.setId(id);
+
+        route.setNumber(routeForm.getNumber());
+
+            String number = routeForm.getNumber();
+            Pattern pattern5 = Pattern.compile("^[1-9][0-9]{0,1}[0-9]{0,1}$");
+            Matcher matcher5 = pattern5.matcher(number);
+
+            if(!matcher5.matches()){
+                return "redirect:/web/route/error6";
+            }
 
         route.setStart(routeForm.getStart());
 
@@ -203,6 +225,11 @@ public class RouteWEBController {
 
     @PostMapping("/error11")
     public String errorfinder11(){
+        return "error";
+    }
+
+    @PostMapping("/error6")
+    public String errorfinder6(){
         return "error";
     }
 }

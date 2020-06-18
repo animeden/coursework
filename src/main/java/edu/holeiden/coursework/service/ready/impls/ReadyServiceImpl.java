@@ -60,7 +60,7 @@ public class ReadyServiceImpl implements IReadyService {
 
     public List<Ready> search(String word){
         List<Ready> list = this.getall().stream()
-                .filter(ready -> ready.getDescriction().toLowerCase().contains(word.toLowerCase()))
+                .filter(ready -> ready.getTrainID().getModel().toLowerCase().contains(word.toLowerCase()))
                 .collect(Collectors.toList());
         return list;
     }
@@ -74,7 +74,7 @@ public class ReadyServiceImpl implements IReadyService {
 
     private class ReadyNameComparator implements Comparator<Ready> {
         public int compare(Ready p1, Ready p2) {
-            return p1.getDescriction().compareTo(p2.getDescriction());
+            return p1.getTrainID().getModel().compareTo(p2.getTrainID().getModel());
         }
     }
 }

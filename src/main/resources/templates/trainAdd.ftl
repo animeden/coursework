@@ -21,6 +21,10 @@
         <br>
         Recovery brigade:<@spring.formSingleSelect "trainForm.recoveryBrigade", mavs, ""/>
         <br>
+        Year of Manufacture:<@spring.formInput "trainForm.yearOfManufacture" "" "text"/>
+        <br>
+        Number of passengers:<@spring.formInput "trainForm.numberOfPassengers" "" "text"/>
+        <br>
         Description:<@spring.formInput "trainForm.descriction" "" "text"/>
         <br>
 

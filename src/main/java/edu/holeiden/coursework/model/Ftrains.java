@@ -6,29 +6,28 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Document
-public class Train {
+public class Ftrains {
     @Id
     private String id;
     private String model;
     private Brigade trainBrigade;
     private Brigade recoveryBrigade;
     private String yearOfManufacture;
-    private String numberOfPassengers;
+    private String loadCapasity;
     private LocalDateTime create;
     private LocalDateTime modified;
     private String descriction;
 
-    public Train() {
+    public Ftrains() {
     }
 
-    public Train(String id, String model, Brigade trainBrigade, Brigade recoveryBrigade, String yearOfManufacture, String numberOfPassengers, LocalDateTime create, LocalDateTime modified, String descriction) {
+    public Ftrains(String id, String model, Brigade trainBrigade, Brigade recoveryBrigade, String yearOfManufacture, String loadCapasity, LocalDateTime create, LocalDateTime modified, String descriction) {
         this.id = id;
         this.model = model;
         this.trainBrigade = trainBrigade;
         this.recoveryBrigade = recoveryBrigade;
         this.yearOfManufacture = yearOfManufacture;
-        this.numberOfPassengers = numberOfPassengers;
+        this.loadCapasity = loadCapasity;
         this.create = create;
         this.modified = modified;
         this.descriction = descriction;
@@ -66,6 +65,22 @@ public class Train {
         this.recoveryBrigade = recoveryBrigade;
     }
 
+    public String getYearOfManufacture() {
+        return yearOfManufacture;
+    }
+
+    public void setYearOfManufacture(String yearOfManufacture) {
+        this.yearOfManufacture = yearOfManufacture;
+    }
+
+    public String getLoadCapasity() {
+        return loadCapasity;
+    }
+
+    public void setLoadCapasity(String loadCapasity) {
+        this.loadCapasity = loadCapasity;
+    }
+
     public LocalDateTime getCreate() {
         return create;
     }
@@ -90,28 +105,12 @@ public class Train {
         this.descriction = descriction;
     }
 
-    public String getYearOfManufacture() {
-        return yearOfManufacture;
-    }
-
-    public void setYearOfManufacture(String yearOfManufacture) {
-        this.yearOfManufacture = yearOfManufacture;
-    }
-
-    public String getNumberOfPassengers() {
-        return numberOfPassengers;
-    }
-
-    public void setNumberOfPassengers(String numberOfPassengers) {
-        this.numberOfPassengers = numberOfPassengers;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Train train = (Train) o;
-        return getId().equals(train.getId());
+        Ftrains ftrains = (Ftrains) o;
+        return getId().equals(ftrains.getId());
     }
 
     @Override
@@ -119,19 +118,20 @@ public class Train {
         return Objects.hash(getId());
     }
 
-
     @Override
     public String toString() {
-        return "Train{" +
+        return "Ftrains{" +
                 "id='" + id + '\'' +
                 ", model='" + model + '\'' +
                 ", trainBrigade=" + trainBrigade +
                 ", recoveryBrigade=" + recoveryBrigade +
                 ", yearOfManufacture='" + yearOfManufacture + '\'' +
-                ", numberOfPassengers='" + numberOfPassengers + '\'' +
+                ", loadCapasity='" + loadCapasity + '\'' +
                 ", create=" + create +
                 ", modified=" + modified +
                 ", descriction='" + descriction + '\'' +
                 '}';
     }
 }
+
+

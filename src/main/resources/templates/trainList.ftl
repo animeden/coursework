@@ -20,13 +20,13 @@
                     <a class="pl-2 pt-1" href="#src" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Search</a>
                 </div>
                 <div style="height: 35px; background: deeppink; width: 70px; display: flex; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px" id="sr" onclick="fup()">
-                    <a class="pl-3 pt-1" href="/web/train/sort" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Sort</a>
+                    <a class="pl-3 pt-1" href="/web/ptrain/sort" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Sort</a>
                 </div>
                 <div style="height: 35px; background: rebeccapurple; width: 70px; display: none; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px" id="nsr" onclick="fup()">
-                    <a class="pl-2 pt-1" href="/web/train/get/list" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Unsort</a>
+                    <a class="pl-2 pt-1" href="/web/ptrain/get/list" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Unsort</a>
                 </div>
                 <div style="height: 35px; background: limegreen; width: 70px; display: flex; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px">
-                    <a class="pl-2 pt-1" href="#create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
+                    <a class="pl-2 pt-1" href="/web/ptrain/create" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Create</a>
                 </div>
             </div>
 
@@ -34,7 +34,7 @@
 
         <a name="src"></a>
         <div class="mb-4 pt-3 text-center" style="width: 100%; color: white">
-            <h1>Train List</h1>
+            <h1>PTrain List</h1>
         </div>
 
         <div>
@@ -67,6 +67,8 @@
                     <th>Model</th>
                     <th>Train Brigade</th>
                     <th>Recovery Brigade</th>
+                    <th>Year of manufacture</th>
+                    <th>Number of passenger</th>
                     <th>Description</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -79,12 +81,14 @@
 
                         <td>${train.id}</td>
                         <td>${train.model}</td>
-                        <td>${train.trainBrigade.mission}</td>
-                        <td>${train.recoveryBrigade.mission}</td>
+                        <td>${train.trainBrigade.number + " " + train.trainBrigade.mission}</td>
+                        <td>${train.recoveryBrigade.number + " " + train.recoveryBrigade.mission}</td>
+                        <td>${train.yearOfManufacture}</td>
+                        <td>${train.numberOfPassengers}</td>
                         <td>${train.descriction}</td>
 
-                        <td><a href="/web/train/edit/${train.id}"><button class="btn" style="background: #def511">Edit</button></a></td>
-                        <td><a href="/web/train/delete/${train.id}" style="color: white"><button class="btn" style="background: #d60202; color: white">Delete</button></a></td>
+                        <td><a href="/web/ptrain/edit/${train.id}"><button class="btn" style="background: #def511">Edit</button></a></td>
+                        <td><a href="/web/ptrain/delete/${train.id}" style="color: white"><button class="btn" style="background: #d60202; color: white">Delete</button></a></td>
 
                     </tr>
 
@@ -92,10 +96,6 @@
 
             </table>
 
-        </div>
-
-        <div class="ml-2">
-            <a href="/web/train/create" name="create"><button class="btn" style="background: #206b19; color: white">Create</button></a>
         </div>
 
         <div style="width: 100%; height: 20px"></div>
@@ -110,12 +110,12 @@
 
     function src() {
         let f = window.location.href;
-        if (f == "http://localhost:1821/web/train/sort")
+        if (f == "http://localhost:1821/web/ptrain/sort")
         {
             document.getElementById("sr").style.display = 'none';
             document.getElementById("nsr").style.display = 'flex';
         }
-        if (f == "http://localhost:1821/web/train/get/list")
+        if (f == "http://localhost:1821/web/ptrain/get/list")
         {
             document.getElementById("sr").style.display = 'flex';
             document.getElementById("nsr").style.display = 'none';

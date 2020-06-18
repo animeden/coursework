@@ -3,6 +3,7 @@ package edu.holeiden.coursework.form;
 import java.time.LocalDateTime;
 
 public class RouteForm {
+    private String number;
     private String start;
     private String end;
     private String stations;
@@ -12,7 +13,8 @@ public class RouteForm {
     public RouteForm() {
     }
 
-    public RouteForm(String start, String end, String stations, String typeOfRoute, String descriction) {
+    public RouteForm(String number, String start, String end, String stations, String typeOfRoute, String descriction) {
+        this.number = number;
         this.start = start;
         this.end = end;
         this.stations = stations;
@@ -60,10 +62,19 @@ public class RouteForm {
         this.descriction = descriction;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     @Override
     public String toString() {
         return "RouteForm{" +
-                "start='" + start + '\'' +
+                "number='" + number + '\'' +
+                ", start='" + start + '\'' +
                 ", end='" + end + '\'' +
                 ", stations='" + stations + '\'' +
                 ", typeOfRoute='" + typeOfRoute + '\'' +
