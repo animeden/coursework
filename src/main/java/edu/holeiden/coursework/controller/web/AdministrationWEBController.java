@@ -22,7 +22,7 @@ public class AdministrationWEBController {
     AdministrationServiceImpl service;
 
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    @RequestMapping(value = "/get/list", method = RequestMethod.GET)
+    @RequestMapping("/get/list")
     public String getall(Model model){
         SearchForm searchForm = new SearchForm();
         model.addAttribute("searchForm", searchForm);
@@ -31,7 +31,7 @@ public class AdministrationWEBController {
     }
 
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    @RequestMapping(value = "/get/list", method = RequestMethod.POST)
+    @PostMapping("/get/list")
     public String search(Model model,
                          @ModelAttribute("searchForm") SearchForm searchForm){
         String word = searchForm.getString();
@@ -116,7 +116,7 @@ public class AdministrationWEBController {
 
         service.save(administration);
         model.addAttribute("administrations", service.getall());
-        return "redirect:/web/administration/get/list";
+        return "redirect:https://animedenapp.herokuapp.com/web/administration/get/list";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
