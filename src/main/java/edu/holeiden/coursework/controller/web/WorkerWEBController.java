@@ -10,6 +10,7 @@ import edu.holeiden.coursework.model.Worker;
 import edu.holeiden.coursework.service.brigade.impls.BrigadeServiceImpl;
 import edu.holeiden.coursework.service.worker.impls.WorkerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,7 @@ public class WorkerWEBController {
     @Autowired
     BrigadeServiceImpl brigadeService;
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
         SearchForm searchForm = new SearchForm();
@@ -37,6 +39,7 @@ public class WorkerWEBController {
         return "workerList";
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/get/list", method = RequestMethod.POST)
     public String search(Model model,
                          @ModelAttribute("searchForm") SearchForm searchForm){
@@ -47,6 +50,7 @@ public class WorkerWEBController {
         return "workerList";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/delete/{id}")
     String delete(Model model,
                   @PathVariable("id") String id){
@@ -55,6 +59,7 @@ public class WorkerWEBController {
         return "redirect:/web/worker/get/list";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/create")
     String create(Model model){
         WorkerForm workerForm = new WorkerForm();
@@ -65,6 +70,7 @@ public class WorkerWEBController {
         return "workerAdd";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     String create(Model model, @ModelAttribute("workerForm") WorkerForm workerForm){
         Worker worker = new Worker();
@@ -146,6 +152,7 @@ public class WorkerWEBController {
         return "redirect:/web/worker/get/list";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     String edit(Model model, @PathVariable("id") String id){
         Worker worker = service.get(id);
@@ -165,6 +172,7 @@ public class WorkerWEBController {
         return "workerAdd";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/edit/{id}")
     String edith(Model model, @PathVariable("id") String id, @ModelAttribute("workerForm") WorkerForm workerForm){
         Worker worker = new Worker();
@@ -248,6 +256,7 @@ public class WorkerWEBController {
         return "redirect:/web/worker/get/list";
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/sort", method = RequestMethod.GET)
     public String showSorted(Model model) {
         List<Worker> workers = service.getall();
@@ -258,6 +267,7 @@ public class WorkerWEBController {
         return "workerList";
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/sort", method = RequestMethod.POST)
     public String searchSorted(Model model,
                                @ModelAttribute("searchForm") SearchForm searchForm) {

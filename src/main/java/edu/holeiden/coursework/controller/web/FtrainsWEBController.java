@@ -9,6 +9,7 @@ import edu.holeiden.coursework.model.Train;
 import edu.holeiden.coursework.service.brigade.impls.BrigadeServiceImpl;
 import edu.holeiden.coursework.service.ftarin.impls.FtrainsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,7 @@ public class FtrainsWEBController {
     @Autowired
     BrigadeServiceImpl brigadeService;
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
         SearchForm searchForm = new SearchForm();
@@ -36,6 +38,7 @@ public class FtrainsWEBController {
         return "ftrainList";
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/get/list", method = RequestMethod.POST)
     public String search(Model model,
                          @ModelAttribute("searchForm") SearchForm searchForm){
@@ -46,6 +49,7 @@ public class FtrainsWEBController {
         return "ftrainList";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/delete/{id}")
     String delete(Model model,
                   @PathVariable("id") String id){
@@ -54,6 +58,7 @@ public class FtrainsWEBController {
         return "redirect:/web/ftrain/get/list";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/create")
     String create(Model model){
         FtrainsForm ftrainsForm = new FtrainsForm();
@@ -64,6 +69,7 @@ public class FtrainsWEBController {
         return "ftrainAdd";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     String create(Model model, @ModelAttribute("ftrainsForm") FtrainsForm ftrainsForm){
         Ftrains ftrains = new Ftrains();
@@ -119,6 +125,7 @@ public class FtrainsWEBController {
         return "redirect:/web/ftrain/get/list";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     String edit(Model model, @PathVariable("id") String id){
         Ftrains ftrains = service.get(id);
@@ -136,6 +143,7 @@ public class FtrainsWEBController {
         return "ftrainAdd";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/edit/{id}")
     String edith(Model model, @PathVariable("id") String id, @ModelAttribute("ftrainsForm") FtrainsForm ftrainsForm){
         Ftrains ftrains = new Ftrains();
@@ -191,6 +199,7 @@ public class FtrainsWEBController {
         return "redirect:/web/ftrain/get/list";
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/sort", method = RequestMethod.GET)
     public String showSorted(Model model) {
         List<Ftrains> ftrains = service.getall();
@@ -201,6 +210,7 @@ public class FtrainsWEBController {
         return "ftrainList";
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/sort", method = RequestMethod.POST)
     public String searchSorted(Model model,
                                @ModelAttribute("searchForm") SearchForm searchForm) {

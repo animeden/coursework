@@ -9,6 +9,7 @@ import edu.holeiden.coursework.model.Department;
 import edu.holeiden.coursework.service.administration.impls.AdministrationServiceImpl;
 import edu.holeiden.coursework.service.department.impls.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,7 @@ public class DepartmentWEBController {
     @Autowired
     AdministrationServiceImpl administrationService;
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/get/list", method = RequestMethod.GET)
     String getall(Model model){
         SearchForm searchForm = new SearchForm();
@@ -36,6 +38,7 @@ public class DepartmentWEBController {
         return "departmentList";
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/get/list", method = RequestMethod.POST)
     public String search(Model model,
                          @ModelAttribute("searchForm") SearchForm searchForm){
@@ -46,6 +49,7 @@ public class DepartmentWEBController {
         return "departmentList";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/delete/{id}")
     String delete(Model model,
                   @PathVariable("id") String id){
@@ -54,6 +58,7 @@ public class DepartmentWEBController {
         return "redirect:/web/department/get/list";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/create")
     String create(Model model){
         DepartmentForm departmentForm = new DepartmentForm();
@@ -64,6 +69,7 @@ public class DepartmentWEBController {
         return "departmentAdd";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     String create(Model model, @ModelAttribute("departmentForm") DepartmentForm departmentForm){
         Department department = new Department();
@@ -115,6 +121,7 @@ public class DepartmentWEBController {
         return "redirect:/web/department/get/list";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     String edit(Model model, @PathVariable("id") String id){
         Department department = service.get(id);
@@ -169,6 +176,7 @@ public class DepartmentWEBController {
         return "departmentAdd";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/edit/{id}")
     String edith(Model model, @PathVariable("id") String id, @ModelAttribute("departmentForm") DepartmentForm departmentForm){
         Department department = new Department();
@@ -184,6 +192,7 @@ public class DepartmentWEBController {
         return "redirect:/web/department/get/list";
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/sort", method = RequestMethod.GET)
     public String showSorted(Model model) {
         List<Department> departments = service.getall();
@@ -194,6 +203,7 @@ public class DepartmentWEBController {
         return "departmentList";
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/sort", method = RequestMethod.POST)
     public String searchSorted(Model model,
                                @ModelAttribute("searchForm") SearchForm searchForm) {
