@@ -76,7 +76,7 @@ public class ReadyWEBController {
             Matcher matcher2 = pattern2.matcher(review);
 
             if(!matcher2.matches()){
-                return "redirect:/web/department/error19";
+                return "redirect:/web/ready/error19";
             }
 
         ready.setClear(readyForm.getClear());
@@ -86,7 +86,7 @@ public class ReadyWEBController {
             Matcher matcher3 = pattern3.matcher(clear);
 
             if(!matcher3.matches()){
-                return "redirect:/web/department/error19";
+                return "redirect:/web/ready/error19";
             }
 
         ready.setFood(readyForm.getFood());
@@ -96,7 +96,7 @@ public class ReadyWEBController {
             Matcher matcher4 = pattern4.matcher(food);
 
             if(!matcher4.matches()){
-                return "redirect:/web/department/error19";
+                return "redirect:/web/ready/error19";
             }
 
         ready.setDescriction(readyForm.getDescriction());
@@ -106,7 +106,7 @@ public class ReadyWEBController {
             Matcher matcher1 = pattern1.matcher(description);
 
             if(!matcher1.matches()){
-                return "redirect:/web/department/error1";
+                return "redirect:/web/ready/error1";
             }
 
         service.save(ready);
@@ -145,7 +145,7 @@ public class ReadyWEBController {
             Matcher matcher2 = pattern2.matcher(review);
 
             if(!matcher2.matches()){
-                return "redirect:/web/department/error19";
+                return "redirect:/web/ready/error19";
             }
 
         ready.setClear(readyForm.getClear());
@@ -155,7 +155,7 @@ public class ReadyWEBController {
             Matcher matcher3 = pattern3.matcher(clear);
 
             if(!matcher3.matches()){
-                return "redirect:/web/department/error19";
+                return "redirect:/web/ready/error19";
             }
 
         ready.setFood(readyForm.getFood());
@@ -165,7 +165,7 @@ public class ReadyWEBController {
             Matcher matcher4 = pattern4.matcher(food);
 
             if(!matcher4.matches()){
-                return "redirect:/web/department/error19";
+                return "redirect:/web/ready/error19";
             }
 
         ready.setDescriction(readyForm.getDescriction());
@@ -175,7 +175,7 @@ public class ReadyWEBController {
             Matcher matcher1 = pattern1.matcher(description);
 
             if(!matcher1.matches()){
-                return "redirect:/web/department/error5";
+                return "redirect:/web/ready/error5";
             }
 
         service.save(ready);
