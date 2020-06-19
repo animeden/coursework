@@ -21,7 +21,6 @@ public class AdministrationWEBController {
     @Autowired
     AdministrationServiceImpl service;
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping("/get/list")
     public String getall(Model model){
         SearchForm searchForm = new SearchForm();
@@ -30,7 +29,6 @@ public class AdministrationWEBController {
         return "administrationList";
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @PostMapping("/get/list")
     public String search(Model model,
                          @ModelAttribute("searchForm") SearchForm searchForm){
@@ -42,7 +40,6 @@ public class AdministrationWEBController {
     }
 
 
-    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/delete/{id}")
     public String delete(Model model,
                   @PathVariable("id") String id){
@@ -51,7 +48,6 @@ public class AdministrationWEBController {
         return "redirect:/web/administration/get/list";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(Model model){
         AdministrationForm administrationForm = new AdministrationForm();
@@ -59,7 +55,6 @@ public class AdministrationWEBController {
         return "administrationAdd";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping( value = "/create", method = RequestMethod.POST)
     public String create(Model model, @ModelAttribute("administrationForm") AdministrationForm administrationForm){
         Administration administration = new Administration();
@@ -119,7 +114,6 @@ public class AdministrationWEBController {
         return "redirect:/web/administration/get/list";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String edit(Model model, @PathVariable("id") String id){
         Administration administration = service.get(id);
@@ -133,7 +127,6 @@ public class AdministrationWEBController {
         return "administrationAdd";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/edit/{id}")
     public String edith(Model model, @PathVariable("id") String id, @ModelAttribute("administrationForm") AdministrationForm administrationForm){
         Administration administration = new Administration();
@@ -193,7 +186,6 @@ public class AdministrationWEBController {
         return "redirect:/web/administration/get/list";
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/sort", method = RequestMethod.GET)
     public String showSorted(Model model) {
         List<Administration> administrations = service.getall();
@@ -204,7 +196,6 @@ public class AdministrationWEBController {
         return "administrationList";
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @RequestMapping(value = "/sort", method = RequestMethod.POST)
     public String searchSorted(Model model,
                                @ModelAttribute("searchForm") SearchForm searchForm) {
