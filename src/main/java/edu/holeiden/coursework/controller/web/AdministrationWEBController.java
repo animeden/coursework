@@ -114,9 +114,9 @@ public class AdministrationWEBController {
                 return "redirect:/web/administration/error5";
             }
 
-        service.save(administration);
+        //service.save(administration);
         model.addAttribute("administrations", service.getall());
-        return "redirect:https://animedenapp.herokuapp.com/web/administration/get/list";
+        return "redirect:/web/administration/get/list";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
