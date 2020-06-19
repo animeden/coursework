@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -31,7 +30,8 @@ public class AdministrationServiceImpl implements IAdministrationService {
     public Administration save(Administration administration) {
         administration.setCreate(LocalDateTime.now());
         administration.setModified(LocalDateTime.now());
-        return repository.save(administration);
+        //return repository.save(administration);
+        return null;
     }
 
     @Override
