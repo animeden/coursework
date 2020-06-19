@@ -49,7 +49,7 @@ public class TrainWEBController {
                   @PathVariable("id") String id){
         service.delete(id);
         model.addAttribute("trains", service.getall());
-        return "redirect:/web/train/get/list";
+        return "redirect:/web/ptrain/get/list";
     }
 
     @RequestMapping("/create")
@@ -75,7 +75,7 @@ public class TrainWEBController {
             Matcher matcher1 = pattern1.matcher(model1);
 
             if(!matcher1.matches()){
-                return "redirect:/web/train/error14";
+                return "redirect:/web/ptrain/error14";
             }
 
         train.setTrainBrigade(brigade);
@@ -89,7 +89,7 @@ public class TrainWEBController {
             Matcher matcher3 = pattern3.matcher(yearOfManufacture);
 
             if(!matcher3.matches()){
-                return "redirect:/web/train/error17";
+                return "redirect:/web/ptrain/error17";
             }
 
         train.setNumberOfPassengers(trainForm.getNumberOfPassengers());
@@ -99,7 +99,7 @@ public class TrainWEBController {
             Matcher matcher4 = pattern4.matcher(numberOfPassengers);
 
             if(!matcher4.matches()){
-                return "redirect:/web/train/error6";
+                return "redirect:/web/ptrain/error6";
             }
 
         train.setDescriction(trainForm.getDescriction());
@@ -109,12 +109,12 @@ public class TrainWEBController {
             Matcher matcher2 = pattern2.matcher(description);
 
             if(!matcher2.matches()){
-                return "redirect:/web/train/error5";
+                return "redirect:/web/ptrain/error5";
             }
 
         service.save(train);
         model.addAttribute("trains", service.getall());
-        return "redirect:/web/train/get/list";
+        return "redirect:/web/ptrain/get/list";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
@@ -147,7 +147,7 @@ public class TrainWEBController {
             Matcher matcher1 = pattern1.matcher(model1);
 
             if(!matcher1.matches()){
-                return "redirect:/web/train/error14";
+                return "redirect:/web/ptrain/error14";
             }
 
         train.setTrainBrigade(brigade);
@@ -161,7 +161,7 @@ public class TrainWEBController {
             Matcher matcher3 = pattern3.matcher(yearOfManufacture);
 
             if(!matcher3.matches()){
-                return "redirect:/web/train/error17";
+                return "redirect:/web/ptrain/error17";
             }
 
         train.setNumberOfPassengers(trainForm.getNumberOfPassengers());
@@ -171,7 +171,7 @@ public class TrainWEBController {
             Matcher matcher4 = pattern4.matcher(numberOfPassengers);
 
             if(!matcher4.matches()){
-                return "redirect:/web/train/error6";
+                return "redirect:/web/ptrain/error6";
             }
 
         train.setDescriction(trainForm.getDescriction());
@@ -181,12 +181,12 @@ public class TrainWEBController {
             Matcher matcher2 = pattern2.matcher(description);
 
             if(!matcher2.matches()){
-                return "redirect:/web/train/error5";
+                return "redirect:/web/ptrain/error5";
             }
 
         service.save(train);
         model.addAttribute("trains", service.getall());
-        return "redirect:/web/train/get/list";
+        return "redirect:/web/ptrain/get/list";
     }
 
     @RequestMapping(value = "/sort", method = RequestMethod.GET)
