@@ -52,7 +52,7 @@ public class AdministrationWEBController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping("/create")
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(Model model){
         AdministrationForm administrationForm = new AdministrationForm();
         model.addAttribute("administrationForm", administrationForm);
@@ -60,7 +60,7 @@ public class AdministrationWEBController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/create")
+    @RequestMapping( value = "/create", method = RequestMethod.POST)
     public String create(Model model, @ModelAttribute("administrationForm") AdministrationForm administrationForm){
         Administration administration = new Administration();
 
