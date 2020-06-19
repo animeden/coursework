@@ -30,8 +30,7 @@ public class AdministrationServiceImpl implements IAdministrationService {
     public Administration save(Administration administration) {
         administration.setCreate(LocalDateTime.now());
         administration.setModified(LocalDateTime.now());
-        //return repository.save(administration);
-        return null;
+        return repository.save(administration);
     }
 
     @Override
