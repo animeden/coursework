@@ -215,207 +215,207 @@
 
         function err() {
             let f = window.location.href;
-            if(f == "http://localhost:1821/web/administration/error1")
+            if(f == "http://localhost:1821/web/administration/error1" || f == "https://animedenapp.herokuapp.com/web/administration/error1")
             {
                 document.getElementById("er1").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/administration/error2")
+            if(f == "http://localhost:1821/web/administration/error2" || f == "https://animedenapp.herokuapp.com/web/administration/error2")
             {
                 document.getElementById("er2").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/administration/error3")
+            if(f == "http://localhost:1821/web/administration/error3" || f == "https://animedenapp.herokuapp.com/web/administration/error3")
             {
                 document.getElementById("er3").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/brigade/error4")
+            if(f == "http://localhost:1821/web/brigade/error4" || f == "https://animedenapp.herokuapp.com/web/brigade/error4")
             {
                 document.getElementById("er4").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/administration/error5")
+            if(f == "http://localhost:1821/web/administration/error5" || f == "https://animedenapp.herokuapp.com/web/administration/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/brigade/error6")
+            if(f == "http://localhost:1821/web/brigade/error6" || f == "http://animedenapp.herokuapp.com/web/brigade/error6")
             {
                 document.getElementById("er6").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/brigade/error5")
+            if(f == "http://localhost:1821/web/brigade/error5" || f == "https://animedenapp.herokuapp.com/web/brigade/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/department/error7")
+            if(f == "http://localhost:1821/web/department/error7" || f == "https://animedenapp.herokuapp.com/web/department/error7")
             {
                 document.getElementById("er7").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/department/error8")
+            if(f == "http://localhost:1821/web/department/error8" || f == "https://animedenapp.herokuapp.com/web/department/error8")
             {
                 document.getElementById("er8").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/department/error5")
+            if(f == "http://localhost:1821/web/department/error5" || f == "https://animedenapp.herokuapp.com/web/department/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/department/error9")
+            if(f == "http://localhost:1821/web/department/error9" || f == "https://animedenapp.herokuapp.com/web/department/error9")
             {
                 document.getElementById("er9").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/administration/error9")
+            if(f == "http://localhost:1821/web/administration/error9" || f == "https://animedenapp.herokuapp.com/web/administration/error9")
             {
                 document.getElementById("er9").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/passenger/error5")
+            if(f == "http://localhost:1821/web/passenger/error5" || f == "https://animedenapp.herokuapp.com/web/passenger/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/ready/error5")
+            if(f == "http://localhost:1821/web/ready/error5" || f == "https://animedenapp.herokuapp.com/web/ready/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/route/error5")
+            if(f == "http://localhost:1821/web/route/error5" || f == "https://animedenapp.herokuapp.com/web/route/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/route/error10")
+            if(f == "http://localhost:1821/web/route/error10" || f == "https://animedenapp.herokuapp.com/web/route/error10")
             {
                 document.getElementById("er10").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/route/error11")
+            if(f == "http://localhost:1821/web/route/error11" || f == "https://animedenapp.herokuapp.com/web/route/error11")
             {
                 document.getElementById("er11").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/timetable/error12")
+            if(f == "http://localhost:1821/web/timetable/error12" || f == "https://animedenapp.herokuapp.com/web/timetable/error12")
             {
                 document.getElementById("er12").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/timetable/error5")
+            if(f == "http://localhost:1821/web/timetable/error5" || f == "https://animedenapp.herokuapp.com/web/timetable/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/timetable/error6")
+            if(f == "http://localhost:1821/web/timetable/error6" || f == "https://animedenapp.herokuapp.com/web/timetable/error6")
             {
                 document.getElementById("er6").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/timetable/error13")
+            if(f == "http://localhost:1821/web/timetable/error13" || f == "https://animedenapp.herokuapp.com/web/timetable/error13")
             {
                 document.getElementById("er13").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/ptrain/error14")
+            if(f == "http://localhost:1821/web/ptrain/error14" || f == "https://animedenapp.herokuapp.com/web/ptrain/error14")
             {
                 document.getElementById("er14").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/ptrain/error5")
+            if(f == "http://localhost:1821/web/ptrain/error5" || f == "https://animedenapp.herokuapp.com/web/ptrain/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/worker/error15")
+            if(f == "http://localhost:1821/web/worker/error15" || f == "https://animedenapp.herokuapp.com/web/worker/error15")
             {
                 document.getElementById("er15").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/worker/error1")
+            if(f == "http://localhost:1821/web/worker/error1" || f == "https://animedenapp.herokuapp.com/web/worker/error1")
             {
                 document.getElementById("er1").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/worker/error2")
+            if(f == "http://localhost:1821/web/worker/error2" || f == "https://animedenapp.herokuapp.com/web/worker/error2")
             {
                 document.getElementById("er2").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/worker/error3")
+            if(f == "http://localhost:1821/web/worker/error3" || f == "https://animedenapp.herokuapp.com/web/worker/error3")
             {
                 document.getElementById("er3").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/worker/error9")
+            if(f == "http://localhost:1821/web/worker/error9" || f == "https://animedenapp.herokuapp.com/web/worker/error9")
             {
                 document.getElementById("er9").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/worker/error5")
+            if(f == "http://localhost:1821/web/worker/error5" || f == "https://animedenapp.herokuapp.com/web/worker/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/timetable/error16")
+            if(f == "http://localhost:1821/web/timetable/error16" || f == "https://animedenapp.herokuapp.com/web/timetable/error16")
             {
                 document.getElementById("er16").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/ptrain/error17")
+            if(f == "http://localhost:1821/web/ptrain/error17" || f == "https://animedenapp.herokuapp.com/web/ptrain/error17")
             {
                 document.getElementById("er17").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/route/error6")
+            if(f == "http://localhost:1821/web/route/error6" || f == "https://animedenapp.herokuapp.com/web/route/error6")
             {
                 document.getElementById("er6").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/passenger/error18")
+            if(f == "http://localhost:1821/web/passenger/error18" || f == "https://animedenapp.herokuapp.com/web/passenger/error18")
             {
                 document.getElementById("er18").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/ready/error19")
+            if(f == "http://localhost:1821/web/ready/error19" || f == "https://animedenapp.herokuapp.com/web/ready/error19")
             {
                 document.getElementById("er19").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/worker/error8")
+            if(f == "http://localhost:1821/web/worker/error8" || f == "https://animedenapp.herokuapp.com/web/worker/error8")
             {
                 document.getElementById("er8").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/ptrain/error6")
+            if(f == "http://localhost:1821/web/ptrain/error6" || f == "https://animedenapp.herokuapp.com/web/ptrain/error6")
             {
                 document.getElementById("er6").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/ftrain/error6")
+            if(f == "http://localhost:1821/web/ftrain/error6" || f == "https://animedenapp.herokuapp.com/web/ftrain/error6")
             {
                 document.getElementById("er6").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/ftrain/error5")
+            if(f == "http://localhost:1821/web/ftrain/error5" || f == "https://animedenapp.herokuapp.com/web/ftrain/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/ftrain/error14")
+            if(f == "http://localhost:1821/web/ftrain/error14" || f == "https://animedenapp.herokuapp.com/web/ftrain/error14")
             {
                 document.getElementById("er14").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/ftrain/error17")
+            if(f == "http://localhost:1821/web/ftrain/error17" || f == "https://animedenapp.herokuapp.com/web/ftrain/error17")
             {
                 document.getElementById("er17").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/carman/error20")
+            if(f == "http://localhost:1821/web/carman/error20" || f == "https://animedenapp.herokuapp.com/web/carman/error20")
             {
                 document.getElementById("er20").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/carman/error1")
+            if(f == "http://localhost:1821/web/carman/error1" || f == "https://animedenapp.herokuapp.com/web/carman/error1")
             {
                 document.getElementById("er1").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/carman/error2")
+            if(f == "http://localhost:1821/web/carman/error2" || f == "https://animedenapp.herokuapp.com/web/carman/error2")
             {
                 document.getElementById("er2").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/carman/error3")
+            if(f == "http://localhost:1821/web/carman/error3" || f == "https://animedenapp.herokuapp.com/web/carman/error3")
             {
                 document.getElementById("er3").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/carman/error5")
+            if(f == "http://localhost:1821/web/carman/error5" || f == "https://animedenapp.herokuapp.com/web/carman/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/carman/error8")
+            if(f == "http://localhost:1821/web/carman/error8" || f == "https://animedenapp.herokuapp.com/web/carman/error8")
             {
                 document.getElementById("er8").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/carman/error9")
+            if(f == "http://localhost:1821/web/carman/error9" || f == "https://animedenapp.herokuapp.com/web/carman/error9")
             {
                 document.getElementById("er9").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/carman/error15")
+            if(f == "http://localhost:1821/web/carman/error15" || f == "https://animedenapp.herokuapp.com/web/carman/error15")
             {
                 document.getElementById("er15").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/station/error21")
+            if(f == "http://localhost:1821/web/station/error21" || f == "https://animedenapp.herokuapp.com/web/station/error21")
             {
                 document.getElementById("er21").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/station/error22")
+            if(f == "http://localhost:1821/web/station/error22" || f == "https://animedenapp.herokuapp.com/web/station/error22")
             {
                 document.getElementById("er22").style.display = 'flex';
             }
-            if(f == "http://localhost:1821/web/station/error5")
+            if(f == "http://localhost:1821/web/station/error5" || f == "https://animedenapp.herokuapp.com/web/station/error5")
             {
                 document.getElementById("er5").style.display = 'flex';
             }

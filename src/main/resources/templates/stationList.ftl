@@ -15,8 +15,11 @@
         <div style="display: flex">
 
             <div style="width: 10%; height: 159px; position: fixed; display: flex; flex-direction: column; justify-content: space-around; align-items: flex-start">
-                <div style="height: 35px; background: darkblue; width: 100px; display: flex; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px">
+                <div style="height: 35px; background: darkblue; width: 100px; display: none; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px" id="mp1">
                     <a class="pt-1" href="http://localhost:1821" style="color: white; text-decoration: none; display: block; height: 100%; width: 100%">Main menu</a>
+                </div>
+                <div style="height: 35px; background: darkblue; width: 100px; display: none; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px" id="mp2">
+                    <a class="pt-1" href="https://animedenapp.herokuapp.com" style="color: white; text-decoration: none; display: block; height: 100%; width: 100%">Main menu</a>
                 </div>
                 <div style="height: 35px; background: dodgerblue; width: 70px; display: flex; justify-content: center; align-items: center; border-top-right-radius: 20px; border-bottom-right-radius: 20px">
                     <a class="pl-2 pt-1" href="#src" style="color: black; text-decoration: none; display: block; height: 100%; width: 100%">Search</a>
@@ -106,15 +109,25 @@
 
     function src() {
         let f = window.location.href;
-        if (f == "http://localhost:1821/web/station/sort")
+        if (f == "http://localhost:1821/web/station/sort" || f == "https://animedenapp.herokuapp.com/web/station/sort")
         {
             document.getElementById("sr").style.display = 'none';
             document.getElementById("nsr").style.display = 'flex';
         }
-        if (f == "http://localhost:1821/web/station/get/list")
+        if (f == "http://localhost:1821/web/station/get/list" || f == "https://animedenapp.herokuapp.com/web/station/get/list")
         {
             document.getElementById("sr").style.display = 'flex';
             document.getElementById("nsr").style.display = 'none';
+        }
+        if(f == "http://localhost:1821/web/station/sort" || f == "http://localhost:1821/web/station/get/list")
+        {
+            document.getElementById("mp1").style.display = 'flex';
+            document.getElementById("mp2").style.display = 'none';
+        }
+        if(f == "https://animedenapp.herokuapp.com/web/station/sort" || f == "https://animedenapp.herokuapp.com/web/station/get/list")
+        {
+            document.getElementById("mp1").style.display = 'none';
+            document.getElementById("mp2").style.display = 'flex';
         }
     }
 
